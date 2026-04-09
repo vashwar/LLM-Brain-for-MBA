@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MBA Wiki{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/wikipedia.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <h1 class="logo"><a href="/">📚 MBA Wiki</a></h1>
+                <p class="tagline">Economics Concepts from MBA Lectures</p>
+            </div>
+            <nav class="search-section">
+                <form action="/" method="get" class="search-form">
+                    <input type="text" placeholder="Search concepts..." class="search-input" name="q">
+                    <button type="submit" class="search-button">Search</button>
+                </form>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>MBA Wiki Viewer • Powered by Flask •
+        <a href="https://github.com">View on GitHub</a></p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/search.js') }}"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            throwOnError: false
+        });"></script>
+</body>
+</html>

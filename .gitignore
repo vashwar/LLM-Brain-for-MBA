@@ -1,0 +1,17 @@
+.env
+credentials/
+token.json
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.DS_Store
+temp_downloads/
+.pytest_cache/
+*.log
+.gstack/
+.claude/
+.obsidian/
+Transcript_class_lecture/
+nul
+processed_files.json

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Server Error - MBA Wiki{% endblock %}
+
+{% block content %}
+<div class="error-page">
+    <div class="error-container">
+        <h1>500</h1>
+        <h2>Server Error</h2>
+        <p>Something went wrong while processing your request.</p>
+        <p>
+            <a href="/" class="error-link">← Back to Concepts</a>
+        </p>
+    </div>
+</div>
+
+<style>
+.error-page {
+    max-width: 600px;
+    margin: 100px auto;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.error-container h1 {
+    font-size: 5em;
+    color: #d33;
+    margin: 0;
+}
+
+.error-container h2 {
+    font-size: 2em;
+    color: #333;
+    margin: 10px 0 20px 0;
+}
+
+.error-container p {
+    font-size: 1.1em;
+    color: #666;
+    margin: 15px 0;
+}
+
+.error-link {
+    color: #0645ad;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.error-link:hover {
+    text-decoration: underline;
+}
+</style>
+{% endblock %}

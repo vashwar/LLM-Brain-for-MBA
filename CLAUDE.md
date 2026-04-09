@@ -1,0 +1,158 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project: KnowledgeWiki (MBA Wiki)
+
+An LLM-powered wiki that extracts economics concepts from MBA lecture materials (PDFs and transcripts) and presents them in a locally-hosted Wikipedia-style web interface.
+
+### Architecture
+
+```
+Google Drive (lectures, cases, transcripts folders)
+  → download_and_process.py (downloads file, calls processor)
+    → process_single_file.py (extracts text, 1-2 Gemini API calls)
+      → Lectures:     MBAWiki/Concept-*.md (concept files)
+      → Cases:        MBAWiki/Case-*.md (case study files)
+      → Transcripts:  Concept-*.md + updates Case-*.md discussions
+        → wiki_viewer/app.py (Flask web server, renders wiki)
+          → http://127.0.0.1:5000/
+```
+
+### Key Files
+
+- **download_and_process.py** - Google Drive integration. Downloads files, calls processor. Supports single file or batch `--all` mode (lectures → cases → transcripts). Timeout: 300s for PDFs, 120s for TXT.
+- **process_single_file.py** - Core processor. Three modes via `--type`: `lecture` (default), `case`, `transcript`. Auto-creates new files, auto-merges duplicates via Gemini rewrite. Accepts `--no-images` flag.
+- **tag_images.py** - Image tagging workflow. Maps image captions to concepts via 1 Gemini API call. Wiki viewer auto-inserts tagged images into matching concept pages.
+- **init_image_tags.py** - Helper to populate `image_tags.json` with all PNG filenames from charts folder.
+- **wiki_viewer/app.py** - Flask web server with Wikipedia-style UI. Serves concepts at `/concept/<slug>` and cases at `/case/<slug>`.
+- **wiki_viewer/utils/wikilink_processor.py** - Converts [[Wikilinks]] to HTML links. Scans both `Concept-*.md` and `Case-*.md`. Routes wikilinks to correct URL prefix.
+- **wiki_viewer/utils/markdown_parser.py** - Markdown to HTML conversion with TOC.
+
+### Processing Rules
+
+- **LLM Model:** `gemini-3-flash-preview` (Gemini 3 Flash)
+- **API Optimization:** Max 2 API calls per file (1 extraction + 1 merge if duplicates found).
+- **Three file types:** `lecture` (Concept-*.md), `case` (Case-*.md), `transcript` (both)
+- **Multi-concept extraction:** Each lecture/transcript yields 3-10 concepts
+- **Full content:** Send entire file text to Gemini, no truncation
+- **Images:** Extract from PDFs and save to `MBAWiki/assets/charts/` (10KB min size filter). NOT auto-inserted into wiki. User manually tags images via `image_tags.json`, then `tag_images.py --map` maps them to concepts (1 API call).
+- **Auto-create:** New concepts → `Concept-{slug}.md`, new cases → `Case-{slug}.md`
+- **Auto-merge:** If concept matches existing one, Gemini rewrites the full page seamlessly. No "Additional Content from..." blocks.
+- **Case studies:** Specialized format with Core Dilemma, Stakeholders, Financial Context, Class Discussion sections. Tagged `#unresolved` until transcript populates discussion.
+- **Transcripts:** Dual duty — extract concepts AND fill case discussion sections. Single API call returns both. Case updates are file I/O (no extra API call).
+- **Wikilinks:** Only link to concepts/cases that actually exist in `MBAWiki/`
+- **No Vision API:** Do not use Gemini Vision - too expensive
+- **Clean rebuild:** Delete `Concept-*.md` and `Case-*.md` files before `--all` to regenerate
+
+### Commands
+
+```bash
+# List available courses and files
+python download_and_process.py
+python download_and_process.py --course "CourseName"
+
+# Process a single file
+python download_and_process.py --course "CourseName" "Week 1"
+
+# Process ALL files (lectures → cases → transcripts)
+python download_and_process.py --course "CourseName" --all
+
+# Process ALL files with image extraction
+python download_and_process.py --course "CourseName" --all --images
+
+# Process only cases or transcripts
+python download_and_process.py --course "CourseName" --cases-only
+python download_and_process.py --course "CourseName" --transcripts-only
+
+# Process local file with type
+python process_single_file.py "file.pdf" --course "CourseName" --type case
+python process_single_file.py "file.txt" --course "CourseName" --type transcript
+
+# Image tagging workflow
+python init_image_tags.py              # Create JSON with all PNG filenames
+python tag_images.py --list            # See untagged images
+# (manually edit image_tags.json to add captions)
+python tag_images.py --map             # Map captions to concepts (1 API call)
+python tag_images.py --status          # Verify mappings
+
+# Run wiki viewer
+python wiki_viewer/app.py
+# → http://127.0.0.1:5000/
+```
+
+### Image Tagging Format
+
+`MBAWiki/assets/charts/image_tags.json` - same image can map to multiple concepts:
+```json
+{
+  "Slides_Page15_Plot0.png": ["supply vs demand intersection", "downward sloping demand"],
+  "Slides_Page22_Plot0.png": ["elastic vs inelastic comparison"]
+}
+```
+After `--map`, becomes:
+```json
+{
+  "Slides_Page15_Plot0.png": [
+    {"concept": "Supply Curve", "caption": "supply vs demand intersection"},
+    {"concept": "Demand Curve", "caption": "downward sloping demand"}
+  ]
+}
+```
+
+### Folder Structure
+
+```
+MBAWiki/                    # Wiki content
+  Concept-*.md              # Concept markdown files
+  Case-*.md                 # Case study markdown files
+  assets/charts/            # Extracted PDF images
+    image_tags.json          # Image-to-concept mappings
+  archive/                  # Old/archived concepts
+wiki_viewer/                # Flask web application
+  app.py, config.py
+  templates/                # HTML templates
+  static/css/               # Wikipedia-style CSS
+  utils/                    # Markdown parser, wikilink processor
+Transcript_class_lecture/   # Downloaded lecture files (local cache)
+  CourseName/               # Lecture PDFs and TXTs
+  CourseName/cases/         # Case study files
+  CourseName/transcripts/   # Transcript files
+credentials/                # Google Drive OAuth tokens
+Vision/                     # Vision project notes
+```
+
+## gstack
+
+- For all web browsing, always use the `/browse` skill from gstack. Never use `mcp__claude-in-chrome__*` tools.
+
+### Available gstack skills
+
+- `/office-hours` - Office hours
+- `/plan-ceo-review` - Plan CEO review
+- `/plan-eng-review` - Plan engineering review
+- `/plan-design-review` - Plan design review
+- `/design-consultation` - Design consultation
+- `/review` - Code review
+- `/ship` - Ship
+- `/land-and-deploy` - Land and deploy
+- `/canary` - Canary
+- `/benchmark` - Benchmark
+- `/browse` - Web browsing
+- `/qa` - QA
+- `/qa-only` - QA only
+- `/design-review` - Design review
+- `/setup-browser-cookies` - Setup browser cookies
+- `/setup-deploy` - Setup deploy
+- `/retro` - Retro
+- `/investigate` - Investigate
+- `/document-release` - Document release
+- `/codex` - Codex
+- `/cso` - CSO
+- `/autoplan` - Auto plan
+- `/careful` - Careful mode
+- `/freeze` - Freeze
+- `/guard` - Guard
+- `/unfreeze` - Unfreeze
+- `/gstack-upgrade` - Upgrade gstack
+

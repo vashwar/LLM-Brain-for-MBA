@@ -1,0 +1,4502 @@
+{
+  "nodes": [
+    {
+      "id": "accounts-receivable",
+      "title": "Accounts Receivable",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "accrual-accounting",
+      "title": "Accrual Accounting",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "accrued-liabilities",
+      "title": "Accrued Liabilities",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "adverse-selection",
+      "title": "Adverse Selection",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 9
+    },
+    {
+      "id": "anchoring",
+      "title": "Anchoring",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "asset-impairment",
+      "title": "Asset impairment",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "asymmetric-information",
+      "title": "Asymmetric Information",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "attraction-selection-attrition-asa-framework",
+      "title": "Attraction-Selection-Attrition (ASA) Framework",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 9
+    },
+    {
+      "id": "attribute-analytics",
+      "title": "Attribute Analytics",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "attributes-of-effective-management",
+      "title": "Attributes of Effective Management",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 13
+    },
+    {
+      "id": "auctions",
+      "title": "Auctions",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "authenticity",
+      "title": "Authenticity",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 9
+    },
+    {
+      "id": "authority-vs.-approachability",
+      "title": "Authority vs. Approachability",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 9
+    },
+    {
+      "id": "availability-bias",
+      "title": "Availability Bias",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "average-total-cost",
+      "title": "Average Total Cost",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "balance-sheet",
+      "title": "Balance Sheet",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 14
+    },
+    {
+      "id": "barriers-to-entry",
+      "title": "Barriers to Entry",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 9
+    },
+    {
+      "id": "batna-best-alternative-to-a-negotiated-agreement",
+      "title": "BATNA (Best Alternative to a Negotiated Agreement)",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "beneish-m-score",
+      "title": "Beneish M-score",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "bertrand-model",
+      "title": "Bertrand Model",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "big-five-personality-traits",
+      "title": "Big Five Personality Traits",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "bounded-rationality",
+      "title": "Bounded Rationality",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "capex-vs.-opex",
+      "title": "CapEx vs. OpEx",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "carbon-reporting",
+      "title": "Carbon Reporting",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 1
+    },
+    {
+      "id": "cash-conversion-cycle",
+      "title": "Cash Conversion Cycle",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 1
+    },
+    {
+      "id": "causal-inference",
+      "title": "Causal Inference",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "cognitive-flexibility",
+      "title": "Cognitive Flexibility",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "compliance-vs.-commitment",
+      "title": "Compliance vs. Commitment",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 10
+    },
+    {
+      "id": "conditions-for-collective-intelligence",
+      "title": "Conditions for Collective Intelligence",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "confirmation-bias",
+      "title": "Confirmation Bias",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "confounding-variables",
+      "title": "Confounding Variables",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "conjunction-fallacy",
+      "title": "Conjunction Fallacy",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "conjunctive-and-disjunctive-events-bias",
+      "title": "Conjunctive and Disjunctive Events Bias",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "consumer-surplus",
+      "title": "Consumer Surplus",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 7
+    },
+    {
+      "id": "contingent-contracts",
+      "title": "Contingent Contracts",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "contingent-liabilities",
+      "title": "Contingent Liabilities",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "corporate-bonds",
+      "title": "Corporate Bonds",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 1
+    },
+    {
+      "id": "cournot-model",
+      "title": "Cournot Model",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "cultural-artifacts-and-symbols",
+      "title": "Cultural Artifacts and Symbols",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "culture-as-a-control-mechanism",
+      "title": "Culture as a Control Mechanism",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "curse-of-knowledge",
+      "title": "Curse of Knowledge",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "dark-side-traits",
+      "title": "Dark Side Traits",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 10
+    },
+    {
+      "id": "data-integration-and-purity",
+      "title": "Data Integration and Purity",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "days-inventory-outstanding-dio",
+      "title": "Days Inventory Outstanding (DIO)",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "decision-trees",
+      "title": "Decision Trees",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "deferred-revenues",
+      "title": "Deferred Revenues",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "depreciation",
+      "title": "Depreciation",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "digital-exhaust",
+      "title": "Digital Exhaust",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "dispositionism",
+      "title": "Dispositionism",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "distancing-traits",
+      "title": "Distancing Traits",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "diversity-equity-and-inclusion-dei",
+      "title": "Diversity, Equity, and Inclusion (DEI)",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 14
+    },
+    {
+      "id": "earnings-guidance-and-analysts",
+      "title": "Earnings Guidance and Analysts",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 1
+    },
+    {
+      "id": "earnings-management",
+      "title": "Earnings Management",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 14
+    },
+    {
+      "id": "ebitda",
+      "title": "EBITDA",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "economic-models",
+      "title": "Economic Models",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 20
+    },
+    {
+      "id": "economies-of-scope",
+      "title": "Economies of Scope",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "effective-interest-rate",
+      "title": "Effective Interest Rate",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 0
+    },
+    {
+      "id": "efficiency-signature",
+      "title": "Efficiency Signature",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "equality-vs.-equity",
+      "title": "Equality vs. Equity vs. Justice",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "equity-in-innovation-and-service",
+      "title": "Equity in Innovation and Service",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "equity-method-accounting",
+      "title": "Equity Method Accounting",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 1
+    },
+    {
+      "id": "evidence-based-management",
+      "title": "Evidence-Based Management",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 11
+    },
+    {
+      "id": "expectancy-theory",
+      "title": "Expectancy Theory",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "experimental-design",
+      "title": "Experimental Design",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "feedback-best-practices",
+      "title": "Feedback Best Practices",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 12
+    },
+    {
+      "id": "financial-leverage",
+      "title": "Financial leverage",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "first-degree-price-discrimination",
+      "title": "First-Degree Price Discrimination",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "first-price-sealed-bid-auction",
+      "title": "First-Price Sealed-Bid Auction",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "fixed-cost",
+      "title": "Fixed Cost",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "framing",
+      "title": "Framing",
+      "type": "concept",
+      "courses": [
+        "Leading People",
+        "Financial Accounting"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "game-theory",
+      "title": "Game Theory",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "goal-setting",
+      "title": "Goal Setting",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "goodwill",
+      "title": "Goodwill",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "group-decision-making-under-uncertainty",
+      "title": "Group Decision-Making under Uncertainty",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "herfindahl-hirschman-index-hhi",
+      "title": "Herfindahl-Hirschman Index (HHI)",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "hidden-profiles-in-hiring",
+      "title": "Hidden Profiles in Hiring",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "high-vs.-low-self-monitors",
+      "title": "High vs. Low Self-Monitors",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "hindsight-bias",
+      "title": "Hindsight Bias",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "hiring-for-fit",
+      "title": "Hiring for Fit",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 10
+    },
+    {
+      "id": "homo-economicus",
+      "title": "Homo Economicus",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "homophily",
+      "title": "Homophily",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 7
+    },
+    {
+      "id": "ideation-signature-brokerage",
+      "title": "Ideation Signature (Brokerage)",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 7
+    },
+    {
+      "id": "identity-as-an-evolving-narrative",
+      "title": "Identity as an Evolving Narrative",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "if...then-profiles",
+      "title": "If...Then Profiles",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "incentive-pay",
+      "title": "Incentive Pay",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 14
+    },
+    {
+      "id": "income-elasticity-of-demand",
+      "title": "Income Elasticity of Demand",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "income-statement",
+      "title": "Income Statement",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 9
+    },
+    {
+      "id": "influence-signature-aggregate-prominence",
+      "title": "Influence Signature (Aggregate Prominence)",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "information-disclosure",
+      "title": "Information Disclosure",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "ingratiating-traits",
+      "title": "Ingratiating Traits",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "innovation-signature",
+      "title": "Innovation Signature",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "inspiring-leadership-traits",
+      "title": "Inspiring Leadership Traits",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "internal-rate-of-return-irr",
+      "title": "Internal Rate of Return (IRR)",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 0
+    },
+    {
+      "id": "intrinsic-vs.-extrinsic-rewards",
+      "title": "Intrinsic vs. Extrinsic Rewards",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 10
+    },
+    {
+      "id": "inventory-shrinkage",
+      "title": "Inventory",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "inverse-demand-function",
+      "title": "Inverse Demand Function",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "job-crafting",
+      "title": "Job Crafting",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "learning-goals-vs.-performance-goals",
+      "title": "Learning Goals vs. Performance Goals",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "lifo-last-in-first-out-accounting",
+      "title": "LIFO (Last-In, First-Out) Accounting and FIFO Comparison",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 1
+    },
+    {
+      "id": "lifo-reserve",
+      "title": "LIFO Reserve",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 1
+    },
+    {
+      "id": "long-run",
+      "title": "Long Run",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "lower-of-cost-or-market",
+      "title": "Lower-of-Cost-or-Market",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "management-vs.-leadership",
+      "title": "Management vs. Leadership",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 11
+    },
+    {
+      "id": "marginal-cost",
+      "title": "Marginal Cost",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 13
+    },
+    {
+      "id": "marginal-revenue",
+      "title": "Marginal Revenue",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "market-equilibrium",
+      "title": "Market Equilibrium",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 12
+    },
+    {
+      "id": "market-power",
+      "title": "Market Power",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 10
+    },
+    {
+      "id": "market-value-vs.-book-value",
+      "title": "Market Value vs. Book Value",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 1
+    },
+    {
+      "id": "markup-rule",
+      "title": "Markup Rule",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "materiality",
+      "title": "Materiality",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "maturity-principle",
+      "title": "Maturity Principle",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "microeconomics",
+      "title": "Microeconomics",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "mobilization-via-shared-purpose",
+      "title": "Mobilization via Shared Purpose",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "monopolistic-competition",
+      "title": "Monopolistic Competition",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "monopsony",
+      "title": "Monopsony",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "moral-hazard",
+      "title": "Moral Hazard",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "multiple-attribute-utility-theory-maut",
+      "title": "Multiple Attribute Utility Theory (MAUT)",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "natural-monopoly",
+      "title": "Natural Monopoly",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "negotiation",
+      "title": "Negotiation",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 14
+    },
+    {
+      "id": "network-externalities",
+      "title": "Network Externalities",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "network-metrics",
+      "title": "Network Metrics",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 11
+    },
+    {
+      "id": "obedience-to-authority",
+      "title": "Obedience to Authority",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "oligopoly",
+      "title": "Oligopoly",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "operating-margin",
+      "title": "Operating Margin",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 1
+    },
+    {
+      "id": "opportunity-cost",
+      "title": "Opportunity Cost",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "optimizing-team-process-and-design",
+      "title": "Optimizing Team Process and Design",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "ordinary-least-squares",
+      "title": "Ordinary Least Squares",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 1
+    },
+    {
+      "id": "organizational-culture",
+      "title": "Organizational Culture",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 19
+    },
+    {
+      "id": "organizational-socialization",
+      "title": "Organizational Socialization",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 7
+    },
+    {
+      "id": "organizations-as-drivers-of-inequality",
+      "title": "Organizations as Drivers of Inequality",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "outsight",
+      "title": "Outsight",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "overconfidence",
+      "title": "Overconfidence",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "passive-financial-investments",
+      "title": "Passive financial investments",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 1
+    },
+    {
+      "id": "perfect-competition",
+      "title": "Perfect Competition",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 11
+    },
+    {
+      "id": "performance-path-dependency",
+      "title": "Performance Path Dependency",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "persuasion",
+      "title": "Persuasion",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 10
+    },
+    {
+      "id": "positions-vs.-interests",
+      "title": "Positions vs. Interests",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "positive-vs.-negative-feedback",
+      "title": "Positive vs. Negative Feedback",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "post-settlement-settlements-pss",
+      "title": "Post-Settlement Settlements (PSS)",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "power-in-organizations",
+      "title": "Power in Organizations",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 14
+    },
+    {
+      "id": "predictors-of-job-performance",
+      "title": "Predictors of Job Performance",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 9
+    },
+    {
+      "id": "preferred-stock",
+      "title": "Preferred Stock",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "prepaid-expenses",
+      "title": "Prepaid expenses",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "price-elasticity",
+      "title": "Price Elasticity",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 7
+    },
+    {
+      "id": "price-searcher",
+      "title": "Price-searcher",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "price-taker",
+      "title": "Price-taker",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "principal-agent-problem",
+      "title": "Principal-Agent Problem",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "principle-of-diminishing-marginal-utility",
+      "title": "Principle of Diminishing Marginal Utility",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "private-value-auction",
+      "title": "Private Value Auction and Common Value Auction",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "procedural-justice-in-layoffs",
+      "title": "Procedural Justice in Layoffs",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "producer-surplus",
+      "title": "Producer Surplus",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "production-function",
+      "title": "Production Function",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "profit-maximization",
+      "title": "Profit Maximization",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 11
+    },
+    {
+      "id": "psychological-safety",
+      "title": "Psychological Safety",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 16
+    },
+    {
+      "id": "r&d-capitalization",
+      "title": "R&D Capitalization",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "rational-economic-model",
+      "title": "Rational-Economic Model",
+      "type": "concept",
+      "courses": [
+        "Leading People",
+        "Financial Accounting"
+      ],
+      "connections": 11
+    },
+    {
+      "id": "reaction-function",
+      "title": "Reaction Function",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "regression-to-the-mean",
+      "title": "Regression to the Mean",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "regulatory-environment",
+      "title": "Regulatory Environment",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "relational-analytics",
+      "title": "Relational Analytics",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 13
+    },
+    {
+      "id": "reporting-and-analyzing-liabilities",
+      "title": "Reporting and Analyzing Liabilities",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "representativeness-bias",
+      "title": "Representativeness Bias",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "reservation-price",
+      "title": "Reservation Price",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "residual-demand",
+      "title": "Residual Demand",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "return-on-assets-roa",
+      "title": "Return on Assets (ROA) and Return on Equity (ROE)",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "returns-to-scale",
+      "title": "Returns to Scale",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "revenue-recognition",
+      "title": "Revenue Recognition",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 1
+    },
+    {
+      "id": "reverse-causality",
+      "title": "Reverse Causality",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "risky-business-practices-and-performance-volatility",
+      "title": "Risky Business Practices and Performance Volatility",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "sampling-on-the-dependent-variable",
+      "title": "Sampling on the Dependent Variable",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 7
+    },
+    {
+      "id": "second-price-auction",
+      "title": "Second-Price Auction",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "seductive-traits",
+      "title": "Seductive Traits",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "segment-pricing",
+      "title": "Segment Pricing",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 7
+    },
+    {
+      "id": "shareholders-equity",
+      "title": "Shareholders' Equity",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 7
+    },
+    {
+      "id": "short-run-vs.-long-run-managerial-trade-offs",
+      "title": "Short-Run vs. Long-Run Managerial Trade-offs",
+      "type": "concept",
+      "courses": [
+        "Leading People",
+        "Financial Accounting"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "short-run",
+      "title": "Short Run",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "shutdown-decision",
+      "title": "Shutdown Decision",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "silo-signature-modularity",
+      "title": "Silo Signature (Modularity)",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "simple-vs.-complex-contagions",
+      "title": "Simple vs. Complex Contagions",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "situationism",
+      "title": "Situationism",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "social-influence",
+      "title": "Social Influence",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 16
+    },
+    {
+      "id": "social-networks",
+      "title": "Social Networks",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 13
+    },
+    {
+      "id": "statement-of-cash-flows",
+      "title": "Statement of Cash Flows",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "stock-split",
+      "title": "Stock Split",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 1
+    },
+    {
+      "id": "stockholders-equity",
+      "title": "Stockholders' Equity",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "strategies-for-persuading-resistant-personalities",
+      "title": "Strategies for Persuading Resistant Personalities",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 9
+    },
+    {
+      "id": "strength-of-weak-ties",
+      "title": "Strength of Weak Ties",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "strong-culture",
+      "title": "Strong Culture",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "structural-holes",
+      "title": "Structural Holes",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "structured-vs.-unstructured-interviews",
+      "title": "Structured vs. Unstructured Interviews",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "sunk-costs",
+      "title": "Sunk Costs",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "supply-and-demand",
+      "title": "Supply and Demand",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 10
+    },
+    {
+      "id": "survival-bias-correction-tools",
+      "title": "Survival Bias Correction Tools",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "switching-costs",
+      "title": "Switching Costs",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "systemic-bias-in-selection",
+      "title": "Systemic Bias in Selection",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 14
+    },
+    {
+      "id": "tacit-collusion",
+      "title": "Tacit Collusion",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "target-price",
+      "title": "Target Price",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "tax-incidence",
+      "title": "Tax Incidence",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "teaching-to-the-test",
+      "title": "Teaching to the Test",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "the-blue-sky-paradox",
+      "title": "The Blue-Sky Paradox",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "the-illusion-of-explanatory-depth",
+      "title": "The Illusion of Explanatory Depth",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "threats-to-experimental-validity",
+      "title": "Threats to Experimental Validity",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "too-big-to-fail",
+      "title": "Too Big to Fail",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "toxic-workers",
+      "title": "Toxic Workers",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "treasury-stock",
+      "title": "Treasury Stock",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "two-part-tariff",
+      "title": "Two-Part Tariff",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "user-manual-management-tool",
+      "title": "User Manual (Management Tool)",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 2
+    },
+    {
+      "id": "variable-cost",
+      "title": "Variable Cost",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "versioning",
+      "title": "Versioning",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 3
+    },
+    {
+      "id": "volume-pricing",
+      "title": "Volume Pricing",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "vulnerability-signature-robustness",
+      "title": "Vulnerability Signature (Robustness)",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "winners-curse",
+      "title": "Winners Curse",
+      "type": "concept",
+      "courses": [
+        "Microeconomics"
+      ],
+      "connections": 4
+    },
+    {
+      "id": "working-capital",
+      "title": "Working Capital",
+      "type": "concept",
+      "courses": [
+        "Financial Accounting"
+      ],
+      "connections": 6
+    },
+    {
+      "id": "zone-of-possible-agreement-zopa",
+      "title": "Zone of Possible Agreement (ZOPA)",
+      "type": "concept",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 5
+    },
+    {
+      "id": "davita-a-community-first-a-company-second",
+      "title": "Case: DaVita: A Community First, A Company Second",
+      "type": "case",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 16
+    },
+    {
+      "id": "how-google-sold-its-engineers-on-management-googles-project-oxygen",
+      "title": "Case: How Google Sold Its Engineers on Management (Google's Project Oxygen)",
+      "type": "case",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 13
+    },
+    {
+      "id": "kjell-and-company-motivating-salespeople-with-incentive-compensation-a",
+      "title": "Case: Kjell and Company: Motivating Salespeople with Incentive Compensation (A)",
+      "type": "case",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 8
+    },
+    {
+      "id": "managing-diversity-and-inclusion-at-yelp",
+      "title": "Case: Managing Diversity and Inclusion at Yelp",
+      "type": "case",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 11
+    },
+    {
+      "id": "performance-appraisal-at-nextgen-startup-role-of-dana",
+      "title": "Case: Performance Appraisal at NextGen Startup: Role of Dana",
+      "type": "case",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 11
+    },
+    {
+      "id": "true-leaders-are-also-managers",
+      "title": "Case: True Leaders Are Also Managers",
+      "type": "case",
+      "courses": [
+        "Leading People"
+      ],
+      "connections": 7
+    }
+  ],
+  "links": [
+    {
+      "source": "accounts-receivable",
+      "target": "accrued-liabilities"
+    },
+    {
+      "source": "accounts-receivable",
+      "target": "earnings-management"
+    },
+    {
+      "source": "accrual-accounting",
+      "target": "depreciation"
+    },
+    {
+      "source": "accrual-accounting",
+      "target": "working-capital"
+    },
+    {
+      "source": "accrual-accounting",
+      "target": "income-statement"
+    },
+    {
+      "source": "accrued-liabilities",
+      "target": "accrual-accounting"
+    },
+    {
+      "source": "adverse-selection",
+      "target": "asymmetric-information"
+    },
+    {
+      "source": "adverse-selection",
+      "target": "market-equilibrium"
+    },
+    {
+      "source": "adverse-selection",
+      "target": "moral-hazard"
+    },
+    {
+      "source": "anchoring",
+      "target": "negotiation"
+    },
+    {
+      "source": "anchoring",
+      "target": "target-price"
+    },
+    {
+      "source": "anchoring",
+      "target": "availability-bias"
+    },
+    {
+      "source": "asset-impairment",
+      "target": "goodwill"
+    },
+    {
+      "source": "asset-impairment",
+      "target": "balance-sheet"
+    },
+    {
+      "source": "asset-impairment",
+      "target": "depreciation"
+    },
+    {
+      "source": "asset-impairment",
+      "target": "earnings-management"
+    },
+    {
+      "source": "asymmetric-information",
+      "target": "moral-hazard"
+    },
+    {
+      "source": "attraction-selection-attrition-asa-framework",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "attribute-analytics",
+      "target": "predictors-of-job-performance"
+    },
+    {
+      "source": "attribute-analytics",
+      "target": "diversity-equity-and-inclusion-dei"
+    },
+    {
+      "source": "attribute-analytics",
+      "target": "relational-analytics"
+    },
+    {
+      "source": "attribute-analytics",
+      "target": "hiring-for-fit"
+    },
+    {
+      "source": "attributes-of-effective-management",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "attributes-of-effective-management",
+      "target": "diversity-equity-and-inclusion-dei"
+    },
+    {
+      "source": "attributes-of-effective-management",
+      "target": "incentive-pay"
+    },
+    {
+      "source": "auctions",
+      "target": "first-price-sealed-bid-auction"
+    },
+    {
+      "source": "auctions",
+      "target": "second-price-auction"
+    },
+    {
+      "source": "auctions",
+      "target": "private-value-auction"
+    },
+    {
+      "source": "auctions",
+      "target": "winners-curse"
+    },
+    {
+      "source": "authenticity",
+      "target": "authority-vs.-approachability"
+    },
+    {
+      "source": "authenticity",
+      "target": "compliance-vs.-commitment"
+    },
+    {
+      "source": "authenticity",
+      "target": "identity-as-an-evolving-narrative"
+    },
+    {
+      "source": "authenticity",
+      "target": "outsight"
+    },
+    {
+      "source": "authority-vs.-approachability",
+      "target": "management-vs.-leadership"
+    },
+    {
+      "source": "authority-vs.-approachability",
+      "target": "psychological-safety"
+    },
+    {
+      "source": "authority-vs.-approachability",
+      "target": "attributes-of-effective-management"
+    },
+    {
+      "source": "authority-vs.-approachability",
+      "target": "power-in-organizations"
+    },
+    {
+      "source": "availability-bias",
+      "target": "anchoring"
+    },
+    {
+      "source": "availability-bias",
+      "target": "representativeness-bias"
+    },
+    {
+      "source": "average-total-cost",
+      "target": "fixed-cost"
+    },
+    {
+      "source": "average-total-cost",
+      "target": "variable-cost"
+    },
+    {
+      "source": "average-total-cost",
+      "target": "marginal-cost"
+    },
+    {
+      "source": "balance-sheet",
+      "target": "shareholders-equity"
+    },
+    {
+      "source": "balance-sheet",
+      "target": "deferred-revenues"
+    },
+    {
+      "source": "balance-sheet",
+      "target": "accrued-liabilities"
+    },
+    {
+      "source": "barriers-to-entry",
+      "target": "sunk-costs"
+    },
+    {
+      "source": "barriers-to-entry",
+      "target": "perfect-competition"
+    },
+    {
+      "source": "batna-best-alternative-to-a-negotiated-agreement",
+      "target": "power-in-organizations"
+    },
+    {
+      "source": "batna-best-alternative-to-a-negotiated-agreement",
+      "target": "reservation-price"
+    },
+    {
+      "source": "batna-best-alternative-to-a-negotiated-agreement",
+      "target": "zone-of-possible-agreement-zopa"
+    },
+    {
+      "source": "beneish-m-score",
+      "target": "information-disclosure"
+    },
+    {
+      "source": "beneish-m-score",
+      "target": "earnings-management"
+    },
+    {
+      "source": "beneish-m-score",
+      "target": "materiality"
+    },
+    {
+      "source": "bertrand-model",
+      "target": "price-searcher"
+    },
+    {
+      "source": "bertrand-model",
+      "target": "market-equilibrium"
+    },
+    {
+      "source": "bertrand-model",
+      "target": "oligopoly"
+    },
+    {
+      "source": "bertrand-model",
+      "target": "perfect-competition"
+    },
+    {
+      "source": "big-five-personality-traits",
+      "target": "predictors-of-job-performance"
+    },
+    {
+      "source": "bounded-rationality",
+      "target": "rational-economic-model"
+    },
+    {
+      "source": "bounded-rationality",
+      "target": "homo-economicus"
+    },
+    {
+      "source": "capex-vs.-opex",
+      "target": "r&d-capitalization"
+    },
+    {
+      "source": "capex-vs.-opex",
+      "target": "depreciation"
+    },
+    {
+      "source": "capex-vs.-opex",
+      "target": "income-statement"
+    },
+    {
+      "source": "capex-vs.-opex",
+      "target": "balance-sheet"
+    },
+    {
+      "source": "carbon-reporting",
+      "target": "regulatory-environment"
+    },
+    {
+      "source": "cash-conversion-cycle",
+      "target": "working-capital"
+    },
+    {
+      "source": "causal-inference",
+      "target": "economic-models"
+    },
+    {
+      "source": "cognitive-flexibility",
+      "target": "strategies-for-persuading-resistant-personalities"
+    },
+    {
+      "source": "cognitive-flexibility",
+      "target": "persuasion"
+    },
+    {
+      "source": "compliance-vs.-commitment",
+      "target": "social-influence"
+    },
+    {
+      "source": "compliance-vs.-commitment",
+      "target": "power-in-organizations"
+    },
+    {
+      "source": "conditions-for-collective-intelligence",
+      "target": "diversity-equity-and-inclusion-dei"
+    },
+    {
+      "source": "conditions-for-collective-intelligence",
+      "target": "social-networks"
+    },
+    {
+      "source": "confirmation-bias",
+      "target": "predictors-of-job-performance"
+    },
+    {
+      "source": "confirmation-bias",
+      "target": "sampling-on-the-dependent-variable"
+    },
+    {
+      "source": "confounding-variables",
+      "target": "sampling-on-the-dependent-variable"
+    },
+    {
+      "source": "confounding-variables",
+      "target": "causal-inference"
+    },
+    {
+      "source": "conjunction-fallacy",
+      "target": "representativeness-bias"
+    },
+    {
+      "source": "conjunction-fallacy",
+      "target": "availability-bias"
+    },
+    {
+      "source": "conjunctive-and-disjunctive-events-bias",
+      "target": "economic-models"
+    },
+    {
+      "source": "conjunctive-and-disjunctive-events-bias",
+      "target": "confirmation-bias"
+    },
+    {
+      "source": "conjunctive-and-disjunctive-events-bias",
+      "target": "overconfidence"
+    },
+    {
+      "source": "consumer-surplus",
+      "target": "principle-of-diminishing-marginal-utility"
+    },
+    {
+      "source": "contingent-contracts",
+      "target": "negotiation"
+    },
+    {
+      "source": "contingent-contracts",
+      "target": "incentive-pay"
+    },
+    {
+      "source": "contingent-liabilities",
+      "target": "accrued-liabilities"
+    },
+    {
+      "source": "contingent-liabilities",
+      "target": "earnings-management"
+    },
+    {
+      "source": "corporate-bonds",
+      "target": "short-run-vs.-long-run-managerial-trade-offs"
+    },
+    {
+      "source": "cournot-model",
+      "target": "economic-models"
+    },
+    {
+      "source": "cournot-model",
+      "target": "market-equilibrium"
+    },
+    {
+      "source": "cournot-model",
+      "target": "oligopoly"
+    },
+    {
+      "source": "cultural-artifacts-and-symbols",
+      "target": "incentive-pay"
+    },
+    {
+      "source": "cultural-artifacts-and-symbols",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "cultural-artifacts-and-symbols",
+      "target": "strong-culture"
+    },
+    {
+      "source": "culture-as-a-control-mechanism",
+      "target": "barriers-to-entry"
+    },
+    {
+      "source": "culture-as-a-control-mechanism",
+      "target": "strong-culture"
+    },
+    {
+      "source": "curse-of-knowledge",
+      "target": "diversity-equity-and-inclusion-dei"
+    },
+    {
+      "source": "curse-of-knowledge",
+      "target": "feedback-best-practices"
+    },
+    {
+      "source": "curse-of-knowledge",
+      "target": "hindsight-bias"
+    },
+    {
+      "source": "curse-of-knowledge",
+      "target": "social-influence"
+    },
+    {
+      "source": "dark-side-traits",
+      "target": "distancing-traits"
+    },
+    {
+      "source": "dark-side-traits",
+      "target": "seductive-traits"
+    },
+    {
+      "source": "dark-side-traits",
+      "target": "ingratiating-traits"
+    },
+    {
+      "source": "dark-side-traits",
+      "target": "toxic-workers"
+    },
+    {
+      "source": "dark-side-traits",
+      "target": "big-five-personality-traits"
+    },
+    {
+      "source": "data-integration-and-purity",
+      "target": "digital-exhaust"
+    },
+    {
+      "source": "data-integration-and-purity",
+      "target": "attribute-analytics"
+    },
+    {
+      "source": "data-integration-and-purity",
+      "target": "causal-inference"
+    },
+    {
+      "source": "days-inventory-outstanding-dio",
+      "target": "working-capital"
+    },
+    {
+      "source": "days-inventory-outstanding-dio",
+      "target": "efficiency-signature"
+    },
+    {
+      "source": "decision-trees",
+      "target": "group-decision-making-under-uncertainty"
+    },
+    {
+      "source": "decision-trees",
+      "target": "multiple-attribute-utility-theory-maut"
+    },
+    {
+      "source": "decision-trees",
+      "target": "rational-economic-model"
+    },
+    {
+      "source": "deferred-revenues",
+      "target": "accrual-accounting"
+    },
+    {
+      "source": "depreciation",
+      "target": "balance-sheet"
+    },
+    {
+      "source": "depreciation",
+      "target": "accrual-accounting"
+    },
+    {
+      "source": "digital-exhaust",
+      "target": "social-networks"
+    },
+    {
+      "source": "digital-exhaust",
+      "target": "predictors-of-job-performance"
+    },
+    {
+      "source": "digital-exhaust",
+      "target": "relational-analytics"
+    },
+    {
+      "source": "digital-exhaust",
+      "target": "network-metrics"
+    },
+    {
+      "source": "dispositionism",
+      "target": "hiring-for-fit"
+    },
+    {
+      "source": "distancing-traits",
+      "target": "dark-side-traits"
+    },
+    {
+      "source": "distancing-traits",
+      "target": "authority-vs.-approachability"
+    },
+    {
+      "source": "distancing-traits",
+      "target": "feedback-best-practices"
+    },
+    {
+      "source": "diversity-equity-and-inclusion-dei",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "diversity-equity-and-inclusion-dei",
+      "target": "attraction-selection-attrition-asa-framework"
+    },
+    {
+      "source": "diversity-equity-and-inclusion-dei",
+      "target": "culture-as-a-control-mechanism"
+    },
+    {
+      "source": "diversity-equity-and-inclusion-dei",
+      "target": "compliance-vs.-commitment"
+    },
+    {
+      "source": "diversity-equity-and-inclusion-dei",
+      "target": "organizational-socialization"
+    },
+    {
+      "source": "earnings-guidance-and-analysts",
+      "target": "earnings-management"
+    },
+    {
+      "source": "earnings-management",
+      "target": "information-disclosure"
+    },
+    {
+      "source": "earnings-management",
+      "target": "regulatory-environment"
+    },
+    {
+      "source": "earnings-management",
+      "target": "materiality"
+    },
+    {
+      "source": "ebitda",
+      "target": "earnings-management"
+    },
+    {
+      "source": "economic-models",
+      "target": "homo-economicus"
+    },
+    {
+      "source": "economic-models",
+      "target": "rational-economic-model"
+    },
+    {
+      "source": "economic-models",
+      "target": "framing"
+    },
+    {
+      "source": "economies-of-scope",
+      "target": "network-externalities"
+    },
+    {
+      "source": "economies-of-scope",
+      "target": "fixed-cost"
+    },
+    {
+      "source": "efficiency-signature",
+      "target": "social-networks"
+    },
+    {
+      "source": "efficiency-signature",
+      "target": "network-metrics"
+    },
+    {
+      "source": "efficiency-signature",
+      "target": "relational-analytics"
+    },
+    {
+      "source": "equality-vs.-equity",
+      "target": "segment-pricing"
+    },
+    {
+      "source": "equality-vs.-equity",
+      "target": "systemic-bias-in-selection"
+    },
+    {
+      "source": "equality-vs.-equity",
+      "target": "diversity-equity-and-inclusion-dei"
+    },
+    {
+      "source": "equity-in-innovation-and-service",
+      "target": "power-in-organizations"
+    },
+    {
+      "source": "equity-in-innovation-and-service",
+      "target": "persuasion"
+    },
+    {
+      "source": "equity-in-innovation-and-service",
+      "target": "network-externalities"
+    },
+    {
+      "source": "equity-in-innovation-and-service",
+      "target": "segment-pricing"
+    },
+    {
+      "source": "equity-in-innovation-and-service",
+      "target": "consumer-surplus"
+    },
+    {
+      "source": "equity-in-innovation-and-service",
+      "target": "market-power"
+    },
+    {
+      "source": "equity-method-accounting",
+      "target": "income-statement"
+    },
+    {
+      "source": "evidence-based-management",
+      "target": "economic-models"
+    },
+    {
+      "source": "evidence-based-management",
+      "target": "rational-economic-model"
+    },
+    {
+      "source": "expectancy-theory",
+      "target": "rational-economic-model"
+    },
+    {
+      "source": "expectancy-theory",
+      "target": "incentive-pay"
+    },
+    {
+      "source": "expectancy-theory",
+      "target": "homo-economicus"
+    },
+    {
+      "source": "experimental-design",
+      "target": "sampling-on-the-dependent-variable"
+    },
+    {
+      "source": "experimental-design",
+      "target": "causal-inference"
+    },
+    {
+      "source": "feedback-best-practices",
+      "target": "attributes-of-effective-management"
+    },
+    {
+      "source": "feedback-best-practices",
+      "target": "evidence-based-management"
+    },
+    {
+      "source": "feedback-best-practices",
+      "target": "psychological-safety"
+    },
+    {
+      "source": "feedback-best-practices",
+      "target": "the-illusion-of-explanatory-depth"
+    },
+    {
+      "source": "feedback-best-practices",
+      "target": "expectancy-theory"
+    },
+    {
+      "source": "financial-leverage",
+      "target": "return-on-assets-roa"
+    },
+    {
+      "source": "first-degree-price-discrimination",
+      "target": "consumer-surplus"
+    },
+    {
+      "source": "first-degree-price-discrimination",
+      "target": "producer-surplus"
+    },
+    {
+      "source": "first-price-sealed-bid-auction",
+      "target": "economic-models"
+    },
+    {
+      "source": "first-price-sealed-bid-auction",
+      "target": "second-price-auction"
+    },
+    {
+      "source": "fixed-cost",
+      "target": "marginal-cost"
+    },
+    {
+      "source": "framing",
+      "target": "negotiation"
+    },
+    {
+      "source": "framing",
+      "target": "confirmation-bias"
+    },
+    {
+      "source": "game-theory",
+      "target": "economic-models"
+    },
+    {
+      "source": "game-theory",
+      "target": "oligopoly"
+    },
+    {
+      "source": "game-theory",
+      "target": "cournot-model"
+    },
+    {
+      "source": "game-theory",
+      "target": "bertrand-model"
+    },
+    {
+      "source": "goal-setting",
+      "target": "attributes-of-effective-management"
+    },
+    {
+      "source": "goal-setting",
+      "target": "optimizing-team-process-and-design"
+    },
+    {
+      "source": "goal-setting",
+      "target": "management-vs.-leadership"
+    },
+    {
+      "source": "goal-setting",
+      "target": "expectancy-theory"
+    },
+    {
+      "source": "goodwill",
+      "target": "balance-sheet"
+    },
+    {
+      "source": "goodwill",
+      "target": "depreciation"
+    },
+    {
+      "source": "group-decision-making-under-uncertainty",
+      "target": "confirmation-bias"
+    },
+    {
+      "source": "group-decision-making-under-uncertainty",
+      "target": "data-integration-and-purity"
+    },
+    {
+      "source": "group-decision-making-under-uncertainty",
+      "target": "economic-models"
+    },
+    {
+      "source": "group-decision-making-under-uncertainty",
+      "target": "hidden-profiles-in-hiring"
+    },
+    {
+      "source": "group-decision-making-under-uncertainty",
+      "target": "power-in-organizations"
+    },
+    {
+      "source": "group-decision-making-under-uncertainty",
+      "target": "psychological-safety"
+    },
+    {
+      "source": "group-decision-making-under-uncertainty",
+      "target": "conditions-for-collective-intelligence"
+    },
+    {
+      "source": "herfindahl-hirschman-index-hhi",
+      "target": "oligopoly"
+    },
+    {
+      "source": "herfindahl-hirschman-index-hhi",
+      "target": "market-power"
+    },
+    {
+      "source": "hidden-profiles-in-hiring",
+      "target": "systemic-bias-in-selection"
+    },
+    {
+      "source": "hidden-profiles-in-hiring",
+      "target": "social-influence"
+    },
+    {
+      "source": "high-vs.-low-self-monitors",
+      "target": "big-five-personality-traits"
+    },
+    {
+      "source": "high-vs.-low-self-monitors",
+      "target": "situationism"
+    },
+    {
+      "source": "high-vs.-low-self-monitors",
+      "target": "dispositionism"
+    },
+    {
+      "source": "high-vs.-low-self-monitors",
+      "target": "if...then-profiles"
+    },
+    {
+      "source": "hindsight-bias",
+      "target": "evidence-based-management"
+    },
+    {
+      "source": "hindsight-bias",
+      "target": "attributes-of-effective-management"
+    },
+    {
+      "source": "hindsight-bias",
+      "target": "anchoring"
+    },
+    {
+      "source": "hiring-for-fit",
+      "target": "homophily"
+    },
+    {
+      "source": "hiring-for-fit",
+      "target": "attraction-selection-attrition-asa-framework"
+    },
+    {
+      "source": "hiring-for-fit",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "hiring-for-fit",
+      "target": "systemic-bias-in-selection"
+    },
+    {
+      "source": "homo-economicus",
+      "target": "rational-economic-model"
+    },
+    {
+      "source": "homo-economicus",
+      "target": "framing"
+    },
+    {
+      "source": "homophily",
+      "target": "adverse-selection"
+    },
+    {
+      "source": "homophily",
+      "target": "attraction-selection-attrition-asa-framework"
+    },
+    {
+      "source": "homophily",
+      "target": "social-influence"
+    },
+    {
+      "source": "ideation-signature-brokerage",
+      "target": "structural-holes"
+    },
+    {
+      "source": "ideation-signature-brokerage",
+      "target": "social-networks"
+    },
+    {
+      "source": "ideation-signature-brokerage",
+      "target": "network-metrics"
+    },
+    {
+      "source": "ideation-signature-brokerage",
+      "target": "relational-analytics"
+    },
+    {
+      "source": "identity-as-an-evolving-narrative",
+      "target": "job-crafting"
+    },
+    {
+      "source": "identity-as-an-evolving-narrative",
+      "target": "organizational-socialization"
+    },
+    {
+      "source": "if...then-profiles",
+      "target": "persuasion"
+    },
+    {
+      "source": "if...then-profiles",
+      "target": "social-influence"
+    },
+    {
+      "source": "incentive-pay",
+      "target": "profit-maximization"
+    },
+    {
+      "source": "incentive-pay",
+      "target": "principal-agent-problem"
+    },
+    {
+      "source": "incentive-pay",
+      "target": "moral-hazard"
+    },
+    {
+      "source": "income-elasticity-of-demand",
+      "target": "price-elasticity"
+    },
+    {
+      "source": "income-elasticity-of-demand",
+      "target": "microeconomics"
+    },
+    {
+      "source": "income-statement",
+      "target": "balance-sheet"
+    },
+    {
+      "source": "influence-signature-aggregate-prominence",
+      "target": "social-influence"
+    },
+    {
+      "source": "influence-signature-aggregate-prominence",
+      "target": "network-metrics"
+    },
+    {
+      "source": "influence-signature-aggregate-prominence",
+      "target": "social-networks"
+    },
+    {
+      "source": "influence-signature-aggregate-prominence",
+      "target": "relational-analytics"
+    },
+    {
+      "source": "influence-signature-aggregate-prominence",
+      "target": "ideation-signature-brokerage"
+    },
+    {
+      "source": "information-disclosure",
+      "target": "adverse-selection"
+    },
+    {
+      "source": "ingratiating-traits",
+      "target": "dark-side-traits"
+    },
+    {
+      "source": "ingratiating-traits",
+      "target": "compliance-vs.-commitment"
+    },
+    {
+      "source": "ingratiating-traits",
+      "target": "management-vs.-leadership"
+    },
+    {
+      "source": "ingratiating-traits",
+      "target": "feedback-best-practices"
+    },
+    {
+      "source": "innovation-signature",
+      "target": "social-networks"
+    },
+    {
+      "source": "innovation-signature",
+      "target": "network-metrics"
+    },
+    {
+      "source": "innovation-signature",
+      "target": "efficiency-signature"
+    },
+    {
+      "source": "innovation-signature",
+      "target": "relational-analytics"
+    },
+    {
+      "source": "inspiring-leadership-traits",
+      "target": "attributes-of-effective-management"
+    },
+    {
+      "source": "inspiring-leadership-traits",
+      "target": "psychological-safety"
+    },
+    {
+      "source": "inspiring-leadership-traits",
+      "target": "mobilization-via-shared-purpose"
+    },
+    {
+      "source": "inspiring-leadership-traits",
+      "target": "compliance-vs.-commitment"
+    },
+    {
+      "source": "intrinsic-vs.-extrinsic-rewards",
+      "target": "incentive-pay"
+    },
+    {
+      "source": "intrinsic-vs.-extrinsic-rewards",
+      "target": "economic-models"
+    },
+    {
+      "source": "intrinsic-vs.-extrinsic-rewards",
+      "target": "culture-as-a-control-mechanism"
+    },
+    {
+      "source": "intrinsic-vs.-extrinsic-rewards",
+      "target": "expectancy-theory"
+    },
+    {
+      "source": "inventory-shrinkage",
+      "target": "balance-sheet"
+    },
+    {
+      "source": "inventory-shrinkage",
+      "target": "materiality"
+    },
+    {
+      "source": "inventory-shrinkage",
+      "target": "earnings-management"
+    },
+    {
+      "source": "inverse-demand-function",
+      "target": "supply-and-demand"
+    },
+    {
+      "source": "inverse-demand-function",
+      "target": "microeconomics"
+    },
+    {
+      "source": "job-crafting",
+      "target": "attributes-of-effective-management"
+    },
+    {
+      "source": "job-crafting",
+      "target": "authenticity"
+    },
+    {
+      "source": "job-crafting",
+      "target": "intrinsic-vs.-extrinsic-rewards"
+    },
+    {
+      "source": "job-crafting",
+      "target": "mobilization-via-shared-purpose"
+    },
+    {
+      "source": "learning-goals-vs.-performance-goals",
+      "target": "goal-setting"
+    },
+    {
+      "source": "learning-goals-vs.-performance-goals",
+      "target": "expectancy-theory"
+    },
+    {
+      "source": "learning-goals-vs.-performance-goals",
+      "target": "intrinsic-vs.-extrinsic-rewards"
+    },
+    {
+      "source": "learning-goals-vs.-performance-goals",
+      "target": "psychological-safety"
+    },
+    {
+      "source": "lifo-last-in-first-out-accounting",
+      "target": "earnings-management"
+    },
+    {
+      "source": "lifo-reserve",
+      "target": "information-disclosure"
+    },
+    {
+      "source": "long-run",
+      "target": "short-run"
+    },
+    {
+      "source": "lower-of-cost-or-market",
+      "target": "materiality"
+    },
+    {
+      "source": "lower-of-cost-or-market",
+      "target": "income-statement"
+    },
+    {
+      "source": "management-vs.-leadership",
+      "target": "attributes-of-effective-management"
+    },
+    {
+      "source": "management-vs.-leadership",
+      "target": "influence-signature-aggregate-prominence"
+    },
+    {
+      "source": "management-vs.-leadership",
+      "target": "mobilization-via-shared-purpose"
+    },
+    {
+      "source": "management-vs.-leadership",
+      "target": "power-in-organizations"
+    },
+    {
+      "source": "marginal-cost",
+      "target": "average-total-cost"
+    },
+    {
+      "source": "marginal-cost",
+      "target": "supply-and-demand"
+    },
+    {
+      "source": "marginal-cost",
+      "target": "profit-maximization"
+    },
+    {
+      "source": "marginal-revenue",
+      "target": "microeconomics"
+    },
+    {
+      "source": "marginal-revenue",
+      "target": "marginal-cost"
+    },
+    {
+      "source": "market-equilibrium",
+      "target": "supply-and-demand"
+    },
+    {
+      "source": "market-power",
+      "target": "microeconomics"
+    },
+    {
+      "source": "market-power",
+      "target": "profit-maximization"
+    },
+    {
+      "source": "market-value-vs.-book-value",
+      "target": "shareholders-equity"
+    },
+    {
+      "source": "markup-rule",
+      "target": "market-equilibrium"
+    },
+    {
+      "source": "markup-rule",
+      "target": "price-elasticity"
+    },
+    {
+      "source": "maturity-principle",
+      "target": "dark-side-traits"
+    },
+    {
+      "source": "maturity-principle",
+      "target": "big-five-personality-traits"
+    },
+    {
+      "source": "microeconomics",
+      "target": "supply-and-demand"
+    },
+    {
+      "source": "microeconomics",
+      "target": "marginal-cost"
+    },
+    {
+      "source": "mobilization-via-shared-purpose",
+      "target": "cultural-artifacts-and-symbols"
+    },
+    {
+      "source": "mobilization-via-shared-purpose",
+      "target": "social-influence"
+    },
+    {
+      "source": "mobilization-via-shared-purpose",
+      "target": "persuasion"
+    },
+    {
+      "source": "mobilization-via-shared-purpose",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "monopolistic-competition",
+      "target": "market-power"
+    },
+    {
+      "source": "monopolistic-competition",
+      "target": "barriers-to-entry"
+    },
+    {
+      "source": "monopolistic-competition",
+      "target": "perfect-competition"
+    },
+    {
+      "source": "monopolistic-competition",
+      "target": "average-total-cost"
+    },
+    {
+      "source": "monopsony",
+      "target": "microeconomics"
+    },
+    {
+      "source": "monopsony",
+      "target": "market-power"
+    },
+    {
+      "source": "moral-hazard",
+      "target": "principal-agent-problem"
+    },
+    {
+      "source": "moral-hazard",
+      "target": "adverse-selection"
+    },
+    {
+      "source": "multiple-attribute-utility-theory-maut",
+      "target": "confirmation-bias"
+    },
+    {
+      "source": "multiple-attribute-utility-theory-maut",
+      "target": "economic-models"
+    },
+    {
+      "source": "multiple-attribute-utility-theory-maut",
+      "target": "rational-economic-model"
+    },
+    {
+      "source": "natural-monopoly",
+      "target": "price-searcher"
+    },
+    {
+      "source": "natural-monopoly",
+      "target": "price-taker"
+    },
+    {
+      "source": "natural-monopoly",
+      "target": "fixed-cost"
+    },
+    {
+      "source": "natural-monopoly",
+      "target": "production-function"
+    },
+    {
+      "source": "natural-monopoly",
+      "target": "barriers-to-entry"
+    },
+    {
+      "source": "natural-monopoly",
+      "target": "profit-maximization"
+    },
+    {
+      "source": "natural-monopoly",
+      "target": "marginal-revenue"
+    },
+    {
+      "source": "natural-monopoly",
+      "target": "marginal-cost"
+    },
+    {
+      "source": "negotiation",
+      "target": "batna-best-alternative-to-a-negotiated-agreement"
+    },
+    {
+      "source": "negotiation",
+      "target": "target-price"
+    },
+    {
+      "source": "negotiation",
+      "target": "reservation-price"
+    },
+    {
+      "source": "negotiation",
+      "target": "power-in-organizations"
+    },
+    {
+      "source": "negotiation",
+      "target": "persuasion"
+    },
+    {
+      "source": "negotiation",
+      "target": "zone-of-possible-agreement-zopa"
+    },
+    {
+      "source": "negotiation",
+      "target": "positions-vs.-interests"
+    },
+    {
+      "source": "negotiation",
+      "target": "post-settlement-settlements-pss"
+    },
+    {
+      "source": "network-externalities",
+      "target": "barriers-to-entry"
+    },
+    {
+      "source": "network-externalities",
+      "target": "switching-costs"
+    },
+    {
+      "source": "network-metrics",
+      "target": "social-networks"
+    },
+    {
+      "source": "network-metrics",
+      "target": "structural-holes"
+    },
+    {
+      "source": "obedience-to-authority",
+      "target": "social-influence"
+    },
+    {
+      "source": "obedience-to-authority",
+      "target": "power-in-organizations"
+    },
+    {
+      "source": "oligopoly",
+      "target": "market-power"
+    },
+    {
+      "source": "oligopoly",
+      "target": "barriers-to-entry"
+    },
+    {
+      "source": "operating-margin",
+      "target": "ebitda"
+    },
+    {
+      "source": "opportunity-cost",
+      "target": "principle-of-diminishing-marginal-utility"
+    },
+    {
+      "source": "optimizing-team-process-and-design",
+      "target": "ideation-signature-brokerage"
+    },
+    {
+      "source": "optimizing-team-process-and-design",
+      "target": "diversity-equity-and-inclusion-dei"
+    },
+    {
+      "source": "ordinary-least-squares",
+      "target": "economic-models"
+    },
+    {
+      "source": "organizational-socialization",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "organizational-socialization",
+      "target": "strong-culture"
+    },
+    {
+      "source": "organizations-as-drivers-of-inequality",
+      "target": "systemic-bias-in-selection"
+    },
+    {
+      "source": "organizations-as-drivers-of-inequality",
+      "target": "causal-inference"
+    },
+    {
+      "source": "organizations-as-drivers-of-inequality",
+      "target": "diversity-equity-and-inclusion-dei"
+    },
+    {
+      "source": "organizations-as-drivers-of-inequality",
+      "target": "adverse-selection"
+    },
+    {
+      "source": "outsight",
+      "target": "evidence-based-management"
+    },
+    {
+      "source": "outsight",
+      "target": "experimental-design"
+    },
+    {
+      "source": "outsight",
+      "target": "authenticity"
+    },
+    {
+      "source": "overconfidence",
+      "target": "the-illusion-of-explanatory-depth"
+    },
+    {
+      "source": "overconfidence",
+      "target": "confirmation-bias"
+    },
+    {
+      "source": "passive-financial-investments",
+      "target": "earnings-management"
+    },
+    {
+      "source": "perfect-competition",
+      "target": "market-equilibrium"
+    },
+    {
+      "source": "perfect-competition",
+      "target": "fixed-cost"
+    },
+    {
+      "source": "perfect-competition",
+      "target": "marginal-cost"
+    },
+    {
+      "source": "perfect-competition",
+      "target": "marginal-revenue"
+    },
+    {
+      "source": "perfect-competition",
+      "target": "short-run"
+    },
+    {
+      "source": "perfect-competition",
+      "target": "long-run"
+    },
+    {
+      "source": "perfect-competition",
+      "target": "opportunity-cost"
+    },
+    {
+      "source": "perfect-competition",
+      "target": "price-taker"
+    },
+    {
+      "source": "performance-path-dependency",
+      "target": "switching-costs"
+    },
+    {
+      "source": "performance-path-dependency",
+      "target": "network-externalities"
+    },
+    {
+      "source": "persuasion",
+      "target": "social-influence"
+    },
+    {
+      "source": "persuasion",
+      "target": "power-in-organizations"
+    },
+    {
+      "source": "persuasion",
+      "target": "compliance-vs.-commitment"
+    },
+    {
+      "source": "persuasion",
+      "target": "strategies-for-persuading-resistant-personalities"
+    },
+    {
+      "source": "positions-vs.-interests",
+      "target": "negotiation"
+    },
+    {
+      "source": "positions-vs.-interests",
+      "target": "power-in-organizations"
+    },
+    {
+      "source": "positions-vs.-interests",
+      "target": "reservation-price"
+    },
+    {
+      "source": "positive-vs.-negative-feedback",
+      "target": "maturity-principle"
+    },
+    {
+      "source": "positive-vs.-negative-feedback",
+      "target": "cognitive-flexibility"
+    },
+    {
+      "source": "positive-vs.-negative-feedback",
+      "target": "feedback-best-practices"
+    },
+    {
+      "source": "post-settlement-settlements-pss",
+      "target": "negotiation"
+    },
+    {
+      "source": "power-in-organizations",
+      "target": "incentive-pay"
+    },
+    {
+      "source": "power-in-organizations",
+      "target": "social-influence"
+    },
+    {
+      "source": "power-in-organizations",
+      "target": "compliance-vs.-commitment"
+    },
+    {
+      "source": "predictors-of-job-performance",
+      "target": "systemic-bias-in-selection"
+    },
+    {
+      "source": "preferred-stock",
+      "target": "shareholders-equity"
+    },
+    {
+      "source": "preferred-stock",
+      "target": "equity-in-innovation-and-service"
+    },
+    {
+      "source": "prepaid-expenses",
+      "target": "accrual-accounting"
+    },
+    {
+      "source": "price-elasticity",
+      "target": "supply-and-demand"
+    },
+    {
+      "source": "price-searcher",
+      "target": "microeconomics"
+    },
+    {
+      "source": "price-searcher",
+      "target": "market-power"
+    },
+    {
+      "source": "price-searcher",
+      "target": "price-taker"
+    },
+    {
+      "source": "price-taker",
+      "target": "market-equilibrium"
+    },
+    {
+      "source": "price-taker",
+      "target": "supply-and-demand"
+    },
+    {
+      "source": "price-taker",
+      "target": "marginal-revenue"
+    },
+    {
+      "source": "principal-agent-problem",
+      "target": "market-power"
+    },
+    {
+      "source": "principal-agent-problem",
+      "target": "moral-hazard"
+    },
+    {
+      "source": "principal-agent-problem",
+      "target": "adverse-selection"
+    },
+    {
+      "source": "principle-of-diminishing-marginal-utility",
+      "target": "opportunity-cost"
+    },
+    {
+      "source": "principle-of-diminishing-marginal-utility",
+      "target": "consumer-surplus"
+    },
+    {
+      "source": "principle-of-diminishing-marginal-utility",
+      "target": "short-run"
+    },
+    {
+      "source": "private-value-auction",
+      "target": "winners-curse"
+    },
+    {
+      "source": "procedural-justice-in-layoffs",
+      "target": "compliance-vs.-commitment"
+    },
+    {
+      "source": "procedural-justice-in-layoffs",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "producer-surplus",
+      "target": "consumer-surplus"
+    },
+    {
+      "source": "producer-surplus",
+      "target": "supply-and-demand"
+    },
+    {
+      "source": "production-function",
+      "target": "short-run"
+    },
+    {
+      "source": "production-function",
+      "target": "long-run"
+    },
+    {
+      "source": "production-function",
+      "target": "returns-to-scale"
+    },
+    {
+      "source": "profit-maximization",
+      "target": "marginal-cost"
+    },
+    {
+      "source": "profit-maximization",
+      "target": "market-equilibrium"
+    },
+    {
+      "source": "profit-maximization",
+      "target": "marginal-revenue"
+    },
+    {
+      "source": "psychological-safety",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "psychological-safety",
+      "target": "culture-as-a-control-mechanism"
+    },
+    {
+      "source": "psychological-safety",
+      "target": "power-in-organizations"
+    },
+    {
+      "source": "psychological-safety",
+      "target": "conditions-for-collective-intelligence"
+    },
+    {
+      "source": "psychological-safety",
+      "target": "feedback-best-practices"
+    },
+    {
+      "source": "r&d-capitalization",
+      "target": "income-statement"
+    },
+    {
+      "source": "r&d-capitalization",
+      "target": "balance-sheet"
+    },
+    {
+      "source": "r&d-capitalization",
+      "target": "earnings-management"
+    },
+    {
+      "source": "r&d-capitalization",
+      "target": "materiality"
+    },
+    {
+      "source": "rational-economic-model",
+      "target": "homo-economicus"
+    },
+    {
+      "source": "rational-economic-model",
+      "target": "multiple-attribute-utility-theory-maut"
+    },
+    {
+      "source": "rational-economic-model",
+      "target": "economic-models"
+    },
+    {
+      "source": "rational-economic-model",
+      "target": "decision-trees"
+    },
+    {
+      "source": "reaction-function",
+      "target": "economic-models"
+    },
+    {
+      "source": "reaction-function",
+      "target": "game-theory"
+    },
+    {
+      "source": "regression-to-the-mean",
+      "target": "economic-models"
+    },
+    {
+      "source": "regression-to-the-mean",
+      "target": "performance-path-dependency"
+    },
+    {
+      "source": "regression-to-the-mean",
+      "target": "representativeness-bias"
+    },
+    {
+      "source": "regression-to-the-mean",
+      "target": "causal-inference"
+    },
+    {
+      "source": "regulatory-environment",
+      "target": "barriers-to-entry"
+    },
+    {
+      "source": "relational-analytics",
+      "target": "social-networks"
+    },
+    {
+      "source": "relational-analytics",
+      "target": "network-metrics"
+    },
+    {
+      "source": "relational-analytics",
+      "target": "predictors-of-job-performance"
+    },
+    {
+      "source": "relational-analytics",
+      "target": "structural-holes"
+    },
+    {
+      "source": "relational-analytics",
+      "target": "social-influence"
+    },
+    {
+      "source": "reporting-and-analyzing-liabilities",
+      "target": "accrued-liabilities"
+    },
+    {
+      "source": "reporting-and-analyzing-liabilities",
+      "target": "statement-of-cash-flows"
+    },
+    {
+      "source": "reporting-and-analyzing-liabilities",
+      "target": "deferred-revenues"
+    },
+    {
+      "source": "representativeness-bias",
+      "target": "conditions-for-collective-intelligence"
+    },
+    {
+      "source": "representativeness-bias",
+      "target": "conjunction-fallacy"
+    },
+    {
+      "source": "reservation-price",
+      "target": "batna-best-alternative-to-a-negotiated-agreement"
+    },
+    {
+      "source": "reservation-price",
+      "target": "zone-of-possible-agreement-zopa"
+    },
+    {
+      "source": "reservation-price",
+      "target": "switching-costs"
+    },
+    {
+      "source": "residual-demand",
+      "target": "inverse-demand-function"
+    },
+    {
+      "source": "residual-demand",
+      "target": "oligopoly"
+    },
+    {
+      "source": "return-on-assets-roa",
+      "target": "income-statement"
+    },
+    {
+      "source": "return-on-assets-roa",
+      "target": "balance-sheet"
+    },
+    {
+      "source": "return-on-assets-roa",
+      "target": "financial-leverage"
+    },
+    {
+      "source": "return-on-assets-roa",
+      "target": "shareholders-equity"
+    },
+    {
+      "source": "returns-to-scale",
+      "target": "long-run"
+    },
+    {
+      "source": "returns-to-scale",
+      "target": "production-function"
+    },
+    {
+      "source": "revenue-recognition",
+      "target": "deferred-revenues"
+    },
+    {
+      "source": "reverse-causality",
+      "target": "causal-inference"
+    },
+    {
+      "source": "reverse-causality",
+      "target": "strong-culture"
+    },
+    {
+      "source": "reverse-causality",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "risky-business-practices-and-performance-volatility",
+      "target": "experimental-design"
+    },
+    {
+      "source": "risky-business-practices-and-performance-volatility",
+      "target": "overconfidence"
+    },
+    {
+      "source": "risky-business-practices-and-performance-volatility",
+      "target": "economic-models"
+    },
+    {
+      "source": "sampling-on-the-dependent-variable",
+      "target": "confirmation-bias"
+    },
+    {
+      "source": "sampling-on-the-dependent-variable",
+      "target": "hindsight-bias"
+    },
+    {
+      "source": "sampling-on-the-dependent-variable",
+      "target": "experimental-design"
+    },
+    {
+      "source": "second-price-auction",
+      "target": "economic-models"
+    },
+    {
+      "source": "seductive-traits",
+      "target": "dark-side-traits"
+    },
+    {
+      "source": "seductive-traits",
+      "target": "risky-business-practices-and-performance-volatility"
+    },
+    {
+      "source": "seductive-traits",
+      "target": "overconfidence"
+    },
+    {
+      "source": "seductive-traits",
+      "target": "inspiring-leadership-traits"
+    },
+    {
+      "source": "segment-pricing",
+      "target": "price-elasticity"
+    },
+    {
+      "source": "segment-pricing",
+      "target": "market-equilibrium"
+    },
+    {
+      "source": "segment-pricing",
+      "target": "first-degree-price-discrimination"
+    },
+    {
+      "source": "shareholders-equity",
+      "target": "balance-sheet"
+    },
+    {
+      "source": "short-run-vs.-long-run-managerial-trade-offs",
+      "target": "incentive-pay"
+    },
+    {
+      "source": "short-run-vs.-long-run-managerial-trade-offs",
+      "target": "performance-path-dependency"
+    },
+    {
+      "source": "shutdown-decision",
+      "target": "fixed-cost"
+    },
+    {
+      "source": "shutdown-decision",
+      "target": "sunk-costs"
+    },
+    {
+      "source": "shutdown-decision",
+      "target": "variable-cost"
+    },
+    {
+      "source": "shutdown-decision",
+      "target": "average-total-cost"
+    },
+    {
+      "source": "shutdown-decision",
+      "target": "short-run"
+    },
+    {
+      "source": "shutdown-decision",
+      "target": "profit-maximization"
+    },
+    {
+      "source": "silo-signature-modularity",
+      "target": "network-metrics"
+    },
+    {
+      "source": "silo-signature-modularity",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "silo-signature-modularity",
+      "target": "relational-analytics"
+    },
+    {
+      "source": "simple-vs.-complex-contagions",
+      "target": "organizational-socialization"
+    },
+    {
+      "source": "simple-vs.-complex-contagions",
+      "target": "social-influence"
+    },
+    {
+      "source": "simple-vs.-complex-contagions",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "simple-vs.-complex-contagions",
+      "target": "strength-of-weak-ties"
+    },
+    {
+      "source": "situationism",
+      "target": "dispositionism"
+    },
+    {
+      "source": "situationism",
+      "target": "authenticity"
+    },
+    {
+      "source": "situationism",
+      "target": "culture-as-a-control-mechanism"
+    },
+    {
+      "source": "situationism",
+      "target": "dark-side-traits"
+    },
+    {
+      "source": "social-influence",
+      "target": "network-externalities"
+    },
+    {
+      "source": "social-influence",
+      "target": "homophily"
+    },
+    {
+      "source": "social-networks",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "social-networks",
+      "target": "organizational-socialization"
+    },
+    {
+      "source": "statement-of-cash-flows",
+      "target": "accrual-accounting"
+    },
+    {
+      "source": "statement-of-cash-flows",
+      "target": "income-statement"
+    },
+    {
+      "source": "statement-of-cash-flows",
+      "target": "balance-sheet"
+    },
+    {
+      "source": "stock-split",
+      "target": "market-power"
+    },
+    {
+      "source": "stockholders-equity",
+      "target": "balance-sheet"
+    },
+    {
+      "source": "stockholders-equity",
+      "target": "shareholders-equity"
+    },
+    {
+      "source": "stockholders-equity",
+      "target": "income-statement"
+    },
+    {
+      "source": "stockholders-equity",
+      "target": "earnings-management"
+    },
+    {
+      "source": "strategies-for-persuading-resistant-personalities",
+      "target": "the-illusion-of-explanatory-depth"
+    },
+    {
+      "source": "strategies-for-persuading-resistant-personalities",
+      "target": "social-influence"
+    },
+    {
+      "source": "strategies-for-persuading-resistant-personalities",
+      "target": "persuasion"
+    },
+    {
+      "source": "strategies-for-persuading-resistant-personalities",
+      "target": "negotiation"
+    },
+    {
+      "source": "strategies-for-persuading-resistant-personalities",
+      "target": "positions-vs.-interests"
+    },
+    {
+      "source": "strategies-for-persuading-resistant-personalities",
+      "target": "if...then-profiles"
+    },
+    {
+      "source": "strength-of-weak-ties",
+      "target": "structural-holes"
+    },
+    {
+      "source": "strength-of-weak-ties",
+      "target": "social-networks"
+    },
+    {
+      "source": "strength-of-weak-ties",
+      "target": "simple-vs.-complex-contagions"
+    },
+    {
+      "source": "strong-culture",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "structural-holes",
+      "target": "social-networks"
+    },
+    {
+      "source": "structural-holes",
+      "target": "network-metrics"
+    },
+    {
+      "source": "structural-holes",
+      "target": "ideation-signature-brokerage"
+    },
+    {
+      "source": "structural-holes",
+      "target": "vulnerability-signature-robustness"
+    },
+    {
+      "source": "structured-vs.-unstructured-interviews",
+      "target": "systemic-bias-in-selection"
+    },
+    {
+      "source": "structured-vs.-unstructured-interviews",
+      "target": "predictors-of-job-performance"
+    },
+    {
+      "source": "sunk-costs",
+      "target": "fixed-cost"
+    },
+    {
+      "source": "sunk-costs",
+      "target": "profit-maximization"
+    },
+    {
+      "source": "supply-and-demand",
+      "target": "market-equilibrium"
+    },
+    {
+      "source": "supply-and-demand",
+      "target": "price-elasticity"
+    },
+    {
+      "source": "survival-bias-correction-tools",
+      "target": "economic-models"
+    },
+    {
+      "source": "survival-bias-correction-tools",
+      "target": "evidence-based-management"
+    },
+    {
+      "source": "switching-costs",
+      "target": "barriers-to-entry"
+    },
+    {
+      "source": "switching-costs",
+      "target": "consumer-surplus"
+    },
+    {
+      "source": "systemic-bias-in-selection",
+      "target": "homophily"
+    },
+    {
+      "source": "systemic-bias-in-selection",
+      "target": "attraction-selection-attrition-asa-framework"
+    },
+    {
+      "source": "systemic-bias-in-selection",
+      "target": "adverse-selection"
+    },
+    {
+      "source": "systemic-bias-in-selection",
+      "target": "social-influence"
+    },
+    {
+      "source": "systemic-bias-in-selection",
+      "target": "structured-vs.-unstructured-interviews"
+    },
+    {
+      "source": "systemic-bias-in-selection",
+      "target": "diversity-equity-and-inclusion-dei"
+    },
+    {
+      "source": "systemic-bias-in-selection",
+      "target": "hiring-for-fit"
+    },
+    {
+      "source": "tacit-collusion",
+      "target": "oligopoly"
+    },
+    {
+      "source": "tacit-collusion",
+      "target": "game-theory"
+    },
+    {
+      "source": "tacit-collusion",
+      "target": "cournot-model"
+    },
+    {
+      "source": "tacit-collusion",
+      "target": "bertrand-model"
+    },
+    {
+      "source": "target-price",
+      "target": "reservation-price"
+    },
+    {
+      "source": "tax-incidence",
+      "target": "consumer-surplus"
+    },
+    {
+      "source": "tax-incidence",
+      "target": "producer-surplus"
+    },
+    {
+      "source": "tax-incidence",
+      "target": "market-equilibrium"
+    },
+    {
+      "source": "tax-incidence",
+      "target": "price-elasticity"
+    },
+    {
+      "source": "tax-incidence",
+      "target": "supply-and-demand"
+    },
+    {
+      "source": "teaching-to-the-test",
+      "target": "incentive-pay"
+    },
+    {
+      "source": "teaching-to-the-test",
+      "target": "principal-agent-problem"
+    },
+    {
+      "source": "the-blue-sky-paradox",
+      "target": "goal-setting"
+    },
+    {
+      "source": "the-blue-sky-paradox",
+      "target": "compliance-vs.-commitment"
+    },
+    {
+      "source": "the-blue-sky-paradox",
+      "target": "bounded-rationality"
+    },
+    {
+      "source": "the-illusion-of-explanatory-depth",
+      "target": "strategies-for-persuading-resistant-personalities"
+    },
+    {
+      "source": "threats-to-experimental-validity",
+      "target": "psychological-safety"
+    },
+    {
+      "source": "threats-to-experimental-validity",
+      "target": "sampling-on-the-dependent-variable"
+    },
+    {
+      "source": "too-big-to-fail",
+      "target": "moral-hazard"
+    },
+    {
+      "source": "too-big-to-fail",
+      "target": "market-equilibrium"
+    },
+    {
+      "source": "toxic-workers",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "toxic-workers",
+      "target": "moral-hazard"
+    },
+    {
+      "source": "treasury-stock",
+      "target": "shareholders-equity"
+    },
+    {
+      "source": "treasury-stock",
+      "target": "incentive-pay"
+    },
+    {
+      "source": "two-part-tariff",
+      "target": "marginal-cost"
+    },
+    {
+      "source": "two-part-tariff",
+      "target": "profit-maximization"
+    },
+    {
+      "source": "two-part-tariff",
+      "target": "volume-pricing"
+    },
+    {
+      "source": "user-manual-management-tool",
+      "target": "psychological-safety"
+    },
+    {
+      "source": "user-manual-management-tool",
+      "target": "dispositionism"
+    },
+    {
+      "source": "variable-cost",
+      "target": "marginal-cost"
+    },
+    {
+      "source": "variable-cost",
+      "target": "fixed-cost"
+    },
+    {
+      "source": "versioning",
+      "target": "price-elasticity"
+    },
+    {
+      "source": "versioning",
+      "target": "first-degree-price-discrimination"
+    },
+    {
+      "source": "versioning",
+      "target": "segment-pricing"
+    },
+    {
+      "source": "volume-pricing",
+      "target": "marginal-cost"
+    },
+    {
+      "source": "volume-pricing",
+      "target": "profit-maximization"
+    },
+    {
+      "source": "volume-pricing",
+      "target": "first-degree-price-discrimination"
+    },
+    {
+      "source": "volume-pricing",
+      "target": "segment-pricing"
+    },
+    {
+      "source": "vulnerability-signature-robustness",
+      "target": "social-networks"
+    },
+    {
+      "source": "vulnerability-signature-robustness",
+      "target": "network-metrics"
+    },
+    {
+      "source": "vulnerability-signature-robustness",
+      "target": "relational-analytics"
+    },
+    {
+      "source": "vulnerability-signature-robustness",
+      "target": "silo-signature-modularity"
+    },
+    {
+      "source": "winners-curse",
+      "target": "economic-models"
+    },
+    {
+      "source": "winners-curse",
+      "target": "auctions"
+    },
+    {
+      "source": "working-capital",
+      "target": "accrued-liabilities"
+    },
+    {
+      "source": "working-capital",
+      "target": "prepaid-expenses"
+    },
+    {
+      "source": "working-capital",
+      "target": "deferred-revenues"
+    },
+    {
+      "source": "zone-of-possible-agreement-zopa",
+      "target": "reservation-price"
+    },
+    {
+      "source": "zone-of-possible-agreement-zopa",
+      "target": "batna-best-alternative-to-a-negotiated-agreement"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "strong-culture"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "culture-as-a-control-mechanism"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "cultural-artifacts-and-symbols"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "mobilization-via-shared-purpose"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "evidence-based-management"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "hiring-for-fit"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "attraction-selection-attrition-asa-framework"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "management-vs.-leadership"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "authority-vs.-approachability"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "authenticity"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "intrinsic-vs.-extrinsic-rewards"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "incentive-pay"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "organizational-socialization"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "short-run-vs.-long-run-managerial-trade-offs"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "psychological-safety"
+    },
+    {
+      "source": "davita-a-community-first-a-company-second",
+      "target": "equity-in-innovation-and-service"
+    },
+    {
+      "source": "how-google-sold-its-engineers-on-management-googles-project-oxygen",
+      "target": "attributes-of-effective-management"
+    },
+    {
+      "source": "how-google-sold-its-engineers-on-management-googles-project-oxygen",
+      "target": "evidence-based-management"
+    },
+    {
+      "source": "how-google-sold-its-engineers-on-management-googles-project-oxygen",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "how-google-sold-its-engineers-on-management-googles-project-oxygen",
+      "target": "hiring-for-fit"
+    },
+    {
+      "source": "how-google-sold-its-engineers-on-management-googles-project-oxygen",
+      "target": "predictors-of-job-performance"
+    },
+    {
+      "source": "how-google-sold-its-engineers-on-management-googles-project-oxygen",
+      "target": "management-vs.-leadership"
+    },
+    {
+      "source": "how-google-sold-its-engineers-on-management-googles-project-oxygen",
+      "target": "feedback-best-practices"
+    },
+    {
+      "source": "how-google-sold-its-engineers-on-management-googles-project-oxygen",
+      "target": "causal-inference"
+    },
+    {
+      "source": "how-google-sold-its-engineers-on-management-googles-project-oxygen",
+      "target": "reverse-causality"
+    },
+    {
+      "source": "how-google-sold-its-engineers-on-management-googles-project-oxygen",
+      "target": "intrinsic-vs.-extrinsic-rewards"
+    },
+    {
+      "source": "how-google-sold-its-engineers-on-management-googles-project-oxygen",
+      "target": "data-integration-and-purity"
+    },
+    {
+      "source": "how-google-sold-its-engineers-on-management-googles-project-oxygen",
+      "target": "attraction-selection-attrition-asa-framework"
+    },
+    {
+      "source": "how-google-sold-its-engineers-on-management-googles-project-oxygen",
+      "target": "psychological-safety"
+    },
+    {
+      "source": "kjell-and-company-motivating-salespeople-with-incentive-compensation-a",
+      "target": "incentive-pay"
+    },
+    {
+      "source": "kjell-and-company-motivating-salespeople-with-incentive-compensation-a",
+      "target": "goal-setting"
+    },
+    {
+      "source": "kjell-and-company-motivating-salespeople-with-incentive-compensation-a",
+      "target": "expectancy-theory"
+    },
+    {
+      "source": "kjell-and-company-motivating-salespeople-with-incentive-compensation-a",
+      "target": "experimental-design"
+    },
+    {
+      "source": "kjell-and-company-motivating-salespeople-with-incentive-compensation-a",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "kjell-and-company-motivating-salespeople-with-incentive-compensation-a",
+      "target": "evidence-based-management"
+    },
+    {
+      "source": "kjell-and-company-motivating-salespeople-with-incentive-compensation-a",
+      "target": "intrinsic-vs.-extrinsic-rewards"
+    },
+    {
+      "source": "kjell-and-company-motivating-salespeople-with-incentive-compensation-a",
+      "target": "short-run-vs.-long-run-managerial-trade-offs"
+    },
+    {
+      "source": "managing-diversity-and-inclusion-at-yelp",
+      "target": "diversity-equity-and-inclusion-dei"
+    },
+    {
+      "source": "managing-diversity-and-inclusion-at-yelp",
+      "target": "systemic-bias-in-selection"
+    },
+    {
+      "source": "managing-diversity-and-inclusion-at-yelp",
+      "target": "psychological-safety"
+    },
+    {
+      "source": "managing-diversity-and-inclusion-at-yelp",
+      "target": "authenticity"
+    },
+    {
+      "source": "managing-diversity-and-inclusion-at-yelp",
+      "target": "hiring-for-fit"
+    },
+    {
+      "source": "managing-diversity-and-inclusion-at-yelp",
+      "target": "structured-vs.-unstructured-interviews"
+    },
+    {
+      "source": "managing-diversity-and-inclusion-at-yelp",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "managing-diversity-and-inclusion-at-yelp",
+      "target": "evidence-based-management"
+    },
+    {
+      "source": "managing-diversity-and-inclusion-at-yelp",
+      "target": "homophily"
+    },
+    {
+      "source": "managing-diversity-and-inclusion-at-yelp",
+      "target": "attraction-selection-attrition-asa-framework"
+    },
+    {
+      "source": "managing-diversity-and-inclusion-at-yelp",
+      "target": "authority-vs.-approachability"
+    },
+    {
+      "source": "performance-appraisal-at-nextgen-startup-role-of-dana",
+      "target": "attributes-of-effective-management"
+    },
+    {
+      "source": "performance-appraisal-at-nextgen-startup-role-of-dana",
+      "target": "authority-vs.-approachability"
+    },
+    {
+      "source": "performance-appraisal-at-nextgen-startup-role-of-dana",
+      "target": "attraction-selection-attrition-asa-framework"
+    },
+    {
+      "source": "performance-appraisal-at-nextgen-startup-role-of-dana",
+      "target": "culture-as-a-control-mechanism"
+    },
+    {
+      "source": "performance-appraisal-at-nextgen-startup-role-of-dana",
+      "target": "feedback-best-practices"
+    },
+    {
+      "source": "performance-appraisal-at-nextgen-startup-role-of-dana",
+      "target": "intrinsic-vs.-extrinsic-rewards"
+    },
+    {
+      "source": "performance-appraisal-at-nextgen-startup-role-of-dana",
+      "target": "management-vs.-leadership"
+    },
+    {
+      "source": "performance-appraisal-at-nextgen-startup-role-of-dana",
+      "target": "organizational-culture"
+    },
+    {
+      "source": "performance-appraisal-at-nextgen-startup-role-of-dana",
+      "target": "predictors-of-job-performance"
+    },
+    {
+      "source": "performance-appraisal-at-nextgen-startup-role-of-dana",
+      "target": "psychological-safety"
+    },
+    {
+      "source": "performance-appraisal-at-nextgen-startup-role-of-dana",
+      "target": "toxic-workers"
+    },
+    {
+      "source": "true-leaders-are-also-managers",
+      "target": "management-vs.-leadership"
+    },
+    {
+      "source": "true-leaders-are-also-managers",
+      "target": "attributes-of-effective-management"
+    },
+    {
+      "source": "true-leaders-are-also-managers",
+      "target": "evidence-based-management"
+    },
+    {
+      "source": "true-leaders-are-also-managers",
+      "target": "overconfidence"
+    },
+    {
+      "source": "true-leaders-are-also-managers",
+      "target": "the-illusion-of-explanatory-depth"
+    },
+    {
+      "source": "true-leaders-are-also-managers",
+      "target": "goal-setting"
+    },
+    {
+      "source": "true-leaders-are-also-managers",
+      "target": "short-run-vs.-long-run-managerial-trade-offs"
+    }
+  ],
+  "courses": [
+    "Financial Accounting",
+    "Leading People",
+    "Microeconomics"
+  ]
+}

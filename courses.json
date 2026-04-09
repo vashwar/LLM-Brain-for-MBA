@@ -1,0 +1,28 @@
+{
+  "Microeconomics": {
+    "lectures_folder_id": "1EfEVv4OOlp9CD6oifPjWJBtBmmDTpcoI",
+    "cases_folder_id": null,
+    "transcripts_folder_id": "1g4jlPiuy8bSarJt5LsZD80e-UxMIllbQ",
+    "seed_concepts": [
+      "Price Elasticity",
+      "Opportunity Cost",
+      "Supply and Demand",
+      "Marginal Cost",
+      "Consumer Surplus",
+      "Producer Surplus",
+      "Market Equilibrium",
+      "Winners Curse"
+    ]
+  },
+  "Leading People": {
+    "lectures_folder_id": "1wMcXDC0rHqH-kXGTSPAOhUL5hBoOYB0k",
+    "cases_folder_id": "1GxbRnn17Dn5S2KTbZ6yiJxQVdSIjk-1L",
+    "transcripts_folder_id": "1n7_39BZvRmgPNi9jqWhTeJoooNBcgNW9",
+    "seed_concepts": []
+  },
+  "Financial Accounting": {
+    "lectures_folder_id": "1eeuQ0AlcFxiMTfQSLX3mLSBcpY0l0eQO",
+    "transcripts_folder_id":"1jPcl3wy1iwhlVhgV82ComoKmcwcrAdW9",
+    "seed_concepts": []
+  }
+}
