@@ -15,17 +15,21 @@ Google Drive (lectures, cases, transcripts folders)
       → Lectures:     MBAWiki/Concept-*.md (concept files)
       → Cases:        MBAWiki/Case-*.md (case study files)
       → Transcripts:  Concept-*.md + updates Case-*.md discussions
-        → wiki_viewer/app.py (Flask web server, renders wiki)
-          → http://127.0.0.1:5000/
+        → build_search_index.py (local embeddings, auto-refreshes after ingest)
+          → MBAWiki/assets/search_index.npz + search_metadata.json
+            → wiki_viewer/app.py (Flask web server, renders wiki + /search)
+              → http://127.0.0.1:5000/
 ```
 
 ### Key Files
 
-- **download_and_process.py** - Google Drive integration. Downloads files, calls processor. Supports single file or batch `--all` mode (lectures → cases → transcripts). Timeout: 300s for PDFs, 120s for TXT.
-- **process_single_file.py** - Core processor. Three modes via `--type`: `lecture` (default), `case`, `transcript`. Auto-creates new files, auto-merges duplicates via Gemini rewrite. Accepts `--no-images` flag.
+- **download_and_process.py** - Google Drive integration. Downloads files, calls processor. Supports single file or batch `--all` mode (lectures → cases → transcripts). Timeout: 300s for PDFs/DOCX, 120s for TXT. Triggers a full search index rebuild at the end of `--all`.
+- **process_single_file.py** - Core processor. Three modes via `--type`: `lecture` (default), `case`, `transcript`. Handles `.pdf`, `.docx`, and `.txt` inputs (legacy `.doc` is unsupported — convert first). Auto-creates new files, auto-merges duplicates via Gemini rewrite. Accepts `--no-images` flag. After ingest, runs an incremental search index update (mtime-based).
+- **build_search_index.py** - Builds a local semantic search index (`BAAI/bge-small-en-v1.5` via fastembed, ONNX). Outputs `search_index.npz` + `search_metadata.json` in `MBAWiki/assets/`. Supports `--append` for incremental updates. Logs to `log.md` as `## [ts] index | Search index ...`.
 - **tag_images.py** - Image tagging workflow. Maps image captions to concepts via 1 Gemini API call. Wiki viewer auto-inserts tagged images into matching concept pages.
 - **init_image_tags.py** - Helper to populate `image_tags.json` with all PNG filenames from charts folder.
-- **wiki_viewer/app.py** - Flask web server with Wikipedia-style UI. Serves concepts at `/concept/<slug>` and cases at `/case/<slug>`.
+- **wiki_viewer/app.py** - Flask web server with Wikipedia-style UI. Serves concepts at `/concept/<slug>`, cases at `/case/<slug>`, and semantic search at `/search?q=...&course=...&type=...`. Loads the search index at startup (fast); embedding model is lazy-loaded on first query (~3s cold start).
+- **wiki_viewer/utils/search.py** - `SearchIndex` class. Loads `.npz` + JSON sidecar, runs cosine similarity search with course/type filters and a +0.15 title-substring boost. Relevance threshold 0.2.
 - **wiki_viewer/utils/wikilink_processor.py** - Converts [[Wikilinks]] to HTML links. Scans both `Concept-*.md` and `Case-*.md`. Routes wikilinks to correct URL prefix.
 - **wiki_viewer/utils/markdown_parser.py** - Markdown to HTML conversion with TOC.
 
@@ -79,6 +83,12 @@ python tag_images.py --status          # Verify mappings
 # Run wiki viewer
 python wiki_viewer/app.py
 # → http://127.0.0.1:5000/
+# → http://127.0.0.1:5000/search?q=your+question  (semantic search)
+
+# Search index (auto-refreshed by single-file + batch ingestion)
+pip install fastembed                                  # one-time dep
+python build_search_index.py                           # full rebuild
+python build_search_index.py --append                  # incremental (mtime-based)
 ```
 
 ### Image Tagging Format
@@ -108,14 +118,16 @@ MBAWiki/                    # Wiki content
   Case-*.md                 # Case study markdown files
   assets/charts/            # Extracted PDF images
     image_tags.json          # Image-to-concept mappings
+  assets/search_index.npz       # Semantic search embeddings (N x 384 float32)
+  assets/search_metadata.json   # Per-row {slug, title, type, course, preview, mtime}
   archive/                  # Old/archived concepts
 wiki_viewer/                # Flask web application
   app.py, config.py
-  templates/                # HTML templates
+  templates/                # HTML templates (incl. search.html)
   static/css/               # Wikipedia-style CSS
-  utils/                    # Markdown parser, wikilink processor
+  utils/                    # markdown_parser, wikilink_processor, search (SearchIndex)
 Transcript_class_lecture/   # Downloaded lecture files (local cache)
-  CourseName/               # Lecture PDFs and TXTs
+  CourseName/               # Lecture PDFs, DOCXs, and TXTs
   CourseName/cases/         # Case study files
   CourseName/transcripts/   # Transcript files
 credentials/                # Google Drive OAuth tokens

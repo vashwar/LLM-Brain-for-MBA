@@ -1,7 +1,9 @@
-from flask import Flask, render_template, abort, send_from_directory
+from flask import Flask, render_template, abort, send_from_directory, request
 from pathlib import Path
 import json
 import sys
+import datetime
+import re
 
 # Setup path for imports
 sys.path.insert(0, str(Path(__file__).parent))
@@ -19,14 +21,157 @@ from config import (
 )
 from utils.markdown_parser import parse_markdown_to_html, extract_title_from_markdown, extract_metadata
 from utils.wikilink_processor import processor
+from utils.search import SearchIndex
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 app.config["DEBUG"] = DEBUG
 
+# Initialize semantic search index (loads embeddings + metadata, not the model)
+search_index = SearchIndex(
+    WIKI_DIR / "assets" / "search_index.npz",
+    WIKI_DIR / "assets" / "search_metadata.json",
+)
+search_index.load()
+
+
+def _strip_md(text):
+    """Minimal markdown stripper for preview text."""
+    text = re.sub(r"\[\[([^\]|]+)(?:\|[^\]]+)?\]\]", r"\1", text)  # wikilinks
+    text = re.sub(r"\*\*([^*]+)\*\*", r"\1", text)                   # bold
+    text = re.sub(r"\*([^*]+)\*", r"\1", text)                       # italic
+    text = re.sub(r"`([^`]+)`", r"\1", text)                         # code
+    text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)             # md links
+    text = text.replace("**", "").replace("*", "")
+    return text.strip()
+
+
+def _extract_first_paragraph(content):
+    """Return the first prose paragraph after the H1 title.
+
+    Prefers text under '## Definition' if present, otherwise takes the first
+    non-empty block after the title that isn't metadata or a heading.
+    """
+    lines = content.splitlines()
+
+    def paragraph_after(start_idx):
+        buf = []
+        for ln in lines[start_idx:]:
+            stripped = ln.strip()
+            if not stripped:
+                if buf:
+                    break
+                continue
+            if stripped.startswith("#"):
+                if buf:
+                    break
+                continue
+            if stripped.startswith("**") and stripped.endswith("**") and ":" in stripped:
+                # metadata line like **Course:** ..., **Source:** ...
+                if buf:
+                    break
+                continue
+            if stripped.startswith("- ") or stripped.startswith("* "):
+                if buf:
+                    break
+                continue
+            buf.append(stripped)
+        return " ".join(buf).strip()
+
+    # Look for ## Definition first
+    for i, ln in enumerate(lines):
+        if ln.strip().lower().startswith("## definition"):
+            para = paragraph_after(i + 1)
+            if para:
+                return para
+            break
+
+    # Fallback: first paragraph after the H1 title
+    for i, ln in enumerate(lines):
+        if ln.startswith("# "):
+            para = paragraph_after(i + 1)
+            if para:
+                return para
+            break
+
+    return ""
+
+
+def _get_concept_of_the_day():
+    """Deterministically pick a concept for today.
+
+    Uses date.toordinal() % count so the selection is stable for the whole day
+    and rotates every midnight local time. Returns a dict with title, slug,
+    course, and preview — or None if no concepts exist.
+    """
+    concept_titles = sorted(processor.concept_map.keys())
+    if not concept_titles:
+        return None
+
+    today_ordinal = datetime.date.today().toordinal()
+    idx = today_ordinal % len(concept_titles)
+    title = concept_titles[idx]
+    slug = processor.concept_map[title]
+
+    filename = f"{CONCEPT_FILE_PREFIX}{slug}{CONCEPT_FILE_SUFFIX}"
+    filepath = CONCEPTS_DIR / filename
+    preview = ""
+    if filepath.exists():
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                content = f.read()
+            raw = _extract_first_paragraph(content)
+            preview = _strip_md(raw)
+            if len(preview) > 360:
+                preview = preview[:357].rsplit(" ", 1)[0] + "..."
+        except Exception as e:
+            print(f"Warning: could not read {filepath} for concept-of-the-day: {e}")
+
+    courses = processor.get_courses_for_title(title)
+    course_name = courses[0] if courses else "Uncategorized"
+
+    return {
+        "title": title,
+        "slug": slug,
+        "course": course_name,
+        "course_slug": processor.get_course_slug(course_name),
+        "preview": preview,
+    }
+
+
+def _get_did_you_know(n=4, exclude_title=None):
+    """Pick N random concepts for the 'Did you know' panel.
+
+    Deterministic per day (shifted from the concept-of-the-day so they differ).
+    """
+    concept_titles = sorted(processor.concept_map.keys())
+    if not concept_titles:
+        return []
+
+    today_ordinal = datetime.date.today().toordinal()
+    total = len(concept_titles)
+    picks = []
+    seen = set()
+    if exclude_title:
+        seen.add(exclude_title)
+
+    step = max(1, total // max(n, 1) + 1)
+    i = (today_ordinal * 7) % total  # shift from concept-of-the-day
+    attempts = 0
+    while len(picks) < n and attempts < total * 2:
+        title = concept_titles[i % total]
+        if title not in seen:
+            slug = processor.concept_map[title]
+            picks.append({"title": title, "slug": slug})
+            seen.add(title)
+        i += step
+        attempts += 1
+
+    return picks
+
 
 @app.route("/")
 def index():
-    """Homepage: display grid of course cards"""
+    """Homepage: Wikipedia main-page style with Concept of the Day."""
     courses = []
     for name in processor.get_sorted_courses():
         data = processor.course_map[name]
@@ -38,11 +183,22 @@ def index():
         })
     total_concepts = len(processor.concept_map)
     total_cases = len(processor.case_map)
+
+    concept_of_the_day = _get_concept_of_the_day()
+    did_you_know = _get_did_you_know(
+        n=4,
+        exclude_title=concept_of_the_day["title"] if concept_of_the_day else None,
+    )
+    today_str = datetime.date.today().strftime("%B %d, %Y")
+
     return render_template(
         "index.html",
         courses=courses,
         total_concepts=total_concepts,
         total_cases=total_cases,
+        concept_of_the_day=concept_of_the_day,
+        did_you_know=did_you_know,
+        today_str=today_str,
     )
 
 
@@ -173,6 +329,42 @@ def graph():
         except Exception as e:
             print(f"Error reading knowledge_graph.json: {e}")
     return render_template("graph.html", graph_data=graph_data)
+
+
+@app.route("/search")
+def search():
+    """Semantic search across concepts and case studies."""
+    query = request.args.get("q", "").strip()
+    course_filter = request.args.get("course", "").strip()
+    type_filter = request.args.get("type", "").strip()
+
+    # Normalize "all" / empty to None for the SearchIndex API
+    course_arg = course_filter or None
+    type_arg = type_filter if type_filter in ("concept", "case") else None
+
+    results = []
+    if query and search_index.available:
+        results = search_index.search(
+            query,
+            k=20,
+            course=course_arg,
+            type_filter=type_arg,
+        )
+
+    concepts = [r for r in results if r["type"] == "concept"]
+    cases = [r for r in results if r["type"] == "case"]
+
+    return render_template(
+        "search.html",
+        query=query,
+        concepts=concepts,
+        cases=cases,
+        total=len(results),
+        courses=processor.get_sorted_courses(),
+        course_filter=course_filter,
+        type_filter=type_filter,
+        index_available=search_index.available,
+    )
 
 
 @app.route("/assets/charts/<filename>")

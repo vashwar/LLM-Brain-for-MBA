@@ -38,6 +38,7 @@ load_dotenv()
 COURSES_FILE = Path('courses.json')
 TRACKER_FILE = Path('processed_files.json')
 LOCAL_DIR = Path('Transcript_class_lecture')
+LOG_FILE = Path('log.md')
 
 
 def load_courses():
@@ -86,6 +87,36 @@ def mark_file_processed(tracker, course_name, file_type, filename):
         tracker[course_name][file_type] = {}
     tracker[course_name][file_type][filename] = datetime.now(timezone.utc).isoformat()
     save_tracker(tracker)
+
+
+def log_batch_operation(course_name, operation, file_type, file_count):
+    """Log a batch operation to log.md.
+
+    Args:
+        course_name: e.g., "Microeconomics"
+        operation: e.g., "ingest", "complete"
+        file_type: e.g., "lectures", "cases", "transcripts"
+        file_count: number of files processed
+    """
+    try:
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        # Format: ## [2026-04-10 17:30:00] {operation} | {course}: {file_type} ({count} files)
+        entry = f"## [{timestamp}] {operation} | {course_name}: {file_type.capitalize()} ({file_count} files)\n"
+
+        # Append to log.md
+        if LOG_FILE.exists():
+            with open(LOG_FILE, 'a', encoding='utf-8') as f:
+                f.write(entry)
+        else:
+            # If log doesn't exist yet, create it with header
+            header = "# Wiki Evolution Log\n\nAppend-only record of ingestions and updates.\n\n"
+            with open(LOG_FILE, 'w', encoding='utf-8') as f:
+                f.write(header)
+                f.write(entry)
+    except Exception as e:
+        # Don't fail processing if logging fails
+        print(f"   Warning: Could not log batch operation: {e}")
 
 
 def setup_google_drive():
@@ -173,8 +204,9 @@ def download_file(service, file_id, filename, course_dir):
 def process_file(filepath, course_name, extract_images=False, file_type="lectures"):
     """Run the process_single_file.py script with course info."""
     try:
-        is_pdf = filepath.lower().endswith('.pdf')
-        timeout_seconds = 300 if is_pdf else 120
+        lower = filepath.lower()
+        is_long = lower.endswith('.pdf') or lower.endswith('.docx')
+        timeout_seconds = 300 if is_long else 120
 
         cmd = [sys.executable, 'process_single_file.py', filepath, '--course', course_name]
         if file_type == "cases":
@@ -222,14 +254,16 @@ def get_week_number(filename):
 
 
 def sort_files_for_processing(files):
-    """Sort files: PDFs first (by week), then TXTs (by week/date)."""
+    """Sort files: PDFs first (by week), then DOCX, then TXTs (by week/date)."""
     pdfs = [f for f in files if f['name'].lower().endswith('.pdf')]
+    docxs = [f for f in files if f['name'].lower().endswith('.docx')]
     txts = [f for f in files if f['name'].lower().endswith('.txt')]
 
     pdfs.sort(key=lambda f: get_week_number(f['name']))
+    docxs.sort(key=lambda f: get_week_number(f['name']))
     txts.sort(key=lambda f: get_week_number(f['name']))
 
-    return pdfs + txts
+    return pdfs + docxs + txts
 
 
 def process_all(service, course_name, folder_id, course_dir, file_type="lectures", extract_images=False):
@@ -262,9 +296,10 @@ def process_all(service, course_name, folder_id, course_dir, file_type="lectures
         return
 
     pdfs = [f for f in to_process if f['name'].lower().endswith('.pdf')]
+    docxs = [f for f in to_process if f['name'].lower().endswith('.docx')]
     txts = [f for f in to_process if f['name'].lower().endswith('.txt')]
 
-    print(f"\n   Processing: {len(pdfs)} PDFs, {len(txts)} TXTs ({len(skipped)} skipped)")
+    print(f"\n   Processing: {len(pdfs)} PDFs, {len(docxs)} DOCXs, {len(txts)} TXTs ({len(skipped)} skipped)")
     print(f"   Image extraction: {'ON' if extract_images else 'OFF'}")
     print(f"{'='*60}")
 
@@ -519,22 +554,43 @@ def main():
             print(f"   Seed step failed (non-fatal): {e}")
 
         print(f"\n--- Lectures ---")
+        lecture_files = list_files_in_folder(service, lectures_folder_id)
         process_all(service, course_name, lectures_folder_id, course_dir,
                     file_type="lectures", extract_images=parsed['images'])
+        log_batch_operation(course_name, "ingest", "lectures", len(lecture_files))
 
         if cases_folder_id:
             print(f"\n--- Case Reviews ---")
+            case_files = list_files_in_folder(service, cases_folder_id)
             process_all(service, course_name, cases_folder_id, course_dir / "cases",
                         file_type="cases", extract_images=False)
+            log_batch_operation(course_name, "ingest", "cases", len(case_files))
         else:
             print(f"\n   No cases folder configured for {course_name}")
 
         if transcripts_folder_id:
             print(f"\n--- Transcripts ---")
+            transcript_files = list_files_in_folder(service, transcripts_folder_id)
             process_all(service, course_name, transcripts_folder_id, course_dir / "transcripts",
                         file_type="transcripts", extract_images=False)
+            log_batch_operation(course_name, "ingest", "transcripts", len(transcript_files))
         else:
             print(f"\n   No transcripts folder configured for {course_name}")
+
+        # Log completion
+        print(f"\n{'='*60}")
+        print(f"✓ Logged to: log.md")
+        print(f"{'='*60}")
+
+        # Rebuild search index after batch ingestion
+        try:
+            from build_search_index import build_index
+            total, updated = build_index(append_mode=False)  # full rebuild
+            print(f"✓ Search index rebuilt: {total} entries")
+        except ImportError:
+            print(f"⚠ Search index skipped: fastembed not installed (run: pip install fastembed)")
+        except Exception as e:
+            print(f"⚠ Search index rebuild failed (non-fatal): {e}")
     else:
         # Single file mode
         process_single(service, course_name, lectures_folder_id, course_dir, parsed['filename'])

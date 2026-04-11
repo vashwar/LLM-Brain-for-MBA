@@ -1,74 +1,110 @@
-/* Wikipedia-Style CSS for MBA Wiki */
+/* ============================================================
+   MBA Wiki — Wikipedia (Vector skin) inspired stylesheet
+   ============================================================ */
+
+:root {
+    --wp-bg: #f8f9fa;
+    --wp-content-bg: #ffffff;
+    --wp-border: #a2a9b1;
+    --wp-border-light: #c8ccd1;
+    --wp-border-lighter: #eaecf0;
+    --wp-text: #202122;
+    --wp-text-muted: #54595d;
+    --wp-link: #3366cc;
+    --wp-link-visited: #795cb2;
+    --wp-link-red: #ba0000;
+    --wp-heading-border: #a2a9b1;
+    --wp-box-bg: #f8f9fa;
+    --wp-box-accent: #eaf3ff;
+    --wp-case-accent: #fef6e7;
+    --wp-case-border: #c8a34a;
+    --wp-serif: 'Linux Libertine', 'Georgia', 'Times', serif;
+    --wp-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --wp-mono: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
 
 * {
     box-sizing: border-box;
 }
 
 html {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 body {
     margin: 0;
     padding: 0;
-    background: #f6f6f6;
-    color: #333;
-    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--wp-bg);
+    color: var(--wp-text);
+    font-family: var(--wp-sans);
+    font-size: 0.875rem;
     line-height: 1.6;
 }
 
+/* ---------- Links ---------- */
 a {
-    color: #0645ad;
+    color: var(--wp-link);
     text-decoration: none;
 }
-
 a:visited {
-    color: #0b0080;
+    color: var(--wp-link-visited);
 }
-
-a:active {
-    color: #faa700;
-}
-
 a:hover {
     text-decoration: underline;
 }
+a:active {
+    color: var(--wp-link-red);
+}
 
+/* ---------- Typography ---------- */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Trebuchet MS', 'Lucida Grande', sans-serif;
-    margin: 1em 0 0.5em 0;
+    color: var(--wp-text);
+    font-weight: normal;
+    margin: 1em 0 0.25em 0;
+    line-height: 1.3;
 }
 
 h1 {
-    font-size: 2em;
+    font-family: var(--wp-serif);
+    font-size: 1.8em;
+    border-bottom: 1px solid var(--wp-heading-border);
+    padding-bottom: 0.25em;
+    margin-top: 0;
 }
 
 h2 {
+    font-family: var(--wp-serif);
     font-size: 1.5em;
+    border-bottom: 1px solid var(--wp-heading-border);
+    padding-bottom: 0.2em;
 }
 
 h3 {
-    font-size: 1.25em;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 h4, h5, h6 {
     font-size: 1em;
+    font-weight: bold;
 }
 
-/* Header */
+p {
+    margin: 0.5em 0 1em 0;
+}
+
+/* ============================================================
+   Header (Vector-style)
+   ============================================================ */
 .site-header {
-    background: white;
-    border-bottom: 3px solid #0645ad;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    background: var(--wp-content-bg);
+    border-bottom: 1px solid var(--wp-border);
 }
 
 .header-content {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 15px 20px;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -79,198 +115,904 @@ h4, h5, h6 {
 .logo-section {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 2px;
 }
 
 .logo {
     margin: 0;
-    font-size: 1.5em;
-    font-weight: 600;
+    font-family: var(--wp-serif);
+    font-size: 1.6em;
+    font-weight: normal;
+    letter-spacing: 0.01em;
 }
 
 .logo a {
-    color: #111;
+    color: var(--wp-text);
     text-decoration: none;
 }
-
 .logo a:hover {
+    color: var(--wp-text);
     text-decoration: none;
-    color: #0645ad;
 }
 
 .tagline {
     margin: 0;
-    font-size: 0.85em;
-    color: #666;
+    font-size: 0.78em;
+    color: var(--wp-text-muted);
     font-style: italic;
 }
 
+/* ---------- Header search ---------- */
 .search-section {
-    flex: 0 1 300px;
+    flex: 0 1 360px;
 }
 
 .search-form {
     display: flex;
-    gap: 5px;
+    gap: 0;
 }
 
 .search-input {
     flex: 1;
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    font-size: 0.95em;
+    padding: 6px 10px;
+    border: 1px solid var(--wp-border);
+    border-right: none;
+    border-radius: 2px 0 0 2px;
+    font-size: 0.9em;
     font-family: inherit;
+    background: #fff;
+    min-width: 0;
 }
-
 .search-input:focus {
     outline: none;
-    border-color: #0645ad;
-    box-shadow: 0 0 3px rgba(6, 69, 173, 0.3);
+    border-color: var(--wp-link);
+    box-shadow: inset 0 0 0 1px var(--wp-link);
 }
 
 .search-button {
-    padding: 8px 16px;
-    background: #0645ad;
-    color: white;
-    border: none;
-    border-radius: 3px;
+    padding: 6px 14px;
+    background: var(--wp-box-bg);
+    color: var(--wp-text);
+    border: 1px solid var(--wp-border);
+    border-radius: 0 2px 2px 0;
     cursor: pointer;
-    font-weight: 600;
-    font-size: 0.95em;
-    transition: background 0.2s ease;
+    font-weight: normal;
+    font-size: 0.9em;
+    font-family: inherit;
 }
-
 .search-button:hover {
-    background: #044a8c;
+    background: #eaecf0;
 }
-
 .search-button:active {
-    background: #033a6b;
+    background: #dfe2e5;
 }
 
-/* Container */
+/* ============================================================
+   Container
+   ============================================================ */
 .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
     min-height: calc(100vh - 200px);
 }
 
-/* Footer */
+/* Generic "page content" card (Wikipedia article-body feel) */
+.page-content,
+.concept-article,
+.wp-content-box {
+    background: var(--wp-content-bg);
+    border: 1px solid var(--wp-border);
+    padding: 20px 30px 25px 30px;
+    color: var(--wp-text);
+}
+
+/* ---------- Site-wide tagline under article h1 ---------- */
+.wp-subtitle {
+    color: var(--wp-text-muted);
+    font-size: 0.85em;
+    font-style: italic;
+    margin: -0.5em 0 1em 0;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
 .site-footer {
-    background: #f0f0f0;
-    border-top: 1px solid #ddd;
-    padding: 20px;
+    background: transparent;
+    border-top: 1px solid var(--wp-border-light);
+    padding: 15px 20px 25px 20px;
     text-align: center;
-    color: #666;
-    font-size: 0.9em;
-    margin-top: 40px;
+    color: var(--wp-text-muted);
+    font-size: 0.8em;
+    margin-top: 30px;
 }
-
 .site-footer a {
-    color: #0645ad;
+    color: var(--wp-link);
 }
 
-/* Responsive Design */
+/* ============================================================
+   Breadcrumbs
+   ============================================================ */
+.breadcrumb {
+    font-size: 0.82em;
+    color: var(--wp-text-muted);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+}
+.breadcrumb a {
+    color: var(--wp-link);
+}
+
+/* ============================================================
+   Index page — Wikipedia "Main Page" layout
+   ============================================================ */
+.main-page {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.main-page-header {
+    background: var(--wp-content-bg);
+    border: 1px solid var(--wp-border);
+    padding: 15px 25px;
+    text-align: center;
+}
+.main-page-header h1 {
+    font-family: var(--wp-serif);
+    font-size: 2em;
+    border: none;
+    margin: 0.1em 0 0.2em 0;
+    padding: 0;
+}
+.main-page-header .welcome-tagline {
+    color: var(--wp-text-muted);
+    font-style: italic;
+    margin: 0;
+    font-size: 0.95em;
+}
+.main-page-header .stats-line {
+    margin-top: 8px;
+    font-size: 0.9em;
+    color: var(--wp-text-muted);
+}
+.main-page-header .stats-line strong {
+    color: var(--wp-text);
+}
+
+.main-page-columns {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 18px;
+}
+
+@media (max-width: 900px) {
+    .main-page-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- Wikipedia-style boxes ---------- */
+.wp-box {
+    background: var(--wp-content-bg);
+    border: 1px solid var(--wp-border);
+    padding: 0;
+}
+.wp-box-title {
+    background: var(--wp-box-accent);
+    border-bottom: 1px solid var(--wp-border);
+    padding: 6px 12px;
+    font-family: var(--wp-serif);
+    font-size: 1.1em;
+    margin: 0;
+    font-weight: normal;
+}
+.wp-box-body {
+    padding: 14px 16px 16px 16px;
+}
+.wp-box-body p {
+    margin: 0 0 0.8em 0;
+}
+.wp-box-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---------- Concept of the Day ---------- */
+.wp-cotd .wp-box-title {
+    background: var(--wp-box-accent);
+}
+.wp-cotd-title {
+    font-family: var(--wp-serif);
+    font-size: 1.25em;
+    margin: 0 0 4px 0;
+}
+.wp-cotd-title a {
+    color: var(--wp-link);
+}
+.wp-cotd-course {
+    font-size: 0.8em;
+    color: var(--wp-text-muted);
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.wp-cotd-preview {
+    color: var(--wp-text);
+    font-size: 0.95em;
+    line-height: 1.55;
+    margin: 0 0 10px 0;
+}
+.wp-cotd-readmore {
+    font-size: 0.85em;
+}
+.wp-cotd-readmore a::after {
+    content: ' »';
+}
+
+/* ---------- Did you know ---------- */
+.wp-dyk .wp-box-title {
+    background: #fdf6e3;
+}
+.wp-dyk-list {
+    margin: 0;
+    padding: 0 0 0 18px;
+    font-size: 0.9em;
+    line-height: 1.55;
+}
+.wp-dyk-list li {
+    margin-bottom: 8px;
+}
+.wp-dyk-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* ---------- Courses panel ---------- */
+.wp-courses .wp-box-title {
+    background: #e8f5e9;
+}
+.wp-course-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 2;
+    column-gap: 20px;
+}
+@media (max-width: 600px) {
+    .wp-course-list {
+        columns: 1;
+    }
+}
+.wp-course-list li {
+    padding: 4px 0;
+    break-inside: avoid;
+    font-size: 0.92em;
+}
+.wp-course-list li.uncategorized a {
+    color: var(--wp-text-muted);
+    font-style: italic;
+}
+.wp-course-count {
+    color: var(--wp-text-muted);
+    font-size: 0.85em;
+    margin-left: 4px;
+}
+
+/* ---------- Graph link (main-page feature) ---------- */
+.wp-graph-link {
+    display: block;
+    padding: 8px 12px;
+    background: var(--wp-box-bg);
+    border: 1px solid var(--wp-border-light);
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+.wp-graph-link:hover {
+    background: #eaf3ff;
+    text-decoration: none;
+}
+
+/* ============================================================
+   Course page
+   ============================================================ */
+.course-page .page-content h1 {
+    font-family: var(--wp-serif);
+}
+.section-heading {
+    font-family: var(--wp-serif);
+    font-size: 1.35em;
+    color: var(--wp-text);
+    font-weight: normal;
+    margin: 1.2em 0 0.6em 0;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid var(--wp-border-light);
+}
+.concept-items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 4px 18px;
+}
+.concept-item {
+    padding: 4px 0;
+    border: none;
+    background: transparent;
+    font-size: 0.92em;
+    border-radius: 0;
+}
+.concept-item:hover {
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+}
+.concept-item::before {
+    content: '• ';
+    color: var(--wp-text-muted);
+    margin-right: 4px;
+}
+.concept-item.case-item {
+    border-left: none;
+    background: transparent;
+}
+.concept-item.case-item::before {
+    content: '▸ ';
+    color: var(--wp-case-border);
+}
+.case-item:hover {
+    background: transparent;
+    border-color: transparent;
+    border-left-color: transparent;
+}
+.concept-link {
+    color: var(--wp-link);
+    text-decoration: none;
+}
+.concept-link:hover {
+    text-decoration: underline;
+}
+.case-link {
+    color: #a07408;
+}
+
+/* ============================================================
+   Concept page
+   ============================================================ */
+.concept-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.concept-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 20px;
+    margin-top: 12px;
+}
+.toc-sidebar {
+    position: sticky;
+    top: 12px;
+    height: fit-content;
+}
+.toc-container {
+    background: var(--wp-box-bg);
+    border: 1px solid var(--wp-border-light);
+    padding: 10px 14px;
+}
+.toc-title {
+    font-family: var(--wp-serif);
+    font-size: 1em;
+    font-weight: normal;
+    color: var(--wp-text);
+    margin: 0 0 8px 0;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--wp-border-light);
+    text-transform: none;
+    letter-spacing: 0;
+}
+.toc-nav {
+    font-size: 0.85em;
+    line-height: 1.55;
+}
+.toc-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: toc;
+}
+.toc-nav li {
+    margin: 2px 0;
+    counter-increment: toc;
+}
+.toc-nav > ul > li::before {
+    content: counter(toc) '. ';
+    color: var(--wp-text-muted);
+    font-size: 0.85em;
+}
+.toc-nav a {
+    color: var(--wp-link);
+    text-decoration: none;
+    display: inline;
+}
+.toc-nav a:hover {
+    text-decoration: underline;
+}
+.toc-nav ul ul {
+    padding-left: 18px;
+    margin-top: 2px;
+    counter-reset: subtoc;
+}
+.toc-nav ul ul li {
+    counter-increment: subtoc;
+}
+.toc-nav ul ul li::before {
+    content: none;
+}
+
+.concept-content {
+    min-width: 0;
+}
+.concept-article {
+    /* inherits .page-content defaults */
+}
+
+/* Metadata strip under H1 */
+.concept-metadata {
+    display: flex;
+    gap: 18px;
+    padding: 8px 0 10px 0;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--wp-border-light);
+    flex-wrap: wrap;
+    font-size: 0.85em;
+    color: var(--wp-text-muted);
+}
+.metadata-item {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+.metadata-label {
+    font-weight: bold;
+    color: var(--wp-text-muted);
+}
+.metadata-value {
+    color: var(--wp-text);
+}
+.tag {
+    display: inline-block;
+    background: var(--wp-box-bg);
+    color: var(--wp-text-muted);
+    padding: 1px 6px;
+    border: 1px solid var(--wp-border-light);
+    border-radius: 2px;
+    font-size: 0.85em;
+    margin-right: 4px;
+}
+.course-tag {
+    display: inline-block;
+    background: transparent;
+    color: var(--wp-link);
+    padding: 0;
+    border-radius: 0;
+    margin-right: 10px;
+    text-decoration: none;
+    font-weight: normal;
+}
+.course-tag:hover {
+    background: transparent;
+    text-decoration: underline;
+}
+
+/* ---------- Article body ---------- */
+.article-body {
+    color: var(--wp-text);
+    line-height: 1.65;
+    font-size: 0.95em;
+}
+.article-body h1 {
+    font-family: var(--wp-serif);
+    font-size: 1.8em;
+    border-bottom: 1px solid var(--wp-heading-border);
+    padding-bottom: 0.25em;
+    margin-top: 0;
+}
+.article-body h2 {
+    font-family: var(--wp-serif);
+    font-size: 1.5em;
+    border-bottom: 1px solid var(--wp-heading-border);
+    padding-bottom: 0.2em;
+    margin-top: 1.1em;
+}
+.article-body h3 {
+    font-size: 1.15em;
+    font-weight: bold;
+    border-bottom: none;
+    margin-top: 0.9em;
+}
+.article-body p {
+    margin: 0.5em 0 1em 0;
+}
+.article-body ul,
+.article-body ol {
+    margin: 0.3em 0 1em 0;
+    padding-left: 30px;
+}
+.article-body li {
+    margin: 3px 0;
+}
+.article-body strong {
+    font-weight: bold;
+}
+.article-body em {
+    font-style: italic;
+}
+.article-body code {
+    background: var(--wp-box-bg);
+    padding: 1px 5px;
+    border: 1px solid var(--wp-border-lighter);
+    border-radius: 2px;
+    font-family: var(--wp-mono);
+    font-size: 0.88em;
+}
+.article-body pre {
+    background: var(--wp-box-bg);
+    border: 1px solid var(--wp-border-light);
+    border-radius: 2px;
+    padding: 12px;
+    overflow-x: auto;
+    margin: 12px 0;
+}
+.article-body pre code {
+    background: none;
+    padding: 0;
+    border: none;
+}
+.article-body blockquote {
+    border-left: 4px solid var(--wp-border-light);
+    padding-left: 15px;
+    margin: 12px 0;
+    color: var(--wp-text-muted);
+    font-style: italic;
+}
+.article-body table {
+    border-collapse: collapse;
+    margin: 12px 0;
+    background: var(--wp-content-bg);
+    border: 1px solid var(--wp-border);
+    font-size: 0.9em;
+}
+.article-body table th,
+.article-body table td {
+    border: 1px solid var(--wp-border-light);
+    padding: 6px 10px;
+    text-align: left;
+}
+.article-body table th {
+    background: var(--wp-box-bg);
+    font-weight: bold;
+    color: var(--wp-text);
+}
+.article-body img {
+    max-width: 100%;
+    height: auto;
+    margin: 12px 0;
+    border: 1px solid var(--wp-border-light);
+    display: block;
+}
+
+/* ---------- Wikilinks ---------- */
+.wikilink {
+    color: var(--wp-link);
+    text-decoration: none;
+    font-weight: normal;
+}
+.wikilink:hover {
+    text-decoration: underline;
+}
+.broken-wikilink {
+    color: var(--wp-link-red);
+    cursor: help;
+    border-bottom: 1px dotted var(--wp-link-red);
+}
+
+/* ---------- Concept footer ---------- */
+.concept-footer {
+    margin-top: 25px;
+    padding-top: 12px;
+    border-top: 1px solid var(--wp-border-light);
+    font-size: 0.85em;
+}
+.back-link {
+    color: var(--wp-link);
+    text-decoration: none;
+}
+.back-link:hover {
+    text-decoration: underline;
+}
+.footer-sep {
+    margin: 0 8px;
+    color: var(--wp-border-light);
+}
+
+/* ============================================================
+   Chart images inside concept article
+   ============================================================ */
+.concept-charts {
+    margin: 1.5em 0;
+    border-top: 1px solid var(--wp-border-light);
+    padding-top: 1em;
+}
+.concept-charts h2 {
+    margin-bottom: 0.6em;
+}
+.concept-charts figure {
+    margin: 1em 0;
+    padding: 0.4em;
+    background: var(--wp-box-bg);
+    border: 1px solid var(--wp-border-light);
+    display: inline-block;
+    max-width: 100%;
+}
+.concept-charts figure img {
+    max-width: 100%;
+    height: auto;
+}
+.concept-charts figcaption {
+    font-size: 0.85em;
+    color: var(--wp-text-muted);
+    font-style: italic;
+    margin-top: 0.3em;
+    text-align: center;
+}
+
+/* ============================================================
+   Search page
+   ============================================================ */
+.search-page .page-content h1 {
+    font-family: var(--wp-serif);
+}
+.search-notice {
+    padding: 10px 14px;
+    border: 1px solid var(--wp-border-light);
+    margin-bottom: 16px;
+    background: #fef6e7;
+    border-left: 4px solid var(--wp-case-border);
+    font-size: 0.9em;
+}
+.search-notice code {
+    background: var(--wp-box-bg);
+    padding: 1px 5px;
+    border: 1px solid var(--wp-border-lighter);
+    font-family: var(--wp-mono);
+}
+.search-filters {
+    background: var(--wp-box-bg);
+    border: 1px solid var(--wp-border-light);
+    padding: 12px 14px;
+    margin-bottom: 18px;
+}
+.search-input-large {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 0.95em;
+    border: 1px solid var(--wp-border);
+    background: #fff;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-family: inherit;
+}
+.search-input-large:focus {
+    outline: none;
+    border-color: var(--wp-link);
+    box-shadow: inset 0 0 0 1px var(--wp-link);
+}
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.85em;
+}
+.filter-row label {
+    color: var(--wp-text);
+}
+.filter-row select {
+    padding: 4px 8px;
+    border: 1px solid var(--wp-border);
+    background: #fff;
+    font-size: 0.9em;
+    font-family: inherit;
+}
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+}
+.filter-submit {
+    margin-left: auto;
+    padding: 5px 14px;
+    background: var(--wp-box-bg);
+    color: var(--wp-text);
+    border: 1px solid var(--wp-border);
+    font-size: 0.85em;
+    cursor: pointer;
+    font-family: inherit;
+}
+.filter-submit:hover {
+    background: #eaecf0;
+}
+.search-summary {
+    color: var(--wp-text-muted);
+    font-size: 0.9em;
+    margin-bottom: 12px;
+}
+.search-empty {
+    background: var(--wp-box-bg);
+    padding: 14px;
+    border: 1px solid var(--wp-border-light);
+    color: var(--wp-text-muted);
+    text-align: center;
+    font-size: 0.9em;
+}
+.search-hint {
+    color: var(--wp-text-muted);
+    font-style: italic;
+    margin-top: 16px;
+    font-size: 0.9em;
+}
+.search-results {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+.search-result {
+    padding: 10px 0;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid var(--wp-border-lighter);
+    margin-bottom: 0;
+}
+.search-result:hover {
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+    border-bottom-color: var(--wp-border-lighter);
+}
+.search-result.case-result {
+    border-left: none;
+    background: transparent;
+}
+.search-result.case-result:hover {
+    background: transparent;
+}
+.result-header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 2px;
+}
+.result-title {
+    color: var(--wp-link);
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 1.05em;
+    font-family: var(--wp-serif);
+}
+.result-title:hover {
+    text-decoration: underline;
+}
+.result-title.case-title {
+    color: #a07408;
+}
+.course-badge {
+    font-size: 0.7em;
+    background: var(--wp-box-bg);
+    color: var(--wp-text-muted);
+    padding: 1px 6px;
+    border: 1px solid var(--wp-border-light);
+    border-radius: 2px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.score-badge {
+    font-size: 0.7em;
+    color: var(--wp-text-muted);
+    font-family: var(--wp-mono);
+    margin-left: auto;
+}
+.result-preview {
+    color: var(--wp-text);
+    font-size: 0.88em;
+    line-height: 1.5;
+    margin: 4px 0 0 0;
+}
+
+/* ============================================================
+   Responsive Design
+   ============================================================ */
+@media (max-width: 900px) {
+    .concept-layout {
+        grid-template-columns: 1fr;
+    }
+    .toc-sidebar {
+        position: static;
+        margin-bottom: 20px;
+    }
+    .concept-article,
+    .page-content {
+        padding: 16px 18px;
+    }
+    .article-body h1 {
+        font-size: 1.5em;
+    }
+    .article-body h2 {
+        font-size: 1.25em;
+    }
+}
+
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
         align-items: stretch;
     }
-
     .logo-section {
         order: 1;
     }
-
     .search-section {
         order: 2;
         flex: 1 1 100%;
     }
-
     .search-form {
         width: 100%;
     }
-
     .search-input {
         min-width: 0;
     }
-
     html {
-        font-size: 14px;
+        font-size: 13px;
     }
 }
 
-/* Print Styles */
+/* ============================================================
+   Print Styles
+   ============================================================ */
 @media print {
     .site-header,
     .site-footer,
     .search-section,
     .back-link,
-    .breadcrumb {
+    .breadcrumb,
+    .toc-sidebar {
         display: none;
     }
-
     .container {
         max-width: 100%;
         padding: 0;
         background: white;
     }
-
     body {
         background: white;
     }
+    .page-content,
+    .concept-article {
+        border: none;
+        padding: 0;
+    }
 }
 
-/* Utility Classes */
-.hidden {
-    display: none;
-}
-
-.text-muted {
-    color: #666;
-}
-
-.text-center {
-    text-align: center;
-}
-
+/* ============================================================
+   Utility Classes
+   ============================================================ */
+.hidden { display: none; }
+.text-muted { color: var(--wp-text-muted); }
+.text-center { text-align: center; }
 .mt-1 { margin-top: 0.5em; }
 .mt-2 { margin-top: 1em; }
 .mt-3 { margin-top: 1.5em; }
 .mb-1 { margin-bottom: 0.5em; }
 .mb-2 { margin-bottom: 1em; }
 .mb-3 { margin-bottom: 1.5em; }
-
-/* Chart images */
-.concept-charts {
-    margin: 1.5em 0;
-    border-top: 1px solid #ccc;
-    padding-top: 1em;
-}
-
-.concept-charts h2 {
-    margin-bottom: 0.8em;
-}
-
-.concept-charts figure {
-    margin: 1em 0;
-    padding: 0.5em;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    display: inline-block;
-    max-width: 100%;
-}
-
-.concept-charts figure img {
-    max-width: 100%;
-    height: auto;
-}
-
-.concept-charts figcaption {
-    font-size: 0.9em;
-    color: #555;
-    font-style: italic;
-    margin-top: 0.4em;
-    text-align: center;
-}

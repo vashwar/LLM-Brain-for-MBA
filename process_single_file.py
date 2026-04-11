@@ -44,6 +44,41 @@ GEMINI_MODELS = [
 ]
 COURSE_GROUPS_FILE = Path('course_groups.json')
 COURSES_FILE = Path('courses.json')
+LOG_FILE = Path('log.md')
+
+
+def log_ingestion(action, source_filename, file_type, details=""):
+    """Append an entry to log.md with timestamp.
+
+    Args:
+        action: e.g., "ingest", "merge", "seed"
+        source_filename: e.g., "Slides Week 1.pdf"
+        file_type: e.g., "lecture", "case", "transcript"
+        details: optional additional info
+    """
+    try:
+        from datetime import datetime
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        # Format: ## [2026-04-10 17:30:00] {action} | {type}: {source} | {details}
+        entry = f"## [{timestamp}] {action} | {file_type.capitalize()}: {source_filename}"
+        if details:
+            entry += f" | {details}"
+        entry += "\n"
+
+        # Append to log.md
+        if LOG_FILE.exists():
+            with open(LOG_FILE, 'a', encoding='utf-8') as f:
+                f.write(entry)
+        else:
+            # If log doesn't exist yet, create it with header
+            header = "# Wiki Evolution Log\n\nAppend-only record of ingestions and updates.\n\n"
+            with open(LOG_FILE, 'w', encoding='utf-8') as f:
+                f.write(header)
+                f.write(entry)
+    except Exception as e:
+        # Don't fail processing if logging fails
+        print(f"   Warning: Could not log entry: {e}")
 
 
 def load_course_groups(course_name):
@@ -326,17 +361,19 @@ def extract_images_from_pdf(file_path, output_dir):
 
 
 def extract_text_from_file(file_path):
-    """Extract text from PDF or TXT file."""
+    """Extract text from PDF, DOCX, or TXT file."""
     file_path = Path(file_path)
 
     if not file_path.exists():
         raise FileNotFoundError(f"File not found: {file_path}")
 
-    if file_path.suffix.lower() == '.txt':
+    suffix = file_path.suffix.lower()
+
+    if suffix == '.txt':
         with open(file_path, 'r', encoding='utf-8') as f:
             return f.read()
 
-    elif file_path.suffix.lower() == '.pdf':
+    elif suffix == '.pdf':
         if not pymupdf:
             print("pymupdf not installed. Install with: pip install pymupdf")
             return None
@@ -350,6 +387,36 @@ def extract_text_from_file(file_path):
         except Exception as e:
             print(f"Error extracting text from PDF: {e}")
             return None
+
+    elif suffix == '.docx':
+        try:
+            from docx import Document
+        except ImportError:
+            print("python-docx not installed. Install with: pip install python-docx")
+            return None
+
+        try:
+            doc = Document(file_path)
+            parts = []
+            # Paragraphs
+            for para in doc.paragraphs:
+                if para.text:
+                    parts.append(para.text)
+            # Tables (flatten row cells tab-separated)
+            for table in doc.tables:
+                for row in table.rows:
+                    row_text = "\t".join(cell.text.strip() for cell in row.cells)
+                    if row_text.strip():
+                        parts.append(row_text)
+            return "\n".join(parts)
+        except Exception as e:
+            print(f"Error extracting text from DOCX: {e}")
+            return None
+
+    elif suffix == '.doc':
+        raise ValueError(
+            f"Legacy .doc files are not supported. Convert to .docx or .pdf first: {file_path.name}"
+        )
 
     else:
         raise ValueError(f"Unsupported file type: {file_path.suffix}")
@@ -1381,6 +1448,7 @@ def main():
         if created > 0:
             total = len(load_existing_concepts())
             print(f"\n   Total concepts in wiki: {total}")
+            log_ingestion("seed", f"{course_name} seed concepts", "seed", f"{created} concepts created")
         return
 
     if not parsed['file_path']:
@@ -1480,7 +1548,22 @@ def main():
     else:
         api_calls = process_lecture_file(content, file_path, existing_concepts, course_name)
 
-    # Step 6: Summary
+    # Step 6: Log the ingestion
+    source_name = Path(file_path).name
+    log_details = f"{api_calls} API calls"
+    log_ingestion("ingest", source_name, file_type, log_details)
+
+    # Step 6b: Update search index incrementally
+    try:
+        from build_search_index import build_index
+        total, updated = build_index(append_mode=True)
+        print(f"   Search index: {total} entries ({updated} re-embedded) [OK]")
+    except ImportError:
+        print(f"   Search index: skipped (fastembed not installed - run: pip install fastembed)")
+    except Exception as e:
+        print(f"   Search index: failed (non-fatal): {e}")
+
+    # Step 7: Summary
     print(f"\n{'='*70}")
     print(f"   Complete!")
     print(f"{'='*70}")
@@ -1488,6 +1571,7 @@ def main():
     total_cases = len(load_existing_cases())
     print(f"   Total in wiki: {total_concepts} concepts, {total_cases} cases")
     print(f"   API calls used: {api_calls}")
+    print(f"   Logged to: log.md ✓")
 
     print(f"\n   Next steps:")
     print(f"   1. Review the markdown files in MBAWiki/")

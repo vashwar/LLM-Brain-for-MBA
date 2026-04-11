@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}{% if query %}Search: {{ query }}{% else %}Search{% endif %} - MBA Wiki{% endblock %}
+
+{% block content %}
+<div class="search-page">
+    <div class="breadcrumb">
+        <a href="/">Home</a> / <span>Search</span>
+    </div>
+
+    <div class="page-content">
+        <h1>Search</h1>
+
+        {% if not index_available %}
+        <div class="search-notice warning">
+            <strong>Search index not built yet.</strong>
+            <p>Run <code>python build_search_index.py</code> from the repo root, then reload this page.</p>
+        </div>
+        {% endif %}
+
+        <form action="/search" method="get" class="search-filters">
+            <input type="text" name="q" value="{{ query }}" class="search-input-large" placeholder="Ask a question or type a topic...">
+
+            <div class="filter-row">
+                <label>
+                    Course:
+                    <select name="course">
+                        <option value="">All courses</option>
+                        {% for c in courses %}
+                        <option value="{{ c }}" {% if c == course_filter %}selected{% endif %}>{{ c }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <label class="radio-label">
+                    <input type="radio" name="type" value="" {% if not type_filter %}checked{% endif %}> All
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="type" value="concept" {% if type_filter == 'concept' %}checked{% endif %}> Concepts
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="type" value="case" {% if type_filter == 'case' %}checked{% endif %}> Cases
+                </label>
+
+                <button type="submit" class="filter-submit">Search</button>
+            </div>
+        </form>
+
+        {% if query %}
+            <p class="search-summary">
+                Results for <strong>"{{ query }}"</strong> &mdash; {{ total }} match{{ 'es' if total != 1 else '' }}
+                {% if course_filter %} in {{ course_filter }}{% endif %}
+                {% if type_filter == 'concept' %} (concepts only){% elif type_filter == 'case' %} (cases only){% endif %}
+            </p>
+
+            {% if total == 0 and index_available %}
+            <div class="search-empty">
+                <p>No matches. Try broader terms or check the <a href="/">course index</a>.</p>
+            </div>
+            {% endif %}
+
+            {% if concepts %}
+            <h2 class="section-heading">Concepts ({{ concepts|length }})</h2>
+            <ul class="search-results">
+                {% for r in concepts %}
+                <li class="search-result">
+                    <div class="result-header">
+                        <a href="/concept/{{ r.slug }}" class="result-title">{{ r.title }}</a>
+                        <span class="course-badge">{{ r.course }}</span>
+                        <span class="score-badge">{{ "%.2f"|format(r.score) }}</span>
+                    </div>
+                    {% if r.preview %}<p class="result-preview">{{ r.preview }}</p>{% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if cases %}
+            <h2 class="section-heading">Case Studies ({{ cases|length }})</h2>
+            <ul class="search-results">
+                {% for r in cases %}
+                <li class="search-result case-result">
+                    <div class="result-header">
+                        <a href="/case/{{ r.slug }}" class="result-title case-title">{{ r.title }}</a>
+                        <span class="course-badge">{{ r.course }}</span>
+                        <span class="score-badge">{{ "%.2f"|format(r.score) }}</span>
+                    </div>
+                    {% if r.preview %}<p class="result-preview">{{ r.preview }}</p>{% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% elif index_available %}
+            <p class="search-hint">Type a question or topic above to search the wiki.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
