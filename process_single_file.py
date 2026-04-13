@@ -983,12 +983,17 @@ def check_case_duplicates(case_name, existing_cases):
         return flat[case_name]
 
     # Fuzzy match (case-insensitive)
+    stop_words = {'a', 'an', 'the', 'of', 'in', 'on', 'at', 'to', 'for', 'and', 'or', 'is', 'are', 'was', 'were', 'by', 'from', 'with', 'as', 'its', 'it', 'that', 'this', 'not', 'but', 'be', 'has', 'had', 'have', 'do', 'does', 'did', 'will', 'can', 'may', 'about', 'into', 'over', 'after', 'before', 'between', 'under', 'model', 'case', 'study'}
     lower_name = case_name.lower()
     for existing_name, slug in flat.items():
         existing_lower = existing_name.lower()
-        if (lower_name in existing_lower or
-            existing_lower in lower_name or
-            len(set(lower_name.split()) & set(existing_lower.split())) >= 2):
+        # Substring match (one name contains the other)
+        if (lower_name in existing_lower or existing_lower in lower_name):
+            return slug
+        # Word overlap — only count meaningful words (4+ chars, not stop words)
+        new_words = {w for w in lower_name.split() if len(w) >= 4 and w not in stop_words}
+        old_words = {w for w in existing_lower.split() if len(w) >= 4 and w not in stop_words}
+        if len(new_words & old_words) >= 2:
             return slug
 
     return None
@@ -1280,26 +1285,20 @@ def process_case_file(content, file_path, existing_concepts, existing_cases, cou
     print(f"   Stakeholders: {len(case_data.get('stakeholders', []))}")
     print(f"   Related concepts: {len(case_data.get('related_concepts', []))}")
 
-    # Check for duplicate case
-    duplicate = check_case_duplicates(case_name, existing_cases)
+    # Always create case — no duplicate checking for cases
+    slug, markdown = create_case_markdown(case_data, existing_concepts, course_name)
+    output_file = WIKI_DIR / f"{CASE_FILE_PREFIX}{slug}{CONCEPT_FILE_SUFFIX}"
 
-    if duplicate:
-        print(f"\n   Case already exists: Case-{duplicate}.md")
-        print(f"   Skipping (case files are not auto-merged)")
-    else:
-        slug, markdown = create_case_markdown(case_data, existing_concepts, course_name)
-        output_file = WIKI_DIR / f"{CASE_FILE_PREFIX}{slug}{CONCEPT_FILE_SUFFIX}"
-
-        try:
-            with open(output_file, 'w', encoding='utf-8') as f:
-                f.write(markdown)
-            print(f"\n   Created: {output_file}")
-            if "same_course" in existing_cases:
-                existing_cases["same_course"][case_name] = slug
-            else:
-                existing_cases[case_name] = slug
-        except Exception as e:
-            print(f"   Error saving case: {e}")
+    try:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            f.write(markdown)
+        print(f"\n   Created: {output_file}")
+        if "same_course" in existing_cases:
+            existing_cases["same_course"][case_name] = slug
+        else:
+            existing_cases[case_name] = slug
+    except Exception as e:
+        print(f"   Error saving case: {e}")
 
     return api_calls
 

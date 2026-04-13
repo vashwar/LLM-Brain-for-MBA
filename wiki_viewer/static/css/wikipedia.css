@@ -144,7 +144,29 @@ p {
 
 /* ---------- Header search ---------- */
 .search-section {
-    flex: 0 1 360px;
+    flex: 0 1 460px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 16px;
+    font-size: 0.9em;
+}
+
+.nav-link {
+    color: var(--wp-link);
+    text-decoration: none;
+    padding: 4px 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.nav-link:hover {
+    text-decoration: none;
+    border-bottom-color: var(--wp-link);
 }
 
 .search-form {
@@ -474,6 +496,31 @@ p {
 }
 .case-link {
     color: #a07408;
+}
+
+/* ---------- Course sections (for /cases page) ---------- */
+.course-section {
+    margin-bottom: 35px;
+}
+
+.course-section h2 {
+    margin-bottom: 10px;
+}
+
+.course-section h2 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.course-section h2 a:hover {
+    text-decoration: underline;
+}
+
+.course-section .count {
+    font-size: 0.75em;
+    color: var(--wp-text-muted);
+    font-weight: normal;
+    margin-left: 8px;
 }
 
 /* ============================================================

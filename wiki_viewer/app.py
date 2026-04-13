@@ -228,6 +228,29 @@ def course(slug):
     )
 
 
+@app.route("/cases")
+def all_cases():
+    """Display all case studies across all courses"""
+    # Get all cases organized by course
+    cases_by_course = []
+    for course_name in sorted(processor.course_map.keys()):
+        data = processor.course_map[course_name]
+        if data["cases"]:
+            cases_by_course.append({
+                "name": course_name,
+                "slug": processor.get_course_slug(course_name),
+                "cases": sorted(data["cases"], key=lambda x: x[0]),
+            })
+
+    total_cases = len(processor.case_map)
+
+    return render_template(
+        "cases.html",
+        cases_by_course=cases_by_course,
+        total_cases=total_cases,
+    )
+
+
 @app.route("/concept/<slug>")
 def concept(slug):
     """

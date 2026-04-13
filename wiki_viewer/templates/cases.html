@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Case Studies - MBA Wiki{% endblock %}
+
+{% block content %}
+<div class="course-page">
+    <div class="breadcrumb">
+        <a href="/">Home</a> / <span>Case Studies</span>
+    </div>
+
+    <div class="page-content">
+        <h1>Case Studies</h1>
+        <p class="stats-line">
+            <strong>{{ total_cases }}</strong> case stud{{ 'ies' if total_cases != 1 else 'y' }} across {{ cases_by_course|length }} course{{ 's' if cases_by_course|length != 1 }}
+        </p>
+
+        {% for course in cases_by_course %}
+        <section class="course-section">
+            <h2 class="section-heading">
+                <a href="/course/{{ course.slug }}">{{ course.name }}</a>
+                <span class="count">({{ course.cases|length }})</span>
+            </h2>
+            <ul class="concept-items">
+                {% for title, slug in course.cases %}
+                    <li class="concept-item case-item">
+                        <a href="/case/{{ slug }}" class="concept-link case-link">{{ title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endfor %}
+
+        <div class="course-footer">
+            <a href="/" class="back-link">&larr; Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
