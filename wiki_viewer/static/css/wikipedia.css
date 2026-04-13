@@ -28,7 +28,7 @@
 }
 
 html {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 body {
@@ -37,8 +37,8 @@ body {
     background: var(--wp-bg);
     color: var(--wp-text);
     font-family: var(--wp-sans);
-    font-size: 0.875rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.625;
 }
 
 /* ---------- Links ---------- */
@@ -81,6 +81,11 @@ h2 {
 
 h3 {
     font-size: 1.2em;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.1em;
     font-weight: bold;
 }
 
@@ -257,7 +262,7 @@ p {
    Breadcrumbs
    ============================================================ */
 .breadcrumb {
-    font-size: 0.82em;
+    font-size: 0.875em;
     color: var(--wp-text-muted);
     margin-bottom: 12px;
     padding-bottom: 6px;
@@ -296,7 +301,7 @@ p {
 }
 .main-page-header .stats-line {
     margin-top: 8px;
-    font-size: 0.9em;
+    font-size: 1em;
     color: var(--wp-text-muted);
 }
 .main-page-header .stats-line strong {
@@ -326,7 +331,7 @@ p {
     border-bottom: 1px solid var(--wp-border);
     padding: 6px 12px;
     font-family: var(--wp-serif);
-    font-size: 1.1em;
+    font-size: 1.15em;
     margin: 0;
     font-weight: normal;
 }
@@ -461,7 +466,7 @@ p {
     padding: 4px 0;
     border: none;
     background: transparent;
-    font-size: 0.92em;
+    font-size: 1em;
     border-radius: 0;
 }
 .concept-item:hover {
@@ -558,7 +563,7 @@ p {
     letter-spacing: 0;
 }
 .toc-nav {
-    font-size: 0.85em;
+    font-size: 0.9em;
     line-height: 1.55;
 }
 .toc-nav ul {
@@ -945,7 +950,7 @@ p {
     color: var(--wp-link);
     text-decoration: none;
     font-weight: normal;
-    font-size: 1.05em;
+    font-size: 1.15em;
     font-family: var(--wp-serif);
 }
 .result-title:hover {
@@ -955,10 +960,10 @@ p {
     color: #a07408;
 }
 .course-badge {
-    font-size: 0.7em;
+    font-size: 0.75em;
     background: var(--wp-box-bg);
     color: var(--wp-text-muted);
-    padding: 1px 6px;
+    padding: 2px 7px;
     border: 1px solid var(--wp-border-light);
     border-radius: 2px;
     white-space: nowrap;
@@ -966,14 +971,14 @@ p {
     letter-spacing: 0.04em;
 }
 .score-badge {
-    font-size: 0.7em;
+    font-size: 0.75em;
     color: var(--wp-text-muted);
     font-family: var(--wp-mono);
     margin-left: auto;
 }
 .result-preview {
     color: var(--wp-text);
-    font-size: 0.88em;
+    font-size: 0.9375em;
     line-height: 1.5;
     margin: 4px 0 0 0;
 }
