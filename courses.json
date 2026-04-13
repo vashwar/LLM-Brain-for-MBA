@@ -24,5 +24,54 @@
     "lectures_folder_id": "1eeuQ0AlcFxiMTfQSLX3mLSBcpY0l0eQO",
     "transcripts_folder_id":"1jPcl3wy1iwhlVhgV82ComoKmcwcrAdW9",
     "seed_concepts": []
+  },
+    "Data and Decision": {
+    "lectures_folder_id": "1rM1NH4m8aqvL_Ve3kDpr4YJWzU-iU8pP",
+    "transcripts_folder_id":"1RN_CEbkKXF-NmD-eVvtJcCxLz1CfqzTb",
+    "seed_concepts": ["p-value","linear regression","confidence interval"]
+  },
+  "MacroEconomics": {
+    "lectures_folder_id": "1i66Ib6eM7jtnQZLaxZ8KkQnAT1uVPGNX",
+    "transcripts_folder_id":"1_-jirLPFgvIwpZwnFrU6HLq_kEiYmBeI",
+    "seed_concepts": ["GDP","Components of GDP","Age-Earnings Profile","Consumption Smoothing","Monetary and Fiscal Policy","Inflation"]
+  },
+  "Intro Finance": {
+    "lectures_folder_id": "1QNNXCVjuHpyyCnXY65_2j70ZGAi7x9TU",
+    "transcripts_folder_id":"13L7YurJORY6MEg29cQ6pXCBWxGr7MoA5",
+    "seed_concepts": ["NPV","Free Cash Flow","DCF","Bonds","Efficient Portfolio","CAPM","Modigliani-Miller"]
+  },
+  "Ethics": {
+    "lectures_folder_id": "1s8doHfOJSPGLugP5pKK0DVsL13hV70_c",
+    "transcripts_folder_id":"1ymLMb28sICk6UllMk6Ds3g7I4_pfPwnl",
+    "seed_concepts": ["Deontology","Utilitarianism","Virtue Ethics","Social Contracts","Ethics of Care"]
+  },
+  "Marketing Strategy": {
+    "lectures_folder_id": "1XQsMgl-_At9lGRvlSLCaHMzqtUw8hXSq",
+    "cases_folder_id": "13rsPPcUbNKjpc_v6701nd2x4M6NX00OI",
+    "transcripts_folder_id": "11KwGZTQ4ZBUHlNvr76pYHAe_2-IuOCtM",
+    "seed_concepts": [
+      "Blue Ocean vs Red Ocean",
+      "Segmentation",
+      "Positioning",
+      "Channel",
+      "Competitive Advantage",
+      "VDIS",
+      "Distinctiveness"
+    ]
+  },
+
+  "Operations": {
+    "lectures_folder_id": "1o0863-RB-ryIp3Z1CICqG31fcZx4_kUx",
+    "cases_folder_id": "1BXfn_lsbPCbadJGQ4vduAMjZbL6FlL_V",
+    "transcripts_folder_id": "1th2H9ozn57Gg99hFxXkYc2oONkYXGsii",
+    "seed_concepts": [
+      "Little's Law",
+      "Pooling",
+      "Queueing",
+      "Newsvendor Model",
+      "EOQ",
+      "Bullwhip"
+      
+    ]
   }
 }

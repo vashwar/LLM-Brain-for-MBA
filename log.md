@@ -204,3 +204,198 @@ This log serves two purposes:
 ## [2026-04-10 19:28:45] index | Search index incremental: 373 entries (3 re-embedded)
 ## [2026-04-10 19:28:48] ingest | MacroEconomics: Transcripts (7 files)
 ## [2026-04-10 19:29:10] index | Search index full-rebuild: 373 entries (373 re-embedded)
+## [2026-04-11 14:33:12] seed | Seed: Intro Finance seed concepts | 7 concepts created
+## [2026-04-11 14:33:32] ingest | Lecture: EWMBA203_Class7.pdf | 2 API calls
+## [2026-04-11 14:33:34] index | Search index incremental: 387 entries (17 re-embedded)
+## [2026-04-11 14:34:21] ingest | Lecture: EWMBA203_Unit6 (1).pdf | 2 API calls
+## [2026-04-11 14:34:22] index | Search index incremental: 391 entries (6 re-embedded)
+## [2026-04-11 14:35:35] ingest | Lecture: EWMBA203_Unit5 (1).pdf | 2 API calls
+## [2026-04-11 14:35:37] index | Search index incremental: 397 entries (9 re-embedded)
+## [2026-04-11 14:36:38] ingest | Lecture: EWMBA203_Unit6.pdf | 2 API calls
+## [2026-04-11 14:36:39] index | Search index incremental: 398 entries (6 re-embedded)
+## [2026-04-11 14:37:25] ingest | Lecture: EWMBA203_Unit3.pdf | 2 API calls
+## [2026-04-11 14:37:27] index | Search index incremental: 405 entries (9 re-embedded)
+## [2026-04-11 14:38:17] ingest | Lecture: EWMBA203_Unit2.pdf | 2 API calls
+## [2026-04-11 14:38:18] index | Search index incremental: 409 entries (9 re-embedded)
+## [2026-04-11 14:39:19] ingest | Lecture: EWMBA203_Unit1.pdf | 2 API calls
+## [2026-04-11 14:39:20] index | Search index incremental: 417 entries (10 re-embedded)
+## [2026-04-11 14:39:23] ingest | Intro Finance: Lectures (7 files)
+## [2026-04-11 14:39:45] ingest | Transcript: Spring 2025 - EWMBA 203-LEC-31B - Introduction to Finance (Spring 2025)_Captions_English (United States) (6).txt | 2 API calls
+## [2026-04-11 14:39:46] index | Search index incremental: 417 entries (4 re-embedded)
+## [2026-04-11 14:40:28] ingest | Transcript: Spring 2025 - EWMBA 203-LEC-31B - Introduction to Finance (Spring 2025)_Captions_English (United States) (5).txt | 2 API calls
+## [2026-04-11 14:40:28] index | Search index incremental: 418 entries (2 re-embedded)
+## [2026-04-11 14:41:09] ingest | Transcript: Spring 2025 - EWMBA 203-LEC-31B - Introduction to Finance (Spring 2025)_Captions_English (United States) (4).txt | 2 API calls
+## [2026-04-11 14:41:09] index | Search index incremental: 419 entries (3 re-embedded)
+## [2026-04-11 14:41:45] ingest | Transcript: Spring 2025 - EWMBA 203-LEC-31B - Introduction to Finance (Spring 2025)_Captions_English (United States) (3).txt | 2 API calls
+## [2026-04-11 14:41:46] index | Search index incremental: 421 entries (3 re-embedded)
+## [2026-04-11 14:43:23] ingest | Transcript: Spring 2025 - EWMBA 203-LEC-31B - Introduction to Finance (Spring 2025)_Captions_English (United States) (2).txt | 2 API calls
+## [2026-04-11 14:43:24] index | Search index incremental: 421 entries (5 re-embedded)
+## [2026-04-11 14:45:00] ingest | Transcript: Spring 2025 - EWMBA 203-LEC-31B - Introduction to Finance (Spring 2025)_Captions_English (United States) (1).txt | 2 API calls
+## [2026-04-11 14:45:01] index | Search index incremental: 421 entries (3 re-embedded)
+## [2026-04-11 14:45:56] ingest | Transcript: Spring 2025 - EWMBA 203-LEC-31B - Introduction to Finance (Spring 2025)_Captions_English (United States).txt | 2 API calls
+## [2026-04-11 14:45:57] index | Search index incremental: 423 entries (5 re-embedded)
+## [2026-04-11 14:45:59] ingest | Intro Finance: Transcripts (7 files)
+## [2026-04-11 14:46:26] index | Search index full-rebuild: 423 entries (423 re-embedded)
+## [2026-04-11 19:57:03] seed | Seed: Ethics seed concepts | 5 concepts created
+## [2026-04-11 19:57:24] ingest | Lecture: Ethics Toolkit.pdf | 2 API calls
+## [2026-04-11 19:57:26] index | Search index incremental: 428 entries (5 re-embedded)
+## [2026-04-11 19:58:02] ingest | Lecture: defining ethical issues.pdf | 1 API calls
+## [2026-04-11 19:58:03] index | Search index incremental: 438 entries (10 re-embedded)
+## [2026-04-11 19:58:05] ingest | Ethics: Lectures (2 files)
+## [2026-04-11 19:58:14] ingest | Transcript: Spring 2025 - EWMBA 207-LEC-31B - Ethics and Responsibility in Business (Spring 2025)_Captions_English (United States).txt | 1 API calls
+## [2026-04-11 19:58:14] index | Search index incremental: 442 entries (4 re-embedded)
+## [2026-04-11 19:58:53] ingest | Transcript: Spring 2025 - EWMBA 207-LEC-31B - Ethics and Responsibility in Business on 4_12_25 - 9-1pm N370_Captions_English (United States).txt | 1 API calls
+## [2026-04-11 19:58:54] index | Search index incremental: 445 entries (3 re-embedded)
+## [2026-04-11 19:59:44] ingest | Transcript: Spring 2025 - EWMBA 207-LEC-31B - Ethics and Responsibility in Business on 4_5_25 - 2-6pm N370_Captions_English (United States).txt | 2 API calls
+## [2026-04-11 19:59:44] index | Search index incremental: 445 entries (5 re-embedded)
+## [2026-04-11 20:02:02] ingest | Ethics: Transcripts (4 files)
+## [2026-04-11 20:02:33] index | Search index full-rebuild: 447 entries (447 re-embedded)
+## [2026-04-11 20:02:46] ingest | Ethics: Lectures (2 files)
+## [2026-04-11 20:03:07] ingest | Transcript: Spring 2025 - EWMBA 207-LEC-31B - Ethics and Responsibility in Business 0n 3_22_25 9-1pm N370_Captions_English (United States).txt | 2 API calls
+## [2026-04-11 20:03:08] index | Search index incremental: 448 entries (4 re-embedded)
+## [2026-04-11 20:03:10] ingest | Ethics: Transcripts (4 files)
+## [2026-04-11 20:03:40] index | Search index full-rebuild: 448 entries (448 re-embedded)
+## [2026-04-12 15:45:20] seed | Seed: Marketing Strategy seed concepts | 7 concepts created
+## [2026-04-12 15:45:46] ingest | Lecture: EWMBA299+F25+W13.pdf | 2 API calls
+## [2026-04-12 15:45:48] index | Search index incremental: 462 entries (14 re-embedded)
+## [2026-04-12 15:47:06] ingest | Lecture: EWMBA299+F25+W12.pdf | 2 API calls
+## [2026-04-12 15:47:09] index | Search index incremental: 466 entries (6 re-embedded)
+## [2026-04-12 15:47:54] ingest | Lecture: EWMBA299+F25+W10.pdf | 2 API calls
+## [2026-04-12 15:47:55] index | Search index incremental: 471 entries (6 re-embedded)
+## [2026-04-12 15:48:44] ingest | Lecture: EWMBA299+F25+W9.pdf | 2 API calls
+## [2026-04-12 15:48:45] index | Search index incremental: 474 entries (5 re-embedded)
+## [2026-04-12 15:50:11] ingest | Lecture: EWMBA299+F25+W7.pdf | 1 API calls
+## [2026-04-12 15:50:12] index | Search index incremental: 482 entries (8 re-embedded)
+## [2026-04-12 15:50:50] ingest | Lecture: EWMBA299+F25+W8.pdf | 2 API calls
+## [2026-04-12 15:50:51] index | Search index incremental: 486 entries (5 re-embedded)
+## [2026-04-12 15:51:48] ingest | Lecture: EWMBA299+F25+W6.pdf | 2 API calls
+## [2026-04-12 15:51:49] index | Search index incremental: 490 entries (6 re-embedded)
+## [2026-04-12 15:52:30] ingest | Lecture: EWMBA299+F25+W4.pdf | 2 API calls
+## [2026-04-12 15:52:31] index | Search index incremental: 491 entries (5 re-embedded)
+## [2026-04-12 15:53:39] ingest | Lecture: EWMBA299+F25+W3.pdf | 2 API calls
+## [2026-04-12 15:53:40] index | Search index incremental: 493 entries (7 re-embedded)
+## [2026-04-12 15:54:17] ingest | Lecture: EWMBA299 F25 W1-1.pdf | 2 API calls
+## [2026-04-12 15:54:18] index | Search index incremental: 498 entries (7 re-embedded)
+## [2026-04-12 15:55:10] ingest | Lecture: EWMBA299 F25 W2-1.pdf | 2 API calls
+## [2026-04-12 15:55:11] index | Search index incremental: 503 entries (6 re-embedded)
+## [2026-04-12 15:55:13] ingest | Marketing Strategy: Lectures (12 files)
+## [2026-04-12 15:55:20] ingest | Case: ArmariumLuxuryFashionBrandsForRent.pdf | 1 API calls
+## [2026-04-12 15:55:20] index | Search index incremental: 504 entries (1 re-embedded)
+## [2026-04-12 15:55:58] ingest | Case: NintendoSwitchShiftingFromMarket-CompetingToMarket-CreatingStrategy.pdf | 1 API calls
+## [2026-04-12 15:55:58] index | Search index incremental: 505 entries (1 re-embedded)
+## [2026-04-12 15:56:28] ingest | Case: OmnisientCreatingSharedValueInAGrowingDataEcosystem.pdf | 1 API calls
+## [2026-04-12 15:56:29] index | Search index incremental: 506 entries (1 re-embedded)
+## [2026-04-12 15:56:56] ingest | Case: TheMarriott-StarwoodMergerNavigatingBrandPortfolioStrategyAndBrandArchitecture.pdf | 1 API calls
+## [2026-04-12 15:56:57] index | Search index incremental: 507 entries (1 re-embedded)
+## [2026-04-12 15:57:29] ingest | Case: CanDodgeMuscleIntoTheElectricVehicleMarket.pdf | 1 API calls
+## [2026-04-12 15:57:29] index | Search index incremental: 507 entries (0 re-embedded)
+## [2026-04-12 15:57:59] ingest | Case: WhatIKEADoWeWant.pdf | 1 API calls
+## [2026-04-12 15:57:59] index | Search index incremental: 507 entries (0 re-embedded)
+## [2026-04-12 15:58:41] ingest | Case: WeightWatchersPromotingWeightHealth.pdf | 1 API calls
+## [2026-04-12 15:58:41] index | Search index incremental: 508 entries (1 re-embedded)
+## [2026-04-12 15:59:10] ingest | Case: DroomAnOnlinePlatformForPre-OwnedAutomobiles.pdf | 1 API calls
+## [2026-04-12 15:59:11] index | Search index incremental: 509 entries (1 re-embedded)
+## [2026-04-12 15:59:57] ingest | Case: ChaseSapphireCreatingAMillennialCultBrand.pdf | 1 API calls
+## [2026-04-12 15:59:57] index | Search index incremental: 509 entries (0 re-embedded)
+## [2026-04-12 16:00:35] ingest | Case: DlightDesignMarketingChannelStrategiesInIndia.pdf | 1 API calls
+## [2026-04-12 16:00:36] index | Search index incremental: 510 entries (1 re-embedded)
+## [2026-04-12 16:01:09] ingest | Case: BasecampPricing.pdf | 1 API calls
+## [2026-04-12 16:01:09] index | Search index incremental: 511 entries (1 re-embedded)
+## [2026-04-12 16:01:47] ingest | Case: RedBullA.pdf | 1 API calls
+## [2026-04-12 16:01:47] index | Search index incremental: 512 entries (1 re-embedded)
+## [2026-04-12 16:02:16] ingest | Case: FlipkartATransitioningToAMarketplaceModel.pdf | 1 API calls
+## [2026-04-12 16:02:17] index | Search index incremental: 513 entries (1 re-embedded)
+## [2026-04-12 16:02:51] ingest | Case: CVSHealthPromotingDrugAdherence.pdf | 1 API calls
+## [2026-04-12 16:02:52] index | Search index incremental: 514 entries (1 re-embedded)
+## [2026-04-12 16:02:54] ingest | Marketing Strategy: Cases (14 files)
+## [2026-04-12 16:03:25] ingest | Transcript: Fall 2025 - EW _ MBA 299M-1 Marketing Strategy on 8_25_2025 (Mon)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 16:03:26] index | Search index incremental: 514 entries (3 re-embedded)
+## [2026-04-12 16:04:21] ingest | Transcript: Fall 2025 - EW _ MBA 299M-1 Marketing Strategy on 9_8_2025 (Mon)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 16:04:22] index | Search index incremental: 514 entries (3 re-embedded)
+## [2026-04-12 16:04:57] ingest | Transcript: Fall 2025 - EW _ MBA 299M-1 Marketing Strategy on 9_15_2025 (Mon)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 16:04:58] index | Search index incremental: 515 entries (4 re-embedded)
+## [2026-04-12 16:06:13] ingest | Transcript: Fall 2025 - EW _ MBA 299M-1 Marketing Strategy on 9_22_2025 (Mon)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 16:06:14] index | Search index incremental: 515 entries (4 re-embedded)
+## [2026-04-12 16:06:54] ingest | Transcript: Fall 2025 - EW _ MBA 299M-1 Marketing Strategy on 9_29_2025 (Mon)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 16:06:54] index | Search index incremental: 516 entries (4 re-embedded)
+## [2026-04-12 16:07:28] ingest | Transcript: Fall 2025 - EW _ MBA 299M-1 Marketing Strategy on 10_6_2025 (Mon)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 16:07:29] index | Search index incremental: 516 entries (2 re-embedded)
+## [2026-04-12 16:08:14] ingest | Transcript: Fall 2025 - EW _ MBA 299M-1 Marketing Strategy on 10_13_2025 (Mon)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 16:08:15] index | Search index incremental: 516 entries (5 re-embedded)
+## [2026-04-12 16:09:22] ingest | Transcript: Fall 2025 - EW _ MBA 299M-1 Marketing Strategy on 10_20_2025 (Mon)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 16:09:23] index | Search index incremental: 518 entries (4 re-embedded)
+## [2026-04-12 16:10:12] ingest | Transcript: Fall 2025 - EW _ MBA 299M-1 Marketing Strategy on 10_27_2025 (Mon)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 16:10:13] index | Search index incremental: 520 entries (3 re-embedded)
+## [2026-04-12 16:10:48] ingest | Transcript: Fall 2025 - EW _ MBA 299M-1 Marketing Strategy on 11_3_2025 (Mon)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 16:10:48] index | Search index incremental: 520 entries (3 re-embedded)
+## [2026-04-12 16:12:02] ingest | Transcript: Fall 2025 - EW _ MBA 299M-1 Marketing Strategy on 11_10_2025 (Mon)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 16:12:02] index | Search index incremental: 522 entries (4 re-embedded)
+## [2026-04-12 16:12:41] ingest | Transcript: Fall 2025 - EW _ MBA 299M-1 Marketing Strategy on 11_17_2025 (Mon)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 16:12:42] index | Search index incremental: 522 entries (3 re-embedded)
+## [2026-04-12 16:13:32] ingest | Transcript: Fall 2025 - EW _ MBA 299M-1 Marketing Strategy on 11_24_2025 (Mon)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 16:13:32] index | Search index incremental: 522 entries (4 re-embedded)
+## [2026-04-12 16:14:12] ingest | Transcript: Fall 2025 - EW _ MBA 299M-1 Marketing Strategy on 12_1_2025 (Mon)_Captions_English (United States).txt | 1 API calls
+## [2026-04-12 16:14:13] index | Search index incremental: 524 entries (3 re-embedded)
+## [2026-04-12 16:14:16] ingest | Marketing Strategy: Transcripts (14 files)
+## [2026-04-12 16:14:49] index | Search index full-rebuild: 524 entries (524 re-embedded)
+## [2026-04-12 16:53:16] seed | Seed: Operations seed concepts | 6 concepts created
+## [2026-04-12 16:53:34] ingest | Lecture: Class 7 - Littlefield, course review - handoutsb.pdf | 2 API calls
+## [2026-04-12 16:53:35] index | Search index incremental: 531 entries (7 re-embedded)
+## [2026-04-12 16:54:30] ingest | Lecture: Class 6 - Amazon - (with after class notes).pdf | 2 API calls
+## [2026-04-12 16:54:32] index | Search index incremental: 533 entries (6 re-embedded)
+## [2026-04-12 16:55:18] ingest | Lecture: Class 5 - Revenue Management, Zara, Business Models for Sustainability - (with after class notes)-1.pdf | 2 API calls
+## [2026-04-12 16:55:20] index | Search index incremental: 538 entries (9 re-embedded)
+## [2026-04-12 16:56:24] ingest | Lecture: Class 4 - Newsvendor, Bullwhip - (with after class notes).pdf | 2 API calls
+## [2026-04-12 16:56:25] index | Search index incremental: 541 entries (6 re-embedded)
+## [2026-04-12 16:57:41] ingest | Lecture: Class 3 - Responsiveness in Services, Uber (with after class notes).pdf | 2 API calls
+## [2026-04-12 16:57:42] index | Search index incremental: 543 entries (6 re-embedded)
+## [2026-04-12 16:58:27] ingest | Lecture: Class 2 - NCC, Little's Law, EOQ, Queueing (intro) - (with after class notes)-1.pdf | 2 API calls
+## [2026-04-12 16:58:28] index | Search index incremental: 545 entries (6 re-embedded)
+## [2026-04-12 16:59:07] ingest | Lecture: Class 1 - Introduction, Process Analysis and Process Choice - (with after class notes).pdf | 2 API calls
+## [2026-04-12 16:59:08] index | Search index incremental: 553 entries (10 re-embedded)
+## [2026-04-12 16:59:10] ingest | Operations: Lectures (7 files)
+## [2026-04-12 16:59:17] ingest | Case: Amazon - Trickle to Torrent.pdf | 1 API calls
+## [2026-04-12 16:59:18] index | Search index incremental: 554 entries (1 re-embedded)
+## [2026-04-12 16:59:53] ingest | Case: NationalCranberryCooperative1996 (1).pdf | 1 API calls
+## [2026-04-12 16:59:54] index | Search index incremental: 555 entries (1 re-embedded)
+## [2026-04-12 17:00:30] ingest | Case: ZaraAnIntegratedStoreAndOnlineModelA.pdf | 1 API calls
+## [2026-04-12 17:00:30] index | Search index incremental: 555 entries (0 re-embedded)
+## [2026-04-12 17:02:40] ingest | Case: SouthwestAirlinesAbridgedCase.pdf | 1 API calls
+## [2026-04-12 17:02:41] index | Search index incremental: 556 entries (1 re-embedded)
+## [2026-04-12 17:02:43] ingest | Operations: Cases (4 files)
+## [2026-04-12 17:03:21] ingest | Transcript: Fall 2025 - EWMBA204-31A Operations on 8_9_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 17:03:23] index | Search index incremental: 556 entries (5 re-embedded)
+## [2026-04-12 17:04:02] ingest | Transcript: Fall 2025 - EWMBA204-31A Operations on 8_16_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 17:04:03] index | Search index incremental: 556 entries (6 re-embedded)
+## [2026-04-12 17:04:43] ingest | Transcript: Fall 2025 - EWMBA204-31A Operations on 8_23_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 17:04:44] index | Search index incremental: 556 entries (4 re-embedded)
+## [2026-04-12 17:06:36] ingest | Transcript: Fall 2025 - EWMBA204-31A Operations on 9_6_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 17:06:37] index | Search index incremental: 556 entries (5 re-embedded)
+## [2026-04-12 17:08:32] ingest | Transcript: Fall 2025 - EWMBA204-31A Operations on 9_13_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 17:08:33] index | Search index incremental: 557 entries (5 re-embedded)
+## [2026-04-12 17:09:13] ingest | Transcript: Fall 2025 - EWMBA204-31A Operations on 9_20_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 17:09:13] index | Search index incremental: 558 entries (4 re-embedded)
+## [2026-04-12 17:10:22] ingest | Transcript: Fall 2025 - EWMBA204-31A Operations on 9_27_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 17:10:24] index | Search index incremental: 558 entries (6 re-embedded)
+## [2026-04-12 17:10:26] ingest | Operations: Transcripts (7 files)
+## [2026-04-12 17:11:15] index | Search index full-rebuild: 558 entries (558 re-embedded)
+## [2026-04-12 18:07:13] ingest | Operations: Lectures (7 files)
+## [2026-04-12 18:07:22] ingest | Case: ZaraAnIntegratedStoreAndOnlineModelA.pdf | 1 API calls
+## [2026-04-12 18:07:23] index | Search index incremental: 559 entries (1 re-embedded)
+## [2026-04-12 18:07:25] ingest | Operations: Cases (4 files)
+## [2026-04-12 18:07:51] ingest | Transcript: Fall 2025 - EWMBA204-31A Operations on 8_9_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 18:07:52] index | Search index incremental: 559 entries (5 re-embedded)
+## [2026-04-12 18:08:38] ingest | Transcript: Fall 2025 - EWMBA204-31A Operations on 8_16_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 18:08:38] index | Search index incremental: 559 entries (5 re-embedded)
+## [2026-04-12 18:09:30] ingest | Transcript: Fall 2025 - EWMBA204-31A Operations on 8_23_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 18:09:32] index | Search index incremental: 560 entries (5 re-embedded)
+## [2026-04-12 18:10:15] ingest | Transcript: Fall 2025 - EWMBA204-31A Operations on 9_6_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 18:10:16] index | Search index incremental: 560 entries (4 re-embedded)
+## [2026-04-12 18:11:13] ingest | Transcript: Fall 2025 - EWMBA204-31A Operations on 9_13_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 18:11:13] index | Search index incremental: 560 entries (4 re-embedded)
+## [2026-04-12 18:12:01] ingest | Transcript: Fall 2025 - EWMBA204-31A Operations on 9_20_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 18:12:02] index | Search index incremental: 560 entries (4 re-embedded)
+## [2026-04-12 18:12:58] ingest | Transcript: Fall 2025 - EWMBA204-31A Operations on 9_27_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-12 18:13:00] index | Search index incremental: 560 entries (8 re-embedded)
+## [2026-04-12 18:13:03] ingest | Operations: Transcripts (7 files)
+## [2026-04-12 18:13:51] index | Search index full-rebuild: 560 entries (560 re-embedded)
