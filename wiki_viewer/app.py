@@ -7,6 +7,8 @@ import re
 
 # Setup path for imports
 sys.path.insert(0, str(Path(__file__).parent))
+# Allow importing lint_wiki from project root
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import (
     DEBUG,
@@ -387,6 +389,70 @@ def search():
         course_filter=course_filter,
         type_filter=type_filter,
         index_available=search_index.available,
+    )
+
+
+@app.route("/health")
+def health():
+    """Run wiki linter checks and display a health report."""
+    from lint_wiki import scan_wiki, check_orphans, check_broken, check_missing, check_stale, WIKILINK_RE, MISSING_MENTION_THRESHOLD, STALE_DAYS
+    from collections import defaultdict
+
+    pages, title_lookup, inbound, broken, body_texts = scan_wiki()
+
+    orphan_concepts, orphan_cases = check_orphans(pages, inbound)
+    broken_links = check_broken(broken)
+    missing = check_missing(pages, title_lookup, body_texts)
+    stale_by_course = check_stale(pages)
+
+    # Compute totals
+    total_concepts = sum(1 for p in pages.values() if p["type"] == "concept")
+    total_cases = sum(1 for p in pages.values() if p["type"] == "case")
+    total_wikilinks = 0
+    for title, info in pages.items():
+        content = ""
+        try:
+            with open(info["path"], "r", encoding="utf-8") as f:
+                content = f.read()
+        except Exception:
+            pass
+        total_wikilinks += len(WIKILINK_RE.findall(content))
+    total_stale = sum(len(v) for v in stale_by_course.values())
+    broken_count = sum(len(sources) for _, sources in broken_links)
+
+    # Health score (same logic as build_report)
+    orphan_pct = (len(orphan_concepts) + len(orphan_cases)) / max(len(pages), 1) * 100
+    health_score = 10
+    health_score -= min(3, orphan_pct / 15)
+    health_score -= min(3, broken_count / 15)
+    health_score -= min(2, len(missing) / 10)
+    health_score -= min(2, total_stale / 200)
+    health_score = max(0, round(health_score, 1))
+
+    # Group orphan concepts by course
+    orphan_by_course = defaultdict(list)
+    for title, course, fname in orphan_concepts:
+        orphan_by_course[course].append(title)
+
+    now_str = datetime.datetime.now().strftime("%B %d, %Y at %H:%M")
+
+    return render_template(
+        "health.html",
+        health_score=health_score,
+        total_concepts=total_concepts,
+        total_cases=total_cases,
+        total_wikilinks=total_wikilinks,
+        orphan_concepts=orphan_concepts,
+        orphan_cases=orphan_cases,
+        orphan_by_course=dict(orphan_by_course),
+        broken_links=broken_links,
+        broken_count=broken_count,
+        missing=missing,
+        stale_by_course=dict(stale_by_course),
+        total_stale=total_stale,
+        stale_days=STALE_DAYS,
+        mention_threshold=MISSING_MENTION_THRESHOLD,
+        timestamp=now_str,
     )
 
 

@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+
+{% block title %}Health Check — MBA Wiki{% endblock %}
+
+{% block content %}
+<div class="health-page">
+    <div class="page-content">
+        <div class="breadcrumb">
+            <a href="/">Home</a> &rsaquo; Health Check
+        </div>
+
+        <h1>Wiki Health Check</h1>
+        <p class="wp-subtitle">Structural health report for the knowledge base</p>
+
+        <!-- Health Score -->
+        <div class="health-score-card">
+            <div class="health-score-badge {% if health_score > 7 %}health-good{% elif health_score >= 5 %}health-warn{% else %}health-bad{% endif %}">
+                {{ health_score }}
+            </div>
+            <div class="health-score-label">/ 10</div>
+            <div class="health-score-meta">
+                {{ total_concepts }} concepts, {{ total_cases }} cases, ~{{ total_wikilinks }} wikilinks
+            </div>
+        </div>
+
+        <!-- Summary Table -->
+        <table class="health-summary-table">
+            <thead>
+                <tr>
+                    <th>Check</th>
+                    <th>Count</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Orphan concepts</td>
+                    <td>{{ orphan_concepts|length }}</td>
+                    <td>
+                        {% if orphan_concepts|length < 20 %}
+                        <span class="status-good">Good</span>
+                        {% else %}
+                        <span class="status-warn">Needs attention</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Orphan cases</td>
+                    <td>{{ orphan_cases|length }}</td>
+                    <td>
+                        {% if orphan_cases|length < 5 %}
+                        <span class="status-good">Good</span>
+                        {% else %}
+                        <span class="status-info">Expected (cases rarely linked)</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Broken wikilinks</td>
+                    <td>{{ broken_count }}</td>
+                    <td>
+                        {% if broken_count < 5 %}
+                        <span class="status-good">Good</span>
+                        {% else %}
+                        <span class="status-bad">Fix these</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Missing concepts</td>
+                    <td>{{ missing|length }}</td>
+                    <td>
+                        {% if missing|length < 5 %}
+                        <span class="status-good">Good</span>
+                        {% else %}
+                        <span class="status-warn">Review candidates</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Stale pages</td>
+                    <td>{{ total_stale }}</td>
+                    <td>
+                        {% if total_stale < 50 %}
+                        <span class="status-good">Good</span>
+                        {% else %}
+                        <span class="status-info">Informational</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Broken Wikilinks -->
+        <details class="health-section" {% if broken_links %}open{% endif %}>
+            <summary class="health-section-title">Broken Wikilinks ({{ broken_count }} total)</summary>
+            <div class="health-section-body">
+                {% if broken_links %}
+                <p class="text-muted">Links pointing to non-existent pages. Grouped by target — fix the most-referenced first.</p>
+                <table class="health-detail-table">
+                    <thead>
+                        <tr>
+                            <th>Missing Target</th>
+                            <th>Referenced By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for target, sources in broken_links %}
+                        <tr>
+                            <td><code>[[{{ target }}]]</code></td>
+                            <td>
+                                {% for src in sources[:3] %}{{ src }}{% if not loop.last %}, {% endif %}{% endfor %}
+                                {% if sources|length > 3 %} (+{{ sources|length - 3 }} more){% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p class="health-empty">None found!</p>
+                {% endif %}
+            </div>
+        </details>
+
+        <!-- Orphan Concepts -->
+        <details class="health-section">
+            <summary class="health-section-title">Orphan Concepts ({{ orphan_concepts|length }} pages)</summary>
+            <div class="health-section-body">
+                {% if orphan_concepts %}
+                <p class="text-muted">Concept pages that no other page links to. These are invisible to browsing.</p>
+                {% for course, titles in orphan_by_course|dictsort %}
+                <h4>{{ course }} ({{ titles|length }})</h4>
+                <ul class="health-list">
+                    {% for title in titles %}
+                    <li>{{ title }}</li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+                {% else %}
+                <p class="health-empty">None found!</p>
+                {% endif %}
+            </div>
+        </details>
+
+        <!-- Orphan Cases -->
+        <details class="health-section">
+            <summary class="health-section-title">Orphan Cases ({{ orphan_cases|length }} pages)</summary>
+            <div class="health-section-body">
+                {% if orphan_cases %}
+                <p class="text-muted">Cases are rarely wikilinked from concept pages. This is expected.</p>
+                <ul class="health-list">
+                    {% for title, course, fname in orphan_cases %}
+                    <li>{{ title }} <span class="text-muted">({{ course }})</span></li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p class="health-empty">None found!</p>
+                {% endif %}
+            </div>
+        </details>
+
+        <!-- Missing Concepts -->
+        <details class="health-section">
+            <summary class="health-section-title">Missing Concepts ({{ missing|length }} candidates)</summary>
+            <div class="health-section-body">
+                {% if missing %}
+                <p class="text-muted">Terms mentioned in {{ mention_threshold }}+ pages but lacking a dedicated page.</p>
+                <table class="health-detail-table">
+                    <thead>
+                        <tr>
+                            <th>Term</th>
+                            <th>Mentions</th>
+                            <th>Example Pages</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for term, count, examples in missing %}
+                        <tr>
+                            <td>{{ term }}</td>
+                            <td>{{ count }}</td>
+                            <td>{{ examples[:2]|join(', ') }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p class="health-empty">None found!</p>
+                {% endif %}
+            </div>
+        </details>
+
+        <!-- Stale Content -->
+        <details class="health-section">
+            <summary class="health-section-title">Stale Content ({{ total_stale }} pages, >{{ stale_days }} days old)</summary>
+            <div class="health-section-body">
+                {% if stale_by_course %}
+                <p class="text-muted">Pages not modified in the last {{ stale_days }} days. Many pages are complete after initial processing and don't need updates.</p>
+                {% for course, items in stale_by_course|dictsort %}
+                <h4>{{ course }} ({{ items|length }})</h4>
+                <ul class="health-list">
+                    {% for title, ptype, dt in items[:10] %}
+                    <li>[{{ ptype }}] {{ title }} <span class="text-muted">(last modified: {{ dt }})</span></li>
+                    {% endfor %}
+                    {% if items|length > 10 %}
+                    <li class="text-muted">... and {{ items|length - 10 }} more</li>
+                    {% endif %}
+                </ul>
+                {% endfor %}
+                {% else %}
+                <p class="health-empty">None found!</p>
+                {% endif %}
+            </div>
+        </details>
+
+        <div class="health-timestamp">
+            Report generated: {{ timestamp }}
+        </div>
+    </div>
+</div>
+{% endblock %}

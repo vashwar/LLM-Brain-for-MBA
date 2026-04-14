@@ -984,6 +984,146 @@ p {
 }
 
 /* ============================================================
+   Health Check page
+   ============================================================ */
+.health-page .page-content h1 {
+    font-family: var(--wp-serif);
+}
+
+.health-score-card {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin: 18px 0 22px 0;
+    padding: 16px 20px;
+    background: var(--wp-box-bg);
+    border: 1px solid var(--wp-border-light);
+}
+
+.health-score-badge {
+    font-size: 3em;
+    font-weight: bold;
+    line-height: 1;
+    font-family: var(--wp-sans);
+}
+
+.health-good { color: #14866d; }
+.health-warn { color: #ac6600; }
+.health-bad  { color: #d33;    }
+
+.health-score-label {
+    font-size: 1.4em;
+    color: var(--wp-text-muted);
+    margin-right: 18px;
+}
+
+.health-score-meta {
+    font-size: 0.9em;
+    color: var(--wp-text-muted);
+}
+
+/* Summary table */
+.health-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    font-size: 0.9em;
+    border: 1px solid var(--wp-border);
+}
+.health-summary-table th,
+.health-summary-table td {
+    border: 1px solid var(--wp-border-light);
+    padding: 6px 12px;
+    text-align: left;
+}
+.health-summary-table th {
+    background: var(--wp-box-bg);
+    font-weight: bold;
+}
+
+.status-good { color: #14866d; font-weight: bold; }
+.status-warn { color: #ac6600; font-weight: bold; }
+.status-bad  { color: #d33;    font-weight: bold; }
+.status-info { color: var(--wp-text-muted); }
+
+/* Collapsible sections */
+.health-section {
+    border: 1px solid var(--wp-border-light);
+    margin-bottom: 12px;
+}
+
+.health-section-title {
+    background: var(--wp-box-bg);
+    padding: 8px 14px;
+    font-family: var(--wp-serif);
+    font-size: 1.1em;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid transparent;
+}
+.health-section-title:hover {
+    background: #eaecf0;
+}
+.health-section[open] > .health-section-title {
+    border-bottom-color: var(--wp-border-light);
+}
+
+.health-section-body {
+    padding: 12px 16px;
+}
+
+.health-detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    border: 1px solid var(--wp-border-light);
+    margin-top: 8px;
+}
+.health-detail-table th,
+.health-detail-table td {
+    border: 1px solid var(--wp-border-light);
+    padding: 5px 10px;
+    text-align: left;
+}
+.health-detail-table th {
+    background: var(--wp-box-bg);
+    font-weight: bold;
+}
+.health-detail-table code {
+    background: var(--wp-box-bg);
+    padding: 1px 5px;
+    border: 1px solid var(--wp-border-lighter);
+    border-radius: 2px;
+    font-family: var(--wp-mono);
+    font-size: 0.9em;
+}
+
+.health-list {
+    margin: 6px 0 12px 0;
+    padding-left: 22px;
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+.health-list li {
+    margin-bottom: 2px;
+}
+
+.health-empty {
+    color: var(--wp-text-muted);
+    font-style: italic;
+    margin: 4px 0;
+}
+
+.health-timestamp {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid var(--wp-border-light);
+    font-size: 0.8em;
+    color: var(--wp-text-muted);
+}
+
+/* ============================================================
    Responsive Design
    ============================================================ */
 @media (max-width: 900px) {
