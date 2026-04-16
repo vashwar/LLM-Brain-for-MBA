@@ -1,3 +1,4 @@
+import html
 import re
 import json
 from pathlib import Path
@@ -20,7 +21,9 @@ class WikilinkProcessor:
         self.course_map = {}   # {"Course Name": {"concepts": [(title, slug)], "cases": [(title, slug)]}}
         self.concept_courses = {}  # {"Concept Title": ["Course1", "Course2"]}
         self.case_courses = {}     # {"Case Title": ["Course1", "Course2"]}
+        self.alias_map = {}    # {"alias": ("type", "slug")} for fuzzy wikilink resolution
         self.build_concept_map()
+        self.build_alias_map()
         self.load_image_tags()
 
     def build_concept_map(self):
@@ -130,6 +133,101 @@ class WikilinkProcessor:
             courses.append("Uncategorized")
         return courses
 
+    def build_alias_map(self):
+        """Build aliases so fuzzy wikilinks resolve correctly.
+
+        Auto-generates three types of aliases:
+        1. Abbreviations: "Net Present Value (NPV)" -> alias "NPV"
+        2. Slug-to-title: slug "consumption-smoothing" -> "Consumption Smoothing"
+        3. Case-insensitive: "phillips curve" matches "Phillips Curve"
+        """
+        # 1. Abbreviation aliases — extract text in parentheses from titles
+        #    e.g., "CAPM (Capital Asset Pricing Model)" -> alias "CAPM"
+        #    e.g., "Net Present Value (NPV)" -> alias "NPV"
+        paren_re = re.compile(r"\(([^)]+)\)")
+        for title, slug in self.concept_map.items():
+            matches = paren_re.findall(title)
+            for abbrev in matches:
+                abbrev = abbrev.strip()
+                if abbrev and abbrev not in self.concept_map and abbrev not in self.case_map:
+                    self.alias_map[abbrev] = ("concept", slug)
+            # Also add the title without the parenthetical
+            stripped = paren_re.sub("", title).strip()
+            if stripped and stripped != title and stripped not in self.concept_map:
+                self.alias_map[stripped] = ("concept", slug)
+
+        for title, slug in self.case_map.items():
+            matches = paren_re.findall(title)
+            for abbrev in matches:
+                abbrev = abbrev.strip()
+                if abbrev and abbrev not in self.concept_map and abbrev not in self.case_map:
+                    self.alias_map[abbrev] = ("case", slug)
+
+        # 2. Slug aliases — "consumption-smoothing" -> find matching title
+        for title, slug in self.concept_map.items():
+            self.alias_map[slug] = ("concept", slug)
+        for title, slug in self.case_map.items():
+            self.alias_map[slug] = ("case", slug)
+
+    def _resolve_wikilink(self, link_text):
+        """Try to resolve a wikilink to (type, slug, display_text) or None.
+
+        Resolution order:
+        1. Exact match in case_map
+        2. Exact match in concept_map
+        3. Case-insensitive match
+        4. Alias map (abbreviations, slugs)
+        5. Case-insensitive alias match
+        """
+        # 1. Exact case match
+        slug = self.case_map.get(link_text)
+        if slug:
+            return ("case", slug, link_text)
+
+        slug = self.concept_map.get(link_text)
+        if slug:
+            return ("concept", slug, link_text)
+
+        # 2. Case-insensitive match against titles
+        link_lower = link_text.lower()
+        for title, slug in self.case_map.items():
+            if title.lower() == link_lower:
+                return ("case", slug, link_text)
+        for title, slug in self.concept_map.items():
+            if title.lower() == link_lower:
+                return ("concept", slug, link_text)
+
+        # 3. Exact alias match
+        if link_text in self.alias_map:
+            ptype, slug = self.alias_map[link_text]
+            return (ptype, slug, link_text)
+
+        # 4. Case-insensitive alias match (handles slug-style like "consumption-smoothing")
+        for alias, (ptype, slug) in self.alias_map.items():
+            if alias.lower() == link_lower:
+                return (ptype, slug, link_text)
+
+        # 5. Prefix match — link text is the start of an existing title
+        #    e.g., "Equality vs. Equity" matches "Equality vs. Equity vs. Justice"
+        #    Requires link text to be at least 50% of the title length
+        link_norm = link_lower.replace("-", " ")
+        best_match = None
+        best_len = 0
+        for title, slug in self.concept_map.items():
+            title_norm = title.lower().replace("-", " ")
+            if title_norm.startswith(link_norm) and len(link_norm) >= len(title_norm) * 0.5:
+                if len(title) > best_len:
+                    best_match = ("concept", slug, link_text)
+                    best_len = len(title)
+        for title, slug in self.case_map.items():
+            title_norm = title.lower().replace("-", " ")
+            if title_norm.startswith(link_norm) and len(link_norm) >= len(title_norm) * 0.5:
+                if len(title) > best_len:
+                    best_match = ("case", slug, link_text)
+                    best_len = len(title)
+
+        return best_match
+
     def process_wikilinks(self, html_content):
         """
         Replace wikilinks in HTML with proper <a> tags.
@@ -142,17 +240,13 @@ class WikilinkProcessor:
         pattern = r"\[\[([^\]]+)\]\]"
 
         def replace_wikilink(match):
-            link_text = match.group(1)
+            link_text = html.unescape(match.group(1))
 
-            # Check case_map first (for "Case: Name" style links)
-            slug = self.case_map.get(link_text)
-            if slug:
-                return f'<a href="/case/{slug}" class="wikilink">{link_text}</a>'
-
-            # Check concept_map
-            slug = self.concept_map.get(link_text)
-            if slug:
-                return f'<a href="/concept/{slug}" class="wikilink">{link_text}</a>'
+            resolved = self._resolve_wikilink(link_text)
+            if resolved:
+                ptype, slug, display = resolved
+                route = "case" if ptype == "case" else "concept"
+                return f'<a href="/{route}/{slug}" class="wikilink">{display}</a>'
 
             return f'<span class="broken-wikilink" title="Link not found">{link_text}</span>'
 

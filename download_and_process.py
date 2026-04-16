@@ -121,11 +121,55 @@ def log_batch_operation(course_name, operation, file_type, file_count):
 
 def setup_google_drive():
     """Authenticate with Google Drive."""
+    from google.auth.transport.requests import Request
+    from google_auth_oauthlib.flow import InstalledAppFlow
+    import os
+
+    SCOPES = ['https://www.googleapis.com/auth/drive.readonly']
+    creds = None
+
+    # Check if token.json exists and load it
+    if os.path.exists('credentials/token.json'):
+        try:
+            creds = Credentials.from_authorized_user_file('credentials/token.json', SCOPES)
+        except Exception as e:
+            print(f"Warning: Could not load existing token: {e}")
+            creds = None
+
+    # If no valid credentials, authenticate
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            # Refresh expired token
+            try:
+                print("Refreshing expired token...")
+                creds.refresh(Request())
+            except Exception as e:
+                print(f"Could not refresh token: {e}")
+                print("Starting new authentication flow...")
+                creds = None
+
+        if not creds:
+            # Run OAuth flow to get new credentials
+            try:
+                flow = InstalledAppFlow.from_client_secrets_file(
+                    'credentials/credentials.json', SCOPES)
+                print("\nOpening browser for Google Drive authentication...")
+                print("Please authorize access to your Google Drive.\n")
+                creds = flow.run_local_server(port=0)
+            except Exception as e:
+                print(f"Error during authentication: {e}")
+                return None
+
+        # Save the credentials for future runs
+        try:
+            with open('credentials/token.json', 'w') as token:
+                token.write(creds.to_json())
+            print("✓ Authentication successful! Token saved to credentials/token.json\n")
+        except Exception as e:
+            print(f"Warning: Could not save token: {e}")
+
+    # Build and return the service
     try:
-        creds = Credentials.from_authorized_user_file(
-            'credentials/token.json',
-            ['https://www.googleapis.com/auth/drive.readonly']
-        )
         service = build('drive', 'v3', credentials=creds)
         return service
     except Exception as e:

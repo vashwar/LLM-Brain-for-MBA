@@ -30,6 +30,78 @@ except ImportError:
 if sys.platform == 'win32':
     sys.stdout.reconfigure(encoding='utf-8')
 
+# ── JSON repair helper ───────────────────────────────────────────────────────
+def repair_json(text):
+    """Try to parse JSON, repairing common LLM issues if needed."""
+    # 1. Try as-is
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+
+    # 2. Fix unescaped newlines/tabs inside strings
+    fixed = re.sub(r'(?<=": ")(.*?)(?="[,\}\]])', lambda m: m.group(0).replace('\n', '\\n').replace('\t', '\\t'), text, flags=re.DOTALL)
+    try:
+        return json.loads(fixed)
+    except json.JSONDecodeError:
+        pass
+
+    # 3. Fix unescaped newlines inside arrays of strings (key_points, etc.)
+    fixed = re.sub(r'(?<=\[)(.*?)(?=\])', lambda m: m.group(0).replace('\n', '\\n').replace('\t', '\\t'), text, flags=re.DOTALL)
+    try:
+        return json.loads(fixed)
+    except json.JSONDecodeError:
+        pass
+
+    # 4. Brute force: escape all control chars inside JSON string values
+    def escape_control_chars(s):
+        out = []
+        in_string = False
+        escape = False
+        for ch in s:
+            if escape:
+                out.append(ch)
+                escape = False
+                continue
+            if ch == '\\' and in_string:
+                out.append(ch)
+                escape = True
+                continue
+            if ch == '"':
+                in_string = not in_string
+                out.append(ch)
+                continue
+            if in_string and ch in ('\n', '\r', '\t'):
+                out.append('\\n' if ch == '\n' else '\\t' if ch == '\t' else '\\r')
+                continue
+            out.append(ch)
+        return ''.join(out)
+
+    try:
+        return json.loads(escape_control_chars(text))
+    except json.JSONDecodeError:
+        pass
+
+    # 5. Truncation recovery: salvage complete objects from a truncated array
+    #    Find the last complete }, then close the array and outer object
+    last_complete = text.rfind('},')
+    if last_complete > 0:
+        truncated = text[:last_complete + 1]  # up to and including the }
+        # Close any open arrays and the root object
+        for closing in [']}\n', ']\n}', ']}']:
+            try:
+                return json.loads(truncated + closing)
+            except json.JSONDecodeError:
+                continue
+        # Try with escape + close
+        try:
+            return json.loads(escape_control_chars(truncated) + ']}')
+        except json.JSONDecodeError:
+            pass
+
+    return None
+
+
 # ── Configuration ────────────────────────────────────────────────────────────
 load_dotenv()
 GEMINI_API_KEY = os.getenv('Gemini_Api_Key')
@@ -38,10 +110,13 @@ CONCEPT_FILE_PREFIX = "Concept-"
 CASE_FILE_PREFIX = "Case-"
 CONCEPT_FILE_SUFFIX = ".md"
 GEMINI_MODELS = [
-    "gemini-3.1-flash-lite-preview",  # Highest free-tier rate limit
-    "gemini-3-flash-preview",          # Fallback
-    "gemini-2.5-flash",                # Final fallback
+    "gemini-3.1-flash-lite-preview",   # Gemini 3.1 Flash Lite (highest free-tier limits)
+    "gemini-3-flash-preview",          # Gemini 3 Flash fallback
+    "gemini-2.5-flash",                # Stable fallback
 ]
+# Allow override from environment (used by process_all_lite.py)
+if os.getenv('GEMINI_MODEL_OVERRIDE'):
+    GEMINI_MODELS = [os.getenv('GEMINI_MODEL_OVERRIDE')]
 COURSE_GROUPS_FILE = Path('course_groups.json')
 COURSES_FILE = Path('courses.json')
 LOG_FILE = Path('log.md')
@@ -179,26 +254,144 @@ def setup_gemini():
         return False
 
 
-def call_gemini(prompt):
-    """Call Gemini API with model fallback chain. Returns response text or None."""
+def call_gemini(prompt, timeout=180):
+    """Call Gemini API with model fallback chain. Returns response text or None.
+
+    Args:
+        prompt: The prompt to send to Gemini
+        timeout: Timeout in seconds (default: 180s / 3 minutes)
+
+    Fallback strategy:
+        - On timeout: FAIL immediately (don't waste API calls on fallback)
+        - On rate limit: Try fallback model (different quota pools)
+        - On other errors: Fail
+    """
+    import google.api_core.exceptions
+
+    total_api_calls = 0  # Track actual API calls made
+
     for i, model_name in enumerate(GEMINI_MODELS):
+        total_api_calls += 1  # Count this attempt
         try:
             model = genai.GenerativeModel(model_name)
-            response = model.generate_content(prompt)
+
+            # Configure generation with timeout
+            generation_config = {
+                'temperature': 0.7,
+                'top_p': 0.95,
+                'top_k': 40,
+                'max_output_tokens': 65536,
+            }
+
+            # Disable SDK automatic retries - we handle retries manually via model fallback
+            # Without this, SDK retries 3-5x per model = 9-15 wasted calls!
+            from google.api_core import retry
+            request_options = {
+                'timeout': timeout,
+                'retry': None  # CRITICAL: Disable automatic SDK retries
+            }
+
+            print(f"   Calling {model_name} (timeout: {timeout}s, retries: DISABLED)...")
+            response = model.generate_content(
+                prompt,
+                generation_config=generation_config,
+                request_options=request_options
+            )
+
             if i == 0:
-                pass  # Primary model worked, no extra logging
+                print(f"   ✓ Success in {model_name} (1 API call)")
             else:
-                print(f"   (using fallback model: {model_name})")
+                print(f"   ✓ Success in fallback model: {model_name} ({total_api_calls} API calls total)")
             return response.text
-        except Exception as e:
-            error_str = str(e).lower()
-            is_rate_limit = ('429' in str(e) or 'rate' in error_str
-                            or 'quota' in error_str or 'resource' in error_str)
-            if is_rate_limit and i < len(GEMINI_MODELS) - 1:
-                print(f"   Rate limited on {model_name}, falling back to {GEMINI_MODELS[i+1]}...")
+
+        except google.api_core.exceptions.DeadlineExceeded as e:
+            # Timeout = API call already consumed, don't waste more on fallback
+            print(f"\n   ❌ TIMEOUT ERROR on {model_name}")
+            print(f"   Error: {str(e)}")
+            print(f"   ⏱️  Request exceeded {timeout}s timeout")
+            print(f"   📊 API calls made: {total_api_calls}")
+            print(f"   ⚠️  API call was consumed but response took too long")
+            print(f"   💡 Try: increase timeout, check network, or use smaller content\n")
+            raise Exception(f"Request timed out after {timeout}s ({total_api_calls} API call consumed)")
+
+        except google.api_core.exceptions.ResourceExhausted as e:
+            # Rate limit (429) - per-model quota, fallback makes sense
+            print(f"\n   ❌ RATE LIMIT ERROR on {model_name}")
+            print(f"   Error: {str(e)}")
+            print(f"   📊 API calls made so far: {total_api_calls}")
+            if i < len(GEMINI_MODELS) - 1:
+                print(f"   → Trying fallback model: {GEMINI_MODELS[i+1]} (different quota pool)\n")
                 continue
             else:
+                print(f"   ⚠️  All {len(GEMINI_MODELS)} models exhausted ({total_api_calls} API calls total)")
+                print(f"   💡 Wait before retrying\n")
                 raise
+
+        except google.api_core.exceptions.ServiceUnavailable as e:
+            # 503 - Model overloaded, try fallback (different models have independent capacity)
+            print(f"\n   ❌ SERVICE UNAVAILABLE (503) on {model_name}")
+            print(f"   Error: {str(e)[:100]}")
+            print(f"   📊 API calls made so far: {total_api_calls}")
+            if i < len(GEMINI_MODELS) - 1:
+                print(f"   → Trying fallback model: {GEMINI_MODELS[i+1]}\n")
+                continue
+            else:
+                print(f"   ⚠️  All {len(GEMINI_MODELS)} models unavailable ({total_api_calls} API calls total)")
+                print(f"   💡 Wait a few minutes and try again\n")
+                raise
+
+        except google.api_core.exceptions.InvalidArgument as e:
+            # 400 - Bad request (prompt too long, invalid params, etc)
+            print(f"\n   ❌ INVALID ARGUMENT ERROR on {model_name}")
+            print(f"   Error: {str(e)}")
+            print(f"   📊 API calls made: {total_api_calls} (stopping - affects all models)")
+            print(f"   ⚠️  The request is malformed")
+            print(f"   💡 Check: prompt length, content format, or API parameters\n")
+            raise
+
+        except google.api_core.exceptions.PermissionDenied as e:
+            # 403 - API key invalid or insufficient permissions
+            print(f"\n   ❌ PERMISSION DENIED ERROR")
+            print(f"   Error: {str(e)}")
+            print(f"   📊 API calls made: {total_api_calls}")
+            print(f"   ⚠️  Check your Gemini API key in .env file")
+            print(f"   💡 Verify API key is valid and has correct permissions\n")
+            raise
+
+        except google.api_core.exceptions.Unauthenticated as e:
+            # 401 - Authentication failed
+            print(f"\n   ❌ AUTHENTICATION ERROR")
+            print(f"   Error: {str(e)}")
+            print(f"   📊 API calls made: {total_api_calls}")
+            print(f"   ⚠️  API key is missing or invalid")
+            print(f"   💡 Check Gemini_Api_Key in your .env file\n")
+            raise
+
+        except Exception as e:
+            # Catch-all for unexpected errors
+            error_type = type(e).__name__
+            error_msg = str(e)
+            print(f"\n   ❌ UNEXPECTED ERROR on {model_name}")
+            print(f"   Type: {error_type}")
+            print(f"   Error: {error_msg}")
+            print(f"   📊 API calls made: {total_api_calls}")
+
+            # Check if it's a network/connection error - don't fallback
+            error_str = error_msg.lower()
+            is_network_error = any(term in error_str for term in [
+                'connection', 'network', 'unreachable', 'dns', 'socket', 'timeout'
+            ])
+
+            if is_network_error:
+                print(f"   ⚠️  Network/connection issue (stopping - affects all models)")
+                print(f"   💡 Check your internet connection\n")
+                raise
+
+            # Unknown error - fail to be safe (don't waste API calls)
+            print(f"   ⚠️  Failing immediately to avoid wasting API calls")
+            print(f"   💡 If this is a temporary issue, try again later\n")
+            raise
+
     return None
 
 
@@ -517,10 +710,13 @@ Seed concept — will be automatically enriched when lecture material is process
 
 # ── Lecture Processing ───────────────────────────────────────────────────────
 
-def extract_concepts_with_llm(file_content, file_name, existing_concepts):
+def extract_concepts_with_llm(file_content, file_name, existing_concepts, timeout=180):
     """
     Single Gemini API call to extract ALL concepts from file content.
     Returns a list of concepts.
+
+    Args:
+        timeout: API timeout in seconds (auto-adjusted by content size)
     """
 
     # Build list of existing concepts for the prompt (scoped to same course + group)
@@ -566,7 +762,7 @@ IMPORTANT:
 """
 
     try:
-        response_text = call_gemini(prompt)
+        response_text = call_gemini(prompt, timeout=timeout)
         if not response_text:
             print(f"   All models failed")
             return None
@@ -581,13 +777,12 @@ IMPORTANT:
             return None
 
         json_str = response_text[start_idx:end_idx]
-        result = json.loads(json_str)
+        result = repair_json(json_str)
+        if result is None:
+            print(f"   JSON parsing error (repair failed)")
+            print(f"Response text: {response_text[:500]}")
+            return None
         return result.get("concepts", [])
-
-    except json.JSONDecodeError as e:
-        print(f"   JSON parsing error: {e}")
-        print(f"Response text: {response_text[:500]}")
-        return None
     except Exception as e:
         print(f"   LLM error: {e}")
         return None
@@ -671,11 +866,14 @@ def create_concept_markdown(concept_data, existing_concepts, course_name=None):
     return slug, markdown
 
 
-def merge_concepts_with_llm(merge_requests, existing_concepts, course_name=None):
+def merge_concepts_with_llm(merge_requests, existing_concepts, course_name=None, timeout=180):
     """
     Batch merge: send all duplicate concepts to Gemini in 1 API call.
     Each request has existing markdown + new data.
     Returns rewritten markdown for each concept.
+
+    Args:
+        timeout: API timeout in seconds (auto-adjusted by content size)
     """
     if not merge_requests:
         return {}
@@ -736,14 +934,17 @@ RESPOND ONLY WITH JSON (no markdown wrapping):
 """
 
     try:
-        response_text = call_gemini(prompt)
+        response_text = call_gemini(prompt, timeout=timeout)
         if not response_text:
             print(f"   All models failed for merge")
             return {}
 
         start_idx = response_text.find('{')
         end_idx = response_text.rfind('}') + 1
-        result = json.loads(response_text[start_idx:end_idx])
+        result = repair_json(response_text[start_idx:end_idx])
+        if result is None:
+            print(f"   Merge JSON repair failed")
+            return {}
         return result.get('merged', {})
 
     except Exception as e:
@@ -835,10 +1036,13 @@ def same_course_only(tiered):
 
 # ── Case Study Processing ────────────────────────────────────────────────────
 
-def extract_case_with_llm(file_content, file_name, existing_concepts):
+def extract_case_with_llm(file_content, file_name, existing_concepts, timeout=180):
     """
     Single Gemini API call to extract case study data.
     Returns case study JSON data.
+
+    Args:
+        timeout: API timeout in seconds (auto-adjusted by content size)
     """
     prompt_concepts = scoped_concepts_for_prompt(existing_concepts)
     existing_list = "\n".join(f"- {title}" for title in prompt_concepts.keys()) if prompt_concepts else "(none yet)"
@@ -881,7 +1085,7 @@ IMPORTANT:
 """
 
     try:
-        response_text = call_gemini(prompt)
+        response_text = call_gemini(prompt, timeout=timeout)
         if not response_text:
             print(f"   All models failed")
             return None
@@ -895,11 +1099,11 @@ IMPORTANT:
             return None
 
         json_str = response_text[start_idx:end_idx]
-        result = json.loads(json_str)
+        result = repair_json(json_str)
+        if result is None:
+            print(f"   JSON parsing error (repair failed)")
+            return None
         return result
-
-    except json.JSONDecodeError as e:
-        print(f"   JSON parsing error: {e}")
         return None
     except Exception as e:
         print(f"   LLM error: {e}")
@@ -1001,10 +1205,13 @@ def check_case_duplicates(case_name, existing_cases):
 
 # ── Transcript Processing ────────────────────────────────────────────────────
 
-def extract_transcript_with_llm(file_content, file_name, existing_concepts, existing_cases):
+def extract_transcript_with_llm(file_content, file_name, existing_concepts, existing_cases, timeout=180):
     """
     Single Gemini API call to extract BOTH concepts and case discussions from a transcript.
     Returns dual JSON: concepts[] + case_discussions[].
+
+    Args:
+        timeout: API timeout in seconds (auto-adjusted by content size)
     """
     prompt_concepts = scoped_concepts_for_prompt(existing_concepts)
     prompt_cases = same_course_only(existing_cases)
@@ -1065,7 +1272,7 @@ IMPORTANT:
 """
 
     try:
-        response_text = call_gemini(prompt)
+        response_text = call_gemini(prompt, timeout=timeout)
         if not response_text:
             print(f"   All models failed")
             return None, None
@@ -1079,12 +1286,11 @@ IMPORTANT:
             return None, None
 
         json_str = response_text[start_idx:end_idx]
-        result = json.loads(json_str)
+        result = repair_json(json_str)
+        if result is None:
+            print(f"   JSON parsing error (repair failed)")
+            return None, None
         return result.get("concepts", []), result.get("case_discussions", [])
-
-    except json.JSONDecodeError as e:
-        print(f"   JSON parsing error: {e}")
-        return None, None
     except Exception as e:
         print(f"   LLM error: {e}")
         return None, None
@@ -1164,18 +1370,23 @@ def update_case_discussion(case_slug, discussion_data, source_file):
 
 # ── Main Processing Flows ────────────────────────────────────────────────────
 
-def process_lecture_file(content, file_path, existing_concepts, course_name):
-    """Process a lecture file: extract concepts, create/merge."""
+def process_lecture_file(content, file_path, existing_concepts, course_name, timeout=180):
+    """Process a lecture file: extract concepts, create/merge.
+
+    Args:
+        timeout: API timeout in seconds (default 180s, auto-adjusted by content size)
+    """
     api_calls = 0
 
     # Extract concepts (1 API call)
     print(f"\n   Using Gemini to extract concepts (1 API call)...")
-    concepts_list = extract_concepts_with_llm(content, Path(file_path).name, existing_concepts)
+    concepts_list = extract_concepts_with_llm(content, Path(file_path).name, existing_concepts, timeout=timeout)
     api_calls += 1
 
     if not concepts_list:
         print("   Failed to extract concept data")
-        return api_calls
+        print("   ❌ API extraction failed - file will NOT be marked as processed")
+        sys.exit(1)  # Exit with error code so download_and_process knows it failed
 
     print(f"   Extracted {len(concepts_list)} concepts")
 
@@ -1243,7 +1454,7 @@ def process_lecture_file(content, file_path, existing_concepts, course_name):
         print(f"   Merging {len(merge_requests)} existing concepts with new content (1 API call)...")
         api_calls += 1
 
-        merged_results = merge_concepts_with_llm(merge_requests, existing_concepts, course_name)
+        merged_results = merge_concepts_with_llm(merge_requests, existing_concepts, course_name, timeout=timeout)
 
         for slug, new_markdown in merged_results.items():
             output_file = WIKI_DIR / f"{CONCEPT_FILE_PREFIX}{slug}{CONCEPT_FILE_SUFFIX}"
@@ -1260,18 +1471,23 @@ def process_lecture_file(content, file_path, existing_concepts, course_name):
     return api_calls
 
 
-def process_case_file(content, file_path, existing_concepts, existing_cases, course_name):
-    """Process a case study file: extract case data, create Case-*.md."""
+def process_case_file(content, file_path, existing_concepts, existing_cases, course_name, timeout=180):
+    """Process a case study file: extract case data, create Case-*.md.
+
+    Args:
+        timeout: API timeout in seconds (auto-adjusted by content size)
+    """
     api_calls = 0
 
     # Extract case data (1 API call)
     print(f"\n   Using Gemini to extract case study (1 API call)...")
-    case_data = extract_case_with_llm(content, Path(file_path).name, existing_concepts)
+    case_data = extract_case_with_llm(content, Path(file_path).name, existing_concepts, timeout=timeout)
     api_calls += 1
 
     if not case_data:
         print("   Failed to extract case data")
-        return api_calls
+        print("   ❌ API extraction failed - file will NOT be marked as processed")
+        sys.exit(1)  # Exit with error code so download_and_process knows it failed
 
     case_name = case_data.get("case_name", "Unknown Case")
     print(f"   Extracted case: {case_name}")
@@ -1303,20 +1519,25 @@ def process_case_file(content, file_path, existing_concepts, existing_cases, cou
     return api_calls
 
 
-def process_transcript_file(content, file_path, existing_concepts, existing_cases, course_name):
-    """Process a transcript: extract concepts AND update case discussions."""
+def process_transcript_file(content, file_path, existing_concepts, existing_cases, course_name, timeout=180):
+    """Process a transcript: extract concepts AND update case discussions.
+
+    Args:
+        timeout: API timeout in seconds (auto-adjusted by content size)
+    """
     api_calls = 0
 
     # Extract both concepts and case discussions (1 API call)
     print(f"\n   Using Gemini to extract concepts + case discussions (1 API call)...")
     concepts_list, case_discussions = extract_transcript_with_llm(
-        content, Path(file_path).name, existing_concepts, existing_cases
+        content, Path(file_path).name, existing_concepts, existing_cases, timeout=timeout
     )
     api_calls += 1
 
     if concepts_list is None:
         print("   Failed to extract transcript data")
-        return api_calls
+        print("   ❌ API extraction failed - file will NOT be marked as processed")
+        sys.exit(1)  # Exit with error code so download_and_process knows it failed
 
     print(f"   Extracted {len(concepts_list)} concepts, {len(case_discussions or [])} case discussions")
 
@@ -1382,7 +1603,7 @@ def process_transcript_file(content, file_path, existing_concepts, existing_case
             print(f"   Merging {len(merge_requests)} existing concepts with new content (1 API call)...")
             api_calls += 1
 
-            merged_results = merge_concepts_with_llm(merge_requests, existing_concepts, course_name)
+            merged_results = merge_concepts_with_llm(merge_requests, existing_concepts, course_name, timeout=timeout)
 
             for slug, new_markdown in merged_results.items():
                 output_file = WIKI_DIR / f"{CONCEPT_FILE_PREFIX}{slug}{CONCEPT_FILE_SUFFIX}"
@@ -1531,7 +1752,8 @@ def main():
         if not content:
             print("   No content extracted")
             sys.exit(1)
-        print(f"   Read {len(content):,} characters")
+        content_length = len(content)
+        print(f"   Read {content_length:,} characters")
     except FileNotFoundError as e:
         print(f"   {e}")
         sys.exit(1)
@@ -1539,13 +1761,21 @@ def main():
         print(f"   {e}")
         sys.exit(1)
 
+    # Step 4b: Calculate smart timeout based on content length
+    # Base: 180s, +30s per 100k chars, max 600s
+    base_timeout = 180
+    extra_timeout = (content_length // 100000) * 30
+    smart_timeout = min(base_timeout + extra_timeout, 600)
+    if smart_timeout > base_timeout:
+        print(f"   Using extended timeout: {smart_timeout}s (content size: {content_length//1000}k chars)")
+
     # Step 5: Dispatch based on type
     if file_type == 'case':
-        api_calls = process_case_file(content, file_path, existing_concepts, existing_cases, course_name)
+        api_calls = process_case_file(content, file_path, existing_concepts, existing_cases, course_name, timeout=smart_timeout)
     elif file_type == 'transcript':
-        api_calls = process_transcript_file(content, file_path, existing_concepts, existing_cases, course_name)
+        api_calls = process_transcript_file(content, file_path, existing_concepts, existing_cases, course_name, timeout=smart_timeout)
     else:
-        api_calls = process_lecture_file(content, file_path, existing_concepts, course_name)
+        api_calls = process_lecture_file(content, file_path, existing_concepts, course_name, timeout=smart_timeout)
 
     # Step 6: Log the ingestion
     source_name = Path(file_path).name

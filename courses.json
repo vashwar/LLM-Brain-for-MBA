@@ -73,5 +73,40 @@
       "Bullwhip"
       
     ]
+  },
+
+  "Pricing": {
+    "lectures_folder_id": "1TnPdS5MrCpMKehgiJw4OUoLEZ3zia1B0",
+    "cases_folder_id": "1gYCx1s2wfLWQTRaMgF01P48ejiHuERqu",
+    "transcripts_folder_id": "1kGGDu5SxlXvkmh_MV4pGmleSCXL_4I6D",
+    "seed_concepts": [
+      "Game Theory",
+      "Stackelberg equilibrium",
+      "Freemium",
+      "Lerner's Rule"
+      
+    ]
+  },
+  "Marketing Management (OSKI)":{
+    "lectures_folder_id":"1G6-290MrN042UU6HT0JzGDAIXv4O-VM5",
+  
+   "seed_concepts": [
+      "4P"
+
+      
+    ]
+  },
+    "Product Management":{
+    "lectures_folder_id":"1YPUnkWz3pJfzki82qcWfpAIdgxwmYor6",
+    "transcripts_folder_id": "1P0Z35H85qYcCfZQygIjyZ1xWs7Ix_TgT",
+     "seed_concepts": [
+      "Product Sense",
+      "Product Market Fit",
+      "Product Risks",
+      "Goals"
+      
+    ]  
   }
-}
+
+  }
+

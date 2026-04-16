@@ -399,3 +399,196 @@ This log serves two purposes:
 ## [2026-04-12 18:13:00] index | Search index incremental: 560 entries (8 re-embedded)
 ## [2026-04-12 18:13:03] ingest | Operations: Transcripts (7 files)
 ## [2026-04-12 18:13:51] index | Search index full-rebuild: 560 entries (560 re-embedded)
+## [2026-04-13 17:52:44] seed | Seed: Pricing seed concepts | 3 concepts created
+## [2026-04-13 17:52:45] ingest | Pricing: Lectures (0 files)
+## [2026-04-13 17:52:45] ingest | Pricing: Cases (0 files)
+## [2026-04-13 17:52:45] ingest | Pricing: Transcripts (0 files)
+## [2026-04-13 17:57:39] ingest | Lecture: LAL KL Raiffa Russell Rousseau Kaldor Game Theory.pdf | 2 API calls
+## [2026-04-13 17:57:41] index | Search index incremental: 574 entries (18 re-embedded)
+## [2026-04-13 18:17:55] ingest | Lecture: L25 Customer Segments Price Bands.pdf | 2 API calls
+## [2026-04-13 18:17:56] index | Search index incremental: 581 entries (8 re-embedded)
+## [2026-04-13 19:10:12] ingest | Lecture: L26 B Metrics and Segmentation (1).pdf | 1 API calls
+## [2026-04-13 19:10:14] index | Search index incremental: 582 entries (1 re-embedded)
+## [2026-04-13 20:17:13] ingest | Lecture: Beauregard Textiles Game Theory.pdf | 1 API calls
+## [2026-04-13 20:17:13] index | Search index incremental: 582 entries (0 re-embedded)
+## [2026-04-13 20:50:04] ingest | Lecture: L24 Game Hexagon (1).pdf | 1 API calls
+## [2026-04-13 20:50:05] index | Search index incremental: 582 entries (0 re-embedded)
+## [2026-04-13 20:50:26] ingest | Lecture: L23 Ross Audit Qs, Dolan Audit Framework.pdf | 1 API calls
+## [2026-04-13 20:50:26] index | Search index incremental: 582 entries (0 re-embedded)
+## [2026-04-13 23:41:45] ingest | Lecture: L26 B Metrics and Segmentation (1).pdf | 2 API calls
+## [2026-04-13 23:41:47] index | Search index incremental: 590 entries (10 re-embedded)
+## [2026-04-13 23:43:12] ingest | Lecture: Beauregard Textiles Game Theory.pdf | 2 API calls
+## [2026-04-13 23:43:14] index | Search index incremental: 601 entries (19 re-embedded)
+## [2026-04-13 23:44:31] ingest | Lecture: L25 Customer Segments Price Bands.pdf | 2 API calls
+## [2026-04-13 23:44:32] index | Search index incremental: 603 entries (9 re-embedded)
+## [2026-04-13 23:45:46] ingest | Lecture: L24 Game Hexagon (1).pdf | 2 API calls
+## [2026-04-13 23:45:47] index | Search index incremental: 613 entries (10 re-embedded)
+## [2026-04-13 23:46:57] ingest | Lecture: L23 Ross Audit Qs, Dolan Audit Framework.pdf | 2 API calls
+## [2026-04-13 23:46:59] index | Search index incremental: 623 entries (13 re-embedded)
+## [2026-04-13 23:47:50] ingest | Lecture: L22 VCG.pdf | 1 API calls
+## [2026-04-13 23:47:51] index | Search index incremental: 629 entries (6 re-embedded)
+## [2026-04-13 23:48:39] ingest | Lecture: L21 Congestion Pricing.pdf | 2 API calls
+## [2026-04-13 23:48:40] index | Search index incremental: 636 entries (8 re-embedded)
+## [2026-04-13 23:50:08] ingest | Lecture: L20 Auctions + Platform Pricing.pdf | 2 API calls
+## [2026-04-13 23:50:10] index | Search index incremental: 645 entries (14 re-embedded)
+## [2026-04-13 23:51:23] ingest | Lecture: L19 Anchoring Goldilocks 25.pdf | 2 API calls
+## [2026-04-13 23:51:24] index | Search index incremental: 655 entries (12 re-embedded)
+## [2026-04-13 23:52:32] ingest | Lecture: L18 Block Tariffs and BOGO25.pdf | 2 API calls
+## [2026-04-13 23:52:33] index | Search index incremental: 663 entries (8 re-embedded)
+## [2026-04-13 23:53:34] ingest | Lecture: L16 Promo Tactics.pdf | 2 API calls
+## [2026-04-13 23:53:35] index | Search index incremental: 677 entries (15 re-embedded)
+## [2026-04-13 23:57:56] ingest | Lecture: L15 Promo B Formulae.pdf | 2 API calls
+## [2026-04-13 23:57:57] index | Search index incremental: 681 entries (7 re-embedded)
+## [2026-04-14 00:02:37] ingest | Lecture: L14 Promo Frameworks.pdf | 2 API calls
+## [2026-04-14 00:02:39] index | Search index incremental: 695 entries (14 re-embedded)
+## [2026-04-14 11:56:46] ingest | Lecture: L13 Service and Event Pricing.pdf | 2 API calls
+## [2026-04-14 11:56:48] index | Search index incremental: 701 entries (9 re-embedded)
+## [2026-04-14 11:57:32] ingest | Lecture: Sub Comp Numericals T.pdf | 2 API calls
+## [2026-04-14 11:57:33] index | Search index incremental: 702 entries (4 re-embedded)
+## [2026-04-14 11:58:05] ingest | Lecture: Minimum Advertised Price.pdf | 2 API calls
+## [2026-04-14 11:58:06] index | Search index incremental: 705 entries (4 re-embedded)
+## [2026-04-14 11:58:46] ingest | Lecture: L12 Sub Comp Numericals.pdf | 2 API calls
+## [2026-04-14 11:58:47] index | Search index incremental: 707 entries (4 re-embedded)
+## [2026-04-14 11:59:28] ingest | Lecture: L11 Lerner Elasticity Linear, Non-Linear Demand.pdf | 2 API calls
+## [2026-04-14 11:59:29] index | Search index incremental: 708 entries (3 re-embedded)
+## [2026-04-14 12:00:05] ingest | Lecture: L10 Pure Bundling Numericals.pdf | 2 API calls
+## [2026-04-14 12:00:06] index | Search index incremental: 710 entries (4 re-embedded)
+## [2026-04-14 12:00:52] ingest | Lecture: L9B SaaS Segmentation and Tiers.pdf | 2 API calls
+## [2026-04-14 12:00:53] index | Search index incremental: 712 entries (7 re-embedded)
+## [2026-04-14 12:01:39] ingest | Lecture: L9A SaaS, Segmentation and Tiers.pdf | 2 API calls
+## [2026-04-14 12:01:40] index | Search index incremental: 718 entries (9 re-embedded)
+## [2026-04-14 12:02:24] ingest | Lecture: L8 Freemium 2025.pdf | 2 API calls
+## [2026-04-14 12:02:25] index | Search index incremental: 719 entries (6 re-embedded)
+## [2026-04-14 12:03:03] ingest | Lecture: L7 Regression  and Optimization.pdf | 2 API calls
+## [2026-04-14 12:03:04] index | Search index incremental: 721 entries (4 re-embedded)
+## [2026-04-14 12:03:56] ingest | Lecture: Calculations Dropbox.pdf | 2 API calls
+## [2026-04-14 12:03:57] index | Search index incremental: 721 entries (8 re-embedded)
+## [2026-04-14 12:04:40] ingest | Lecture: L6 Portfolio Pricing.pdf | 2 API calls
+## [2026-04-14 12:04:41] index | Search index incremental: 724 entries (5 re-embedded)
+## [2026-04-14 12:05:27] ingest | Lecture: L5 Costing for Pricing 25(1).pdf | 2 API calls
+## [2026-04-14 12:05:28] index | Search index incremental: 727 entries (7 re-embedded)
+## [2026-04-14 12:06:10] ingest | Lecture: L4 Price Segmentation(3)(4).pdf | 2 API calls
+## [2026-04-14 12:06:12] index | Search index incremental: 730 entries (8 re-embedded)
+## [2026-04-14 12:06:54] ingest | Lecture: L3 SKP Tesla Amazon Prime Netflix 2025.pdf | 2 API calls
+## [2026-04-14 12:06:55] index | Search index incremental: 733 entries (7 re-embedded)
+## [2026-04-14 12:07:39] ingest | Lecture: L2 Pricing Game Framework 25(2).pdf | 2 API calls
+## [2026-04-14 12:07:40] index | Search index incremental: 735 entries (5 re-embedded)
+## [2026-04-14 12:08:22] ingest | Lecture: L1 5C Nagle Pyramid 25.pdf | 2 API calls
+## [2026-04-14 12:08:23] index | Search index incremental: 740 entries (8 re-embedded)
+## [2026-04-14 12:10:58] ingest | Lecture: CaptureMoreValue.pdf | 2 API calls
+## [2026-04-14 12:11:00] index | Search index incremental: 746 entries (11 re-embedded)
+## [2026-04-14 12:11:38] ingest | Lecture: PrinciplesOfPricing.pdf | 2 API calls
+## [2026-04-14 12:11:39] index | Search index incremental: 750 entries (7 re-embedded)
+## [2026-04-14 12:12:17] ingest | Lecture: Max Revenue and Elasticity relationship(1).docx | 2 API calls
+## [2026-04-14 12:12:19] index | Search index incremental: 751 entries (3 re-embedded)
+## [2026-04-14 12:12:59] ingest | Lecture: L17 Max Revenue and Elasticity relationship.docx | 2 API calls
+## [2026-04-14 12:13:00] index | Search index incremental: 751 entries (3 re-embedded)
+## [2026-04-14 12:13:31] ingest | Case: Case Kennedy Capacitor.pdf | 1 API calls
+## [2026-04-14 12:13:32] index | Search index incremental: 752 entries (1 re-embedded)
+## [2026-04-14 12:14:01] ingest | Case: HowToFightAPriceWarHBROnPointEnhancedEdition.pdf | 1 API calls
+## [2026-04-14 12:14:02] index | Search index incremental: 753 entries (1 re-embedded)
+## [2026-04-14 12:14:33] ingest | Case: KONETheMonoSpaceLaunchInGermany.pdf | 1 API calls
+## [2026-04-14 12:14:34] index | Search index incremental: 754 entries (1 re-embedded)
+## [2026-04-14 12:15:06] ingest | Case: CurledMetalInc--EngineeredProductsDivision.pdf | 1 API calls
+## [2026-04-14 12:15:07] index | Search index incremental: 755 entries (1 re-embedded)
+## [2026-04-14 12:15:37] ingest | Case: ComputronInc2006.pdf | 1 API calls
+## [2026-04-14 12:15:38] index | Search index incremental: 756 entries (1 re-embedded)
+## [2026-04-14 12:16:08] ingest | Case: PricingPatientPing.pdf | 1 API calls
+## [2026-04-14 12:16:09] index | Search index incremental: 757 entries (1 re-embedded)
+## [2026-04-14 12:16:39] ingest | Case: LesserAntillesLinesTheIslandOfSanHubertoA.pdf | 1 API calls
+## [2026-04-14 12:16:40] index | Search index incremental: 758 entries (1 re-embedded)
+## [2026-04-14 12:17:12] ingest | Case: KeurigAtHome.pdf | 1 API calls
+## [2026-04-14 12:17:13] index | Search index incremental: 759 entries (1 re-embedded)
+## [2026-04-14 12:17:41] ingest | Case: BeauregardTextileCo.pdf | 1 API calls
+## [2026-04-14 12:17:42] index | Search index incremental: 760 entries (1 re-embedded)
+## [2026-04-14 12:18:12] ingest | Case: AvonCo.pdf | 1 API calls
+## [2026-04-14 12:18:13] index | Search index incremental: 761 entries (1 re-embedded)
+## [2026-04-14 12:18:42] ingest | Case: DropboxItJustWorks.pdf | 1 API calls
+## [2026-04-14 12:18:43] index | Search index incremental: 762 entries (1 re-embedded)
+## [2026-04-14 12:19:13] ingest | Case: HowShouldNetflixAddAnAd-SupportedTier.pdf | 1 API calls
+## [2026-04-14 12:19:13] index | Search index incremental: 762 entries (0 re-embedded)
+## [2026-04-14 12:19:56] ingest | Transcript: Summer 2025 - EWMBA 269-LEC-001 - Pricing (Summer 2025) on 5_27_2025 (Tue)_Captions_English (United States).txt | 2 API calls
+## [2026-04-14 12:19:57] index | Search index incremental: 762 entries (8 re-embedded)
+## [2026-04-14 12:20:35] ingest | Transcript: Summer 2025 - EWMBA 269-LEC-001 - Pricing (Summer 2025) on 5_29_2025 (Thu)_Captions_English (United States).txt | 2 API calls
+## [2026-04-14 12:20:36] index | Search index incremental: 762 entries (3 re-embedded)
+## [2026-04-14 12:21:07] ingest | Transcript: Summer 2025 - EWMBA 269-LEC-001 - Pricing (Summer 2025) on 6_3_2025 (Tue)_Captions_English (United States).txt | 2 API calls
+## [2026-04-14 12:21:08] index | Search index incremental: 762 entries (1 re-embedded)
+## [2026-04-14 12:21:45] ingest | Transcript: Summer 2025 - EWMBA 269-LEC-001 - Pricing (Summer 2025) on 6_5_2025 (Thu)_Captions_English (United States).txt | 2 API calls
+## [2026-04-14 12:21:46] index | Search index incremental: 764 entries (6 re-embedded)
+## [2026-04-14 12:22:24] ingest | Transcript: Summer 2025 - EWMBA 269-LEC-001 - Pricing (Summer 2025) on 6_12_2025 (Thu) (Alternate)_Captions_English (United States).txt | 2 API calls
+## [2026-04-14 12:22:25] index | Search index incremental: 765 entries (4 re-embedded)
+## [2026-04-14 12:23:07] ingest | Transcript: Summer 2025 - EWMBA 269-LEC-001 - Pricing (Summer 2025) on 6_12_2025 (Thu)_Captions_English (United States).txt | 2 API calls
+## [2026-04-14 12:23:08] index | Search index incremental: 765 entries (4 re-embedded)
+## [2026-04-14 12:23:42] ingest | Transcript: Summer 2025 - EWMBA 269-LEC-001 - Pricing (Summer 2025) on 6_17_2025 (Tue)_Captions_English (United States).txt | 2 API calls
+## [2026-04-14 12:23:43] index | Search index incremental: 767 entries (5 re-embedded)
+## [2026-04-14 12:24:21] ingest | Transcript: Summer 2025 - EWMBA 269-LEC-001 - Pricing (Summer 2025) on 6_24_2025 (Tue)_Captions_English (United States).txt | 2 API calls
+## [2026-04-14 12:24:22] index | Search index incremental: 769 entries (6 re-embedded)
+## [2026-04-14 12:24:58] ingest | Transcript: Summer 2025 - EWMBA 269-LEC-001 - Pricing (Summer 2025) on 6_26_2025 (Thu)_Captions_English (United States).txt | 1 API calls
+## [2026-04-14 12:24:59] index | Search index incremental: 772 entries (6 re-embedded)
+## [2026-04-14 12:25:41] ingest | Transcript: Summer 2025 - EWMBA 269-LEC-001 - Pricing (Summer 2025) on 7_1_2025 (Tue)_Captions_English (United States).txt | 2 API calls
+## [2026-04-14 12:25:42] index | Search index incremental: 773 entries (5 re-embedded)
+## [2026-04-14 12:26:27] ingest | Transcript: Summer 2025 - EWMBA 269-LEC-001 - Pricing (Summer 2025) on 7_8_2025 (Tue)_Captions_English (United States).txt | 2 API calls
+## [2026-04-14 12:26:28] index | Search index incremental: 773 entries (5 re-embedded)
+## [2026-04-14 12:27:10] ingest | Transcript: Summer 2025 - EWMBA 269-LEC-001 - Pricing (Summer 2025) on 7_10_2025 (Thu)_Captions_English (United States).txt | 2 API calls
+## [2026-04-14 12:27:11] index | Search index incremental: 773 entries (7 re-embedded)
+## [2026-04-14 12:27:53] ingest | Transcript: Summer 2025 - EWMBA 269-LEC-001 - Pricing (Summer 2025) on 7_15_2025 (Tue)_Captions_English (United States).txt | 2 API calls
+## [2026-04-14 12:27:54] index | Search index incremental: 773 entries (7 re-embedded)
+## [2026-04-14 12:28:34] ingest | Transcript: Summer 2025 - EWMBA 269-LEC-001 - Pricing (Summer 2025) on 7_17_2025 (Thu)_Captions_English (United States).txt | 2 API calls
+## [2026-04-14 12:28:35] index | Search index incremental: 773 entries (4 re-embedded)
+## [2026-04-14 12:29:14] ingest | Transcript: EWMBA-269-1 Pricing Thursday_ June 12_ 2025 at 7_02_17 PM_Captions_English (United States).txt | 2 API calls
+## [2026-04-14 12:29:15] index | Search index incremental: 774 entries (4 re-embedded)
+## [2026-04-14 12:30:07] index | Search index full-rebuild: 774 entries (774 re-embedded)
+## [2026-04-14 20:13:24] seed | Seed: Marketing Management (OSKI) seed concepts | 1 concepts created
+## [2026-04-14 20:13:58] ingest | Lecture: slides_w7_oski.pdf | 2 API calls
+## [2026-04-14 20:14:01] index | Search index incremental: 789 entries (20 re-embedded)
+## [2026-04-14 20:14:57] ingest | Lecture: slides_w6_oski.pdf | 2 API calls
+## [2026-04-14 20:14:59] index | Search index incremental: 793 entries (7 re-embedded)
+## [2026-04-14 20:16:15] ingest | Lecture: slides_w5_oski.pdf | 2 API calls
+## [2026-04-14 20:16:16] index | Search index incremental: 800 entries (8 re-embedded)
+## [2026-04-14 20:16:56] ingest | Lecture: slides_w4_oski.pdf | 2 API calls
+## [2026-04-14 20:16:57] index | Search index incremental: 804 entries (6 re-embedded)
+## [2026-04-14 20:17:34] ingest | Lecture: slides_w3_oski.pdf | 2 API calls
+## [2026-04-14 20:17:36] index | Search index incremental: 809 entries (6 re-embedded)
+## [2026-04-14 20:18:21] ingest | Lecture: slides_w2_oski.pdf | 2 API calls
+## [2026-04-14 20:18:23] index | Search index incremental: 809 entries (6 re-embedded)
+## [2026-04-14 20:19:18] ingest | Lecture: slides_w1_oski.pdf | 2 API calls
+## [2026-04-14 20:19:19] index | Search index incremental: 810 entries (1 re-embedded)
+## [2026-04-14 20:21:14] index | Search index full-rebuild: 810 entries (810 re-embedded)
+## [2026-04-14 20:23:07] ingest | Lecture: slides_w1_oski.pdf | 2 API calls
+## [2026-04-14 20:23:08] index | Search index incremental: 811 entries (1 re-embedded)
+## [2026-04-14 20:24:04] index | Search index full-rebuild: 811 entries (811 re-embedded)
+## [2026-04-14 23:59:49] index | Search index incremental: 813 entries (3 re-embedded)
+## [2026-04-15 15:53:55] seed | Seed: Product Management seed concepts | 4 concepts created
+## [2026-04-15 16:13:45] ingest | Lecture: Spring 2026 - PM - Week 1 (sharing).pdf | 2 API calls
+## [2026-04-15 16:13:49] index | Search index incremental: 845 entries (36 re-embedded)
+## [2026-04-15 16:15:56] ingest | Lecture: Spring 2026 - Week 2 (shared).pdf | 2 API calls
+## [2026-04-15 16:15:58] index | Search index incremental: 853 entries (20 re-embedded)
+## [2026-04-15 16:18:32] ingest | Lecture: Spring 2026 - PM - Week 3 (sharing).pdf | 2 API calls
+## [2026-04-15 16:18:36] index | Search index incremental: 896 entries (49 re-embedded)
+## [2026-04-15 16:21:21] ingest | Lecture: Spring 2026 - PM - Week 5 - 2_21 (sharing).pdf | 2 API calls
+## [2026-04-15 16:21:24] index | Search index incremental: 911 entries (24 re-embedded)
+## [2026-04-15 16:24:48] ingest | Lecture: Spring 2026 - PM - Week 6 (Design, Goals, Strategy) - 2_28 (sharing).pdf | 2 API calls
+## [2026-04-15 16:24:51] index | Search index incremental: 924 entries (25 re-embedded)
+## [2026-04-15 16:27:29] ingest | Lecture: Spring 2026 - Week 7 - Product Design, Product Sense Interviews - 3.7.2026 (sharing).pdf | 2 API calls
+## [2026-04-15 16:27:33] index | Search index incremental: 927 entries (27 re-embedded)
+## [2026-04-15 16:55:43] ingest | Lecture: Spring 2026 - Week 8 - PRDs and Prototypes - 3.14.2026 (Sharing).pdf | 2 API calls
+## [2026-04-15 16:55:45] index | Search index incremental: 939 entries (14 re-embedded)
+## [2026-04-15 16:57:51] ingest | Lecture: Spring 2026 - Week 11 - Execution - 4.4.2026 (sharing).pdf | 2 API calls
+## [2026-04-15 16:57:53] index | Search index incremental: 952 entries (13 re-embedded)
+## [2026-04-15 16:58:45] ingest | Transcript: Product Management Class - 2026_04_04 14_02 PDT - Transcript.txt | 2 API calls
+## [2026-04-15 16:58:46] index | Search index incremental: 956 entries (4 re-embedded)
+## [2026-04-15 17:00:15] ingest | Transcript: Product Management Class - 2026_03_14 14_00 PDT - Transcript.txt | 2 API calls
+## [2026-04-15 17:00:17] index | Search index incremental: 956 entries (9 re-embedded)
+## [2026-04-15 17:01:41] ingest | Transcript: Product Management Class - 2026_03_07 14_01 PST - Transcript.txt | 2 API calls
+## [2026-04-15 17:01:42] index | Search index incremental: 956 entries (8 re-embedded)
+## [2026-04-15 17:03:08] ingest | Transcript: Product Management Class - 2026_02_28 14_01 PST - Transcript.txt | 2 API calls
+## [2026-04-15 17:03:10] index | Search index incremental: 957 entries (8 re-embedded)
+## [2026-04-15 17:04:44] ingest | Transcript: Product Management Class - 2026_02_21 13_59 PST - Transcript.txt | 2 API calls
+## [2026-04-15 17:04:45] index | Search index incremental: 959 entries (5 re-embedded)
+## [2026-04-15 17:06:07] ingest | Transcript: Product Management Class - 2026_02_07 13_58 PST - Transcript.txt | 2 API calls
+## [2026-04-15 17:06:08] index | Search index incremental: 959 entries (4 re-embedded)
+## [2026-04-15 17:07:39] ingest | Transcript: Product Management Class - 2026_01_31 13_53 PST - Transcript.txt | 2 API calls
+## [2026-04-15 17:07:41] index | Search index incremental: 959 entries (9 re-embedded)
+## [2026-04-15 17:09:21] ingest | Transcript: Product Management Class - 2026_01_24 13_48 PST - Transcript.txt | 2 API calls
+## [2026-04-15 17:09:22] index | Search index incremental: 959 entries (9 re-embedded)
+## [2026-04-15 17:10:27] index | Search index full-rebuild: 959 entries (959 re-embedded)
