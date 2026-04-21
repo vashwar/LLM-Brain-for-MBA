@@ -10,28 +10,35 @@ An LLM-powered wiki that extracts economics concepts from MBA lecture materials 
 
 ```
 Google Drive (lectures, cases, transcripts folders)
-  → download_and_process.py (downloads file, calls processor)
-    → process_single_file.py (extracts text, 1-2 Gemini API calls)
-      → Lectures:     MBAWiki/Concept-*.md (concept files)
-      → Cases:        MBAWiki/Case-*.md (case study files)
-      → Transcripts:  Concept-*.md + updates Case-*.md discussions
-        → build_search_index.py (local embeddings, auto-refreshes after ingest)
-          → MBAWiki/assets/search_index.npz + search_metadata.json
-            → wiki_viewer/app.py (Flask web server, renders wiki + /search)
-              → http://127.0.0.1:5000/
+  → ingest/process_standalone.py (downloads + processes files, 1-2 Gemini API calls)
+    → Lectures:     MBAWiki/Concept-*.md (concept files)
+    → Cases:        MBAWiki/Case-*.md (case study files)
+    → Transcripts:  Concept-*.md + updates Case-*.md discussions
+      → ingest/build_search_index.py (local embeddings, auto-refreshes after ingest)
+        → MBAWiki/assets/search_index.npz + search_metadata.json
+          → wiki_viewer/app.py (Flask web server, renders wiki + /search + /health)
+            → http://127.0.0.1:5000/
+  → Maintenance/lint_wiki.py (structural health checks, markdown reports)
 ```
 
 ### Key Files
 
-- **download_and_process.py** - Google Drive integration. Downloads files, calls processor. Supports single file or batch `--all` mode (lectures → cases → transcripts). Timeout: 300s for PDFs/DOCX, 120s for TXT. Triggers a full search index rebuild at the end of `--all`.
-- **process_single_file.py** - Core processor. Three modes via `--type`: `lecture` (default), `case`, `transcript`. Handles `.pdf`, `.docx`, and `.txt` inputs (legacy `.doc` is unsupported — convert first). Auto-creates new files, auto-merges duplicates via Gemini rewrite. Accepts `--no-images` flag. After ingest, runs an incremental search index update (mtime-based).
-- **build_search_index.py** - Builds a local semantic search index (`BAAI/bge-small-en-v1.5` via fastembed, ONNX). Outputs `search_index.npz` + `search_metadata.json` in `MBAWiki/assets/`. Supports `--append` for incremental updates. Logs to `log.md` as `## [ts] index | Search index ...`.
-- **tag_images.py** - Image tagging workflow. Maps image captions to concepts via 1 Gemini API call. Wiki viewer auto-inserts tagged images into matching concept pages.
-- **init_image_tags.py** - Helper to populate `image_tags.json` with all PNG filenames from charts folder.
-- **wiki_viewer/app.py** - Flask web server with Wikipedia-style UI. Serves concepts at `/concept/<slug>`, cases at `/case/<slug>`, and semantic search at `/search?q=...&course=...&type=...`. Loads the search index at startup (fast); embedding model is lazy-loaded on first query (~3s cold start).
+**Ingest (ingest/):**
+- **ingest/process_standalone.py** - Standalone batch processor. Downloads from Google Drive + processes files (1-2 Gemini API calls each). Handles lectures, cases, and transcripts. Retries on error with configurable wait. Replaces the legacy `download_and_process.py` + `process_single_file.py` pipeline.
+- **ingest/build_search_index.py** - Builds a local semantic search index (`BAAI/bge-small-en-v1.5` via fastembed, ONNX). Outputs `search_index.npz` + `search_metadata.json` in `MBAWiki/assets/`. Supports `--append` for incremental updates. Logs to `log.md`.
+- **ingest/build_graph.py** - Builds `knowledge_graph.json` from wiki markdown files (nodes + links for D3 visualization).
+- **ingest/tag_images.py** - Image tagging workflow. Maps image captions to concepts via 1 Gemini API call. Wiki viewer auto-inserts tagged images into matching concept pages.
+- **ingest/init_image_tags.py** - Helper to populate `image_tags.json` with all PNG filenames from charts folder.
+
+**Query (wiki_viewer/):**
+- **wiki_viewer/app.py** - Flask web server with Wikipedia-style UI. Serves concepts at `/concept/<slug>`, cases at `/case/<slug>`, semantic search at `/search?q=...&course=...&type=...`, and health dashboard at `/health`. Loads the search index at startup (fast); embedding model is lazy-loaded on first query (~3s cold start).
+- **wiki_viewer/config.py** - Configuration. Reads `WIKI_DIR` from `.env` (defaults to `MBAWiki` relative to project root).
 - **wiki_viewer/utils/search.py** - `SearchIndex` class. Loads `.npz` + JSON sidecar, runs cosine similarity search with course/type filters and a +0.15 title-substring boost. Relevance threshold 0.2.
 - **wiki_viewer/utils/wikilink_processor.py** - Converts [[Wikilinks]] to HTML links. Scans both `Concept-*.md` and `Case-*.md`. Routes wikilinks to correct URL prefix.
 - **wiki_viewer/utils/markdown_parser.py** - Markdown to HTML conversion with TOC.
+
+**Maintenance (Maintenance/):**
+- **Maintenance/lint_wiki.py** - Wiki linter: orphan pages, broken wikilinks, missing concepts, stale content. Generates markdown reports in `Maintenance/lint-report-*.md`. Also called by `/health` route.
 
 ### Processing Rules
 
@@ -52,43 +59,42 @@ Google Drive (lectures, cases, transcripts folders)
 ### Commands
 
 ```bash
-# List available courses and files
-python download_and_process.py
-python download_and_process.py --course "CourseName"
+# ── Ingest ─────────────────────────────────────────────────
+# Batch process all files for a course (downloads from Google Drive)
+python ingest/process_standalone.py --course "CourseName"
+python ingest/process_standalone.py --course "CourseName" --images
+python ingest/process_standalone.py --course "CourseName" --wait 15
 
-# Process a single file
-python download_and_process.py --course "CourseName" "Week 1"
+# Search index (auto-refreshed by batch ingestion)
+pip install fastembed                                       # one-time dep
+python ingest/build_search_index.py                         # full rebuild
+python ingest/build_search_index.py --append                # incremental (mtime-based)
 
-# Process ALL files (lectures → cases → transcripts)
-python download_and_process.py --course "CourseName" --all
-
-# Process ALL files with image extraction
-python download_and_process.py --course "CourseName" --all --images
-
-# Process only cases or transcripts
-python download_and_process.py --course "CourseName" --cases-only
-python download_and_process.py --course "CourseName" --transcripts-only
-
-# Process local file with type
-python process_single_file.py "file.pdf" --course "CourseName" --type case
-python process_single_file.py "file.txt" --course "CourseName" --type transcript
+# Knowledge graph
+python ingest/build_graph.py
 
 # Image tagging workflow
-python init_image_tags.py              # Create JSON with all PNG filenames
-python tag_images.py --list            # See untagged images
+python ingest/init_image_tags.py              # Create JSON with all PNG filenames
+python ingest/tag_images.py --list            # See untagged images
 # (manually edit image_tags.json to add captions)
-python tag_images.py --map             # Map captions to concepts (1 API call)
-python tag_images.py --status          # Verify mappings
+python ingest/tag_images.py --map             # Map captions to concepts (1 API call)
+python ingest/tag_images.py --status          # Verify mappings
 
+# ── Query ──────────────────────────────────────────────────
 # Run wiki viewer
 python wiki_viewer/app.py
 # → http://127.0.0.1:5000/
 # → http://127.0.0.1:5000/search?q=your+question  (semantic search)
+# → http://127.0.0.1:5000/health                   (health dashboard)
 
-# Search index (auto-refreshed by single-file + batch ingestion)
-pip install fastembed                                  # one-time dep
-python build_search_index.py                           # full rebuild
-python build_search_index.py --append                  # incremental (mtime-based)
+# ── Maintenance ────────────────────────────────────────────
+python Maintenance/lint_wiki.py              # full report (console + markdown)
+python Maintenance/lint_wiki.py --orphans    # only orphan pages
+python Maintenance/lint_wiki.py --broken     # only broken wikilinks
+python Maintenance/lint_wiki.py --no-save    # console only, don't write report
+
+# ── Legacy (gitignored, kept for reference) ────────────────
+# process_single_file.py, download_and_process.py, process_all_lite.py
 ```
 
 ### Image Tagging Format
@@ -110,28 +116,44 @@ After `--map`, becomes:
 }
 ```
 
+### Environment Variables (.env)
+
+- `WIKI_DIR` — Path to wiki content directory (default: `MBAWiki`, relative to project root)
+- `Gemini_Api_Key` — Gemini API key for LLM calls
+- `GEMINI_MODEL` — Gemini model name for ingestion
+
 ### Folder Structure
 
 ```
-MBAWiki/                    # Wiki content
-  Concept-*.md              # Concept markdown files
-  Case-*.md                 # Case study markdown files
-  assets/charts/            # Extracted PDF images
-    image_tags.json          # Image-to-concept mappings
-  assets/search_index.npz       # Semantic search embeddings (N x 384 float32)
-  assets/search_metadata.json   # Per-row {slug, title, type, course, preview, mtime}
-  archive/                  # Old/archived concepts
-wiki_viewer/                # Flask web application
-  app.py, config.py
-  templates/                # HTML templates (incl. search.html)
-  static/css/               # Wikipedia-style CSS
-  utils/                    # markdown_parser, wikilink_processor, search (SearchIndex)
-Transcript_class_lecture/   # Downloaded lecture files (local cache)
-  CourseName/               # Lecture PDFs, DOCXs, and TXTs
-  CourseName/cases/         # Case study files
-  CourseName/transcripts/   # Transcript files
-credentials/                # Google Drive OAuth tokens
-Vision/                     # Vision project notes
+KnowledgeWiki/
+├── ingest/                         # Data processing scripts
+│   ├── process_standalone.py       # Batch processor (Google Drive + Gemini)
+│   ├── build_search_index.py       # Semantic search index builder
+│   ├── build_graph.py              # Knowledge graph JSON builder
+│   ├── tag_images.py               # Image-to-concept mapper
+│   └── init_image_tags.py          # Image tags JSON initializer
+├── wiki_viewer/                    # Flask web application (Query stage)
+│   ├── app.py                      # Web server (concepts, cases, search, health)
+│   ├── config.py                   # Configuration (reads WIKI_DIR from .env)
+│   ├── templates/                  # HTML templates
+│   ├── static/css/                 # Wikipedia-style CSS
+│   └── utils/                      # markdown_parser, wikilink_processor, search
+├── Maintenance/                    # Linting and health checks
+│   ├── lint_wiki.py                # Wiki linter (orphans, broken links, stale)
+│   └── lint-report-*.md            # Generated lint reports
+├── MBAWiki/                        # Wiki content (gitignored)
+│   ├── Concept-*.md                # Concept markdown files
+│   ├── Case-*.md                   # Case study markdown files
+│   ├── assets/charts/              # Extracted PDF images + image_tags.json
+│   ├── assets/search_index.npz     # Semantic search embeddings (N x 384 float32)
+│   ├── assets/search_metadata.json # Per-row {slug, title, type, course, preview, mtime}
+│   └── archive/                    # Old/archived concepts
+├── Transcript_class_lecture/       # Downloaded lecture files (local cache, gitignored)
+├── credentials/                    # Google Drive OAuth tokens (gitignored)
+├── .env                            # Environment variables (gitignored)
+├── courses.json                    # Course configuration (shared)
+├── course_groups.json              # Course groupings
+└── log.md                          # Append-only ingestion log
 ```
 
 ## gstack

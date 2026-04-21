@@ -97,8 +97,9 @@
     ]
   },
     "Product Management":{
-    "lectures_folder_id":"1YPUnkWz3pJfzki82qcWfpAIdgxwmYor6",
-    "transcripts_folder_id": "1P0Z35H85qYcCfZQygIjyZ1xWs7Ix_TgT",
+    "lectures_folder_id":"1tiaQuvN3GLxVJ4rf0OByY8zyXN8UwLOc",
+    
+    "transcripts_folder_id": "1R6kj-9xut45g_p0n4-YohPmg7do3QTiS",
      "seed_concepts": [
       "Product Sense",
       "Product Market Fit",
@@ -106,6 +107,18 @@
       "Goals"
       
     ]  
+  },
+  "Strategy":{
+     "lectures_folder_id":"1tiaQuvN3GLxVJ4rf0OByY8zyXN8UwLOc",
+     "cases_folder_id": "1lNj54m9FmLVwTsYXYrpHYy55fHxOzR2P",
+    "transcripts_folder_id": "1R6kj-9xut45g_p0n4-YohPmg7do3QTiS",
+     "seed_concepts": [
+      "Moat",
+      "Network Effects",
+      "Franchising"
+           
+    ]  
+
   }
 
   }

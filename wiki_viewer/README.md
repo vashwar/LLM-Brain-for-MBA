@@ -1,242 +1,91 @@
-# MBA Wiki Viewer
+# Wiki Viewer (Query Stage)
 
-A Wikipedia-style web viewer for MBA economics concepts extracted from lecture materials.
+Flask web application that serves the KnowledgeWiki as a Wikipedia-style local website.
 
 ## Features
 
-✨ **Rich Content Display**
-- Converts markdown to beautiful HTML with Wikipedia-inspired styling
-- Automatic table of contents sidebar for easy navigation
-- Embedded charts and diagrams from lecture materials
-- Code blocks, blockquotes, and formatted text
+- **Wikipedia-style UI** — clean typography, TOC sidebar, responsive layout
+- **Smart Wikilinks** — `[[Concept Name]]` auto-links to existing pages; broken links shown in red
+- **Semantic Search** — local embeddings via BAAI/bge-small-en-v1.5 (ONNX, no PyTorch)
+- **Knowledge Graph** — interactive D3.js force-directed visualization
+- **Health Dashboard** — runs wiki linter checks, generates markdown reports
+- **LaTeX Rendering** — equations via KaTeX CDN
+- **Course Organization** — concepts grouped by course with cross-course linking
+- **Case Studies** — dedicated pages with discussion sections from transcripts
+- **Concept of the Day** — deterministic daily rotation on the homepage
+- **Tagged Images** — auto-inserted into concept pages from `image_tags.json`
 
-🔗 **Smart Wikilinks**
-- Converts `[[Concept Name]]` links to HTML navigation
-- Highlights broken links in red with tooltips
-- Cross-reference related concepts seamlessly
-
-📚 **Full Concept Library**
-- 20+ microeconomic concepts from MBA lectures
-- Each concept includes:
-  - Definition and key points
-  - Formulas and equations
-  - Real-world examples and applications
-  - Illustrative charts and diagrams
-  - Key quotes from lecture materials
-  - Practice questions
-  - Related concepts (as wikilinks)
-
-🎨 **Wikipedia-Style Design**
-- Clean, readable typography
-- Responsive layout (mobile, tablet, desktop)
-- Familiar Wikipedia color scheme and styling
-- Sticky table of contents sidebar
-
-## Installation
-
-1. **Install dependencies:**
-   ```bash
-   pip install -r ../requirements.txt
-   ```
-
-2. **Verify the MBAWiki directory exists:**
-   ```bash
-   ls ../MBAWiki/
-   ```
-
-## Running the Application
-
-Start the Flask development server:
+## Running
 
 ```bash
-python app.py
+python wiki_viewer/app.py
+# Open http://127.0.0.1:5000/
 ```
 
-The application will:
-- Load 20 concepts from `../MBAWiki/Concept-*.md` files
-- Start a local web server at `http://127.0.0.1:5000`
-- Enable debug mode with auto-reload
+## Configuration
 
-**Output:**
-```
-Starting MBA Wiki Viewer...
-Loaded 20 concepts
-Open browser to: http://127.0.0.1:5000/
- * Running on http://127.0.0.1:5000
-```
+The viewer reads `WIKI_DIR` from `.env` (defaults to `MBAWiki` relative to the project root). Edit `wiki_viewer/config.py` for Flask settings (host, port, debug mode).
 
-## URL Structure
+## Routes
 
-- **Homepage:** `http://localhost:5000/`
-  - Displays alphabetical list of all concepts
-  - Quick start with search bar
-
-- **Concept Page:** `http://localhost:5000/concept/<slug>`
-  - Example: `/concept/supply-curve`
-  - Example: `/concept/demand-curve`
-  - Example: `/concept/market-equilibrium`
-
-- **Chart Images:** `http://localhost:5000/assets/charts/<filename>`
-  - Served from `../MBAWiki/assets/charts/`
+| Route | Description |
+|-------|-------------|
+| `/` | Homepage — course grid, concept of the day, did you know |
+| `/course/<slug>` | All concepts and cases for a course |
+| `/concept/<slug>` | Individual concept page with TOC, equations, related links |
+| `/case/<slug>` | Case study page with discussion section |
+| `/cases` | All case studies across all courses |
+| `/graph` | Interactive knowledge graph (D3.js force-directed) |
+| `/search?q=...&course=...&type=...` | Semantic search with filters |
+| `/health` | Health dashboard — orphans, broken links, stale content |
+| `/assets/charts/<filename>` | Serve chart images |
 
 ## Project Structure
 
 ```
 wiki_viewer/
 ├── app.py                          # Flask application & routes
-├── config.py                       # Configuration & paths
+├── config.py                       # Configuration (WIKI_DIR from .env)
 ├── utils/
-│   ├── markdown_parser.py          # Markdown → HTML conversion
-│   └── wikilink_processor.py       # Wikilink & link conversion
+│   ├── markdown_parser.py          # Markdown -> HTML conversion with TOC
+│   ├── wikilink_processor.py       # [[Wikilink]] -> HTML link conversion
+│   └── search.py                   # SearchIndex class (cosine similarity)
 ├── templates/
 │   ├── base.html                   # Base layout with header/footer
-│   ├── index.html                  # Homepage with concept list
-│   ├── concept.html                # Individual concept page
+│   ├── index.html                  # Homepage with course grid
+│   ├── concept.html                # Concept/case page
+│   ├── course.html                 # Course page
+│   ├── cases.html                  # All cases page
+│   ├── search.html                 # Search results
+│   ├── graph.html                  # Knowledge graph visualization
+│   ├── health.html                 # Health dashboard
 │   ├── 404.html                    # Not found page
 │   └── 500.html                    # Server error page
 └── static/
-    ├── css/
-    │   └── wikipedia.css           # Wikipedia-inspired styling
-    └── js/
-        └── search.js               # Search UI enhancements
+    └── css/
+        └── wikipedia.css           # Wikipedia-inspired styling
 ```
 
 ## Key Components
 
-### 1. Flask Routes (app.py)
+### Wikilink Processor (`utils/wikilink_processor.py`)
 
-- **`GET /`** — Homepage with concept list
-- **`GET /concept/<slug>`** — Individual concept page
-- **`GET /assets/charts/<filename>`** — Serve chart images
-- **`404/500`** — Error handling
+At startup, scans all `Concept-*.md` and `Case-*.md` files to build a title-to-slug mapping. Converts `[[Supply Curve]]` to `<a href="/concept/supply-curve">Supply Curve</a>`. Supports aliases (abbreviations in parentheses) and fuzzy matching. Broken links render as red text with tooltips.
 
-### 2. Markdown Parser (utils/markdown_parser.py)
+### Search Index (`utils/search.py`)
 
-Converts markdown to HTML with extensions:
-- Table of contents auto-generation
-- Table support
-- Code blocks with syntax highlighting
-- Proper heading hierarchy
+Loads pre-built embeddings from `MBAWiki/assets/search_index.npz` + `search_metadata.json`. The embedding model (`BAAI/bge-small-en-v1.5`) is lazy-loaded on first search query (~3s cold start). Supports course and type filters, with a +0.15 title-substring boost.
 
-### 3. Wikilink Processor (utils/wikilink_processor.py)
+### Health Dashboard (`/health`)
 
-Handles the critical task of converting wikilinks to proper HTML links:
+Imports `Maintenance/lint_wiki.py` to run structural checks:
+- Orphan pages (0 inbound links)
+- Broken wikilinks (404 targets)
+- Missing concepts (frequently mentioned but no dedicated page)
+- Stale content (not updated recently)
 
-**How it works:**
-1. **Build mapping at startup:** Scans all `Concept-*.md` files and extracts titles from H1 headers
-2. **Map titles to slugs:** Creates dictionary like `{"Supply Curve": "supply-curve"}`
-3. **Process wikilinks:** Converts `[[Supply Curve]]` → `<a href="/concept/supply-curve">`
-4. **Handle broken links:** Unmapped links show as red text with "Link not found" tooltip
-
-**Example:**
-```
-Input:  - [[Demand Curve]] from the [[Market Equilibrium]] and [[Supply and Demand]]
-Output: - <a href="/concept/demand-curve">Demand Curve</a> from the
-        <a href="/concept/market-equilibrium">Market Equilibrium</a> and
-        <span class="broken-wikilink">Supply and Demand</span>
-```
-
-### 4. Wikipedia Styling (static/css/wikipedia.css)
-
-Design features:
-- Max-width 900px for content (readable line length)
-- Left sidebar for table of contents (sticky)
-- Blue links (#0645ad) with Wikipedia-standard colors
-- Serif fonts (Georgia) for body text
-- Responsive layout with mobile breakpoint
-
-## Development
-
-### Enable Debug Mode
-
-Edit `config.py`:
-```python
-DEBUG = True  # Already enabled by default
-```
-
-### Hot Reload
-
-Flask is configured with debug=True, so changes to templates and Python files will auto-reload the server.
-
-### Adding a New Concept
-
-1. Create markdown file in `../MBAWiki/`
-   ```
-   Concept-my-concept-name.md
-   ```
-
-2. Start with H1 heading (required for title extraction)
-   ```markdown
-   # My Concept Name
-
-   **Source:** Lecture notes or slides
-
-   ## Definition
-   ...
-   ```
-
-3. Add wikilinks to related concepts
-   ```markdown
-   [[Related Concept]]
-   ```
-
-4. Refresh browser — new concept appears automatically!
-
-## Verification Checklist
-
-After running the app, verify these features work:
-
-- [ ] Homepage loads with 20 concepts listed
-- [ ] Clicking a concept opens its page
-- [ ] Table of contents sidebar scrolls to sections
-- [ ] Charts/images load correctly (not broken images)
-- [ ] Wikilinks are blue and clickable
-- [ ] Clicking a wikilink navigates to that concept
-- [ ] Broken wikilinks appear in red with tooltip
-- [ ] Metadata (tags, status) displays at top
-- [ ] Search bar is present (placeholder for Phase 4)
-- [ ] Responsive design works on mobile (use browser dev tools)
-- [ ] Back button returns to homepage
-
-## Future Enhancements (Not Implemented)
-
-See the main plan for potential features:
-- Full-text search across all concepts
-- Tag-based filtering
-- Graph visualization of concept relationships
-- Integration with LLM for Q&A
-- Static HTML export for deployment
-- Edit capability
-- Version history tracking
-
-## Troubleshooting
-
-### Charts don't load
-- Check: `ls ../MBAWiki/assets/charts/`
-- Verify file names exactly match markdown references
-- Note: File names with spaces are URL-encoded in browser
-
-### Wikilinks not converting
-- Verify concept file exists: `ls ../MBAWiki/Concept-*.md`
-- Check title is H1 (first line starts with `# `)
-- Run app and check console for errors
-
-### Port already in use
-- Change `PORT` in `config.py`
-- Or kill process: `lsof -i :5000` then `kill -9 <pid>`
-
-### 404 errors
-- Verify concept slug matches filename
-- Example: File `Concept-supply-curve.md` → URL `/concept/supply-curve`
-
-## Browser Compatibility
-
-Tested on:
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
+Also saves a markdown report to `Maintenance/lint-report-YYYY-MM-DD.md` on each visit.
 
 ## License
 
-Part of the MBA Wiki project. See parent directory for license info.
+Part of the KnowledgeWiki project. See parent directory for license info.

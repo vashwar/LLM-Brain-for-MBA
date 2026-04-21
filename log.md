@@ -592,3 +592,61 @@ This log serves two purposes:
 ## [2026-04-15 17:09:21] ingest | Transcript: Product Management Class - 2026_01_24 13_48 PST - Transcript.txt | 2 API calls
 ## [2026-04-15 17:09:22] index | Search index incremental: 959 entries (9 re-embedded)
 ## [2026-04-15 17:10:27] index | Search index full-rebuild: 959 entries (959 re-embedded)
+## [2026-04-15 17:19:35] index | Search index incremental: 960 entries (3 re-embedded)
+## [2026-04-15 17:26:54] index | Search index incremental: 961 entries (1 re-embedded)
+## [2026-04-18 15:36:19] seed | Seed: Strategy seed concepts | 2 concepts created
+## [2026-04-18 15:36:57] ingest | Lecture: Spring 2026 - PM - Week 1 (sharing).pdf | 1 API calls
+## [2026-04-18 15:36:58] index | Search index incremental: 965 entries (8 re-embedded)
+## [2026-04-18 15:40:20] ingest | Lecture: Strategic Leadership Week 1 Slides with Transcript.pdf | 2 API calls
+## [2026-04-18 15:40:21] index | Search index incremental: 969 entries (7 re-embedded)
+## [2026-04-18 15:41:17] ingest | Lecture: Strategic Leadership Week 3 Slides with Transcript.pdf | 2 API calls
+## [2026-04-18 15:41:18] index | Search index incremental: 980 entries (13 re-embedded)
+## [2026-04-18 15:42:29] ingest | Lecture: Strategic Leadership Week 4 Slides with Transcript.pdf | 2 API calls
+## [2026-04-18 15:42:30] index | Search index incremental: 988 entries (12 re-embedded)
+## [2026-04-18 15:43:08] ingest | Lecture: mba 299 2024 lecture 0 intro to strategy (1).pdf | 2 API calls
+## [2026-04-18 15:43:09] index | Search index incremental: 990 entries (5 re-embedded)
+## [2026-04-18 15:44:10] ingest | Lecture: EWMBA209 lecture 7 theory of the firm.pdf | 2 API calls
+## [2026-04-18 15:44:11] index | Search index incremental: 997 entries (8 re-embedded)
+## [2026-04-18 15:45:09] ingest | Lecture: EWMBA 209 lecture 6 commitment abridged.pdf | 2 API calls
+## [2026-04-18 15:45:11] index | Search index incremental: 1003 entries (9 re-embedded)
+## [2026-04-18 15:45:58] ingest | Case: AWS.pdf | 1 API calls
+## [2026-04-18 15:45:59] index | Search index incremental: 1004 entries (1 re-embedded)
+## [2026-04-18 15:46:52] ingest | Case: Case 11_Apple_Computer--2002.pdf | 1 API calls
+## [2026-04-18 15:46:54] index | Search index incremental: 1005 entries (1 re-embedded)
+## [2026-04-18 15:47:23] ingest | Case: Case 12_BMG_Entertainment.pdf | 1 API calls
+## [2026-04-18 15:47:24] index | Search index incremental: 1006 entries (1 re-embedded)
+## [2026-04-18 15:47:54] ingest | Case: Case 10_Disney.pdf | 1 API calls
+## [2026-04-18 15:47:55] index | Search index incremental: 1007 entries (1 re-embedded)
+## [2026-04-18 15:48:24] ingest | Case: Case 9_British_Satellite_Broadcasting_versus_Sky_Television.pdf | 1 API calls
+## [2026-04-18 15:48:25] index | Search index incremental: 1008 entries (1 re-embedded)
+## [2026-04-18 15:48:59] ingest | Case: Case 8_Bitter_Competition__The_Holland_Sweetener_Co._vs._NutraSweet__A_.pdf | 1 API calls
+## [2026-04-18 15:49:00] index | Search index incremental: 1009 entries (1 re-embedded)
+## [2026-04-18 15:49:29] ingest | Case: Case 6_Intel_Corp.--1968-2003.pdf | 1 API calls
+## [2026-04-18 15:49:30] index | Search index incremental: 1010 entries (1 re-embedded)
+## [2026-04-18 15:49:58] ingest | Case: Case 7_Ready-to-Eat_Breakfast_Cereal_Industry_in_1994__A_.pdf | 1 API calls
+## [2026-04-18 15:49:59] index | Search index incremental: 1011 entries (1 re-embedded)
+## [2026-04-18 15:50:51] ingest | Case: Case 5_Cola_Wars_Continue__Coke_vs._Pepsi_in_the_1990s.pdf | 1 API calls
+## [2026-04-18 15:50:52] index | Search index incremental: 1012 entries (1 re-embedded)
+## [2026-04-18 15:51:20] ingest | Case: Case 3_Wal-Mart_Stores__Inc..pdf | 1 API calls
+## [2026-04-18 15:51:21] index | Search index incremental: 1013 entries (1 re-embedded)
+## [2026-04-18 15:52:01] ingest | Case: Case 2_U.S._Airline_Industry_in_1995.pdf | 1 API calls
+## [2026-04-18 15:52:02] index | Search index incremental: 1014 entries (1 re-embedded)
+## [2026-04-18 15:52:52] ingest | Case: Case 1_Coors.pdf | 1 API calls
+## [2026-04-18 15:52:53] index | Search index incremental: 1015 entries (1 re-embedded)
+## [2026-04-18 15:53:49] ingest | Transcript: Fall 2025 - EWMBA209-31B Strategic Leadership on 10_18_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-18 15:53:50] index | Search index incremental: 1017 entries (5 re-embedded)
+## [2026-04-18 15:54:22] ingest | Transcript: Fall 2025 - EWMBA209-31B Strategic Leadership on 10_25_2025 (Sat)_Captions_English (United States).txt | 1 API calls
+## [2026-04-18 15:54:23] index | Search index incremental: 1021 entries (5 re-embedded)
+## [2026-04-18 15:55:05] ingest | Transcript: Fall 2025 - EWMBA209-31B Strategic Leadership on 11_1_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-18 15:55:06] index | Search index incremental: 1023 entries (5 re-embedded)
+## [2026-04-18 15:56:17] ingest | Transcript: Fall 2025 - EWMBA209-31B Strategic Leadership on 11_8_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-18 15:56:18] index | Search index incremental: 1024 entries (3 re-embedded)
+## [2026-04-18 15:57:08] ingest | Transcript: Fall 2025 - EWMBA209-31B Strategic Leadership on 11_15_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-18 15:57:10] index | Search index incremental: 1027 entries (8 re-embedded)
+## [2026-04-18 15:58:14] ingest | Transcript: Fall 2025 - EWMBA209-31B Strategic Leadership on 11_22_2025 (Sat)_Captions_English (United States).txt | 2 API calls
+## [2026-04-18 15:58:15] index | Search index incremental: 1029 entries (6 re-embedded)
+## [2026-04-18 15:59:02] ingest | Transcript: Fall 2025 - EWMBA209-31B Strategic Leadership on 12_6_2025 (Sat)_Captions_English (United States).txt | 1 API calls
+## [2026-04-18 15:59:03] index | Search index incremental: 1034 entries (7 re-embedded)
+## [2026-04-18 16:00:09] index | Search index full-rebuild: 1034 entries (1034 re-embedded)
+## [2026-04-18 16:05:53] index | Search index incremental: 1035 entries (1 re-embedded)
+## [2026-04-20 14:24:50] index | Search index incremental: 1035 entries (1 re-embedded)
