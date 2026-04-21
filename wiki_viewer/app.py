@@ -395,7 +395,7 @@ def search():
 @app.route("/health")
 def health():
     """Run wiki linter checks and display a health report."""
-    from lint_wiki import scan_wiki, check_orphans, check_broken, check_missing, check_stale, WIKILINK_RE, MISSING_MENTION_THRESHOLD, STALE_DAYS
+    from Maintenance.lint_wiki import scan_wiki, check_orphans, check_broken, check_missing, check_stale, WIKILINK_RE, MISSING_MENTION_THRESHOLD, STALE_DAYS
     from collections import defaultdict
 
     pages, title_lookup, inbound, broken, body_texts = scan_wiki()
@@ -435,6 +435,17 @@ def health():
         orphan_by_course[course].append(title)
 
     now_str = datetime.datetime.now().strftime("%B %d, %Y at %H:%M")
+
+    # Save markdown report alongside HTML rendering
+    try:
+        from Maintenance.lint_wiki import build_report, MAINTENANCE_DIR
+        report_md = build_report(orphan_concepts, orphan_cases, broken_links, missing, stale_by_course, pages)
+        report_path = MAINTENANCE_DIR / f"lint-report-{datetime.datetime.now().strftime('%Y-%m-%d')}.md"
+        MAINTENANCE_DIR.mkdir(exist_ok=True)
+        with open(report_path, "w", encoding="utf-8") as f:
+            f.write(report_md)
+    except Exception:
+        pass  # Non-fatal
 
     return render_template(
         "health.html",

@@ -23,12 +23,13 @@ from collections import defaultdict
 from datetime import datetime
 
 # ── Config ──────────────────────────────────────────────────────────────────
-WIKI_DIR = Path(__file__).parent / "MBAWiki"
-MAINTENANCE_DIR = Path(__file__).parent / "Maintenance"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+WIKI_DIR = PROJECT_ROOT / "MBAWiki"
+MAINTENANCE_DIR = Path(__file__).resolve().parent
 CONCEPT_PREFIX = "Concept-"
 CASE_PREFIX = "Case-"
 SUFFIX = ".md"
-LOG_FILE = Path(__file__).parent / "log.md"
+LOG_FILE = PROJECT_ROOT / "log.md"
 
 # Minimum number of plain-text mentions to flag as a missing concept
 MISSING_MENTION_THRESHOLD = 3

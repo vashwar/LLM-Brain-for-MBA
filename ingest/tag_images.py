@@ -34,9 +34,10 @@ import google.generativeai as genai
 if sys.platform == 'win32':
     sys.stdout.reconfigure(encoding='utf-8')
 
-load_dotenv()
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+load_dotenv(PROJECT_ROOT / '.env')
 
-WIKI_DIR = Path('MBAWiki')
+WIKI_DIR = PROJECT_ROOT / 'MBAWiki'
 CHARTS_DIR = WIKI_DIR / 'assets' / 'charts'
 TAGS_FILE = CHARTS_DIR / 'image_tags.json'
 GEMINI_MODEL = "gemini-3-flash-preview"

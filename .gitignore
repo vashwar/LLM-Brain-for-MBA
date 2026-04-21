@@ -16,3 +16,9 @@ Transcript_class_lecture/
 MBAWiki/
 nul
 processed_files.json
+process_single_file.py
+download_and_process.py
+process_all_lite.py
+ingest/__pycache__/
+Maintenance/__pycache__/
+TODOproduct.md

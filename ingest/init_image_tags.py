@@ -10,7 +10,8 @@ Usage:
 import json
 from pathlib import Path
 
-CHARTS_DIR = Path('MBAWiki') / 'assets' / 'charts'
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+CHARTS_DIR = PROJECT_ROOT / 'MBAWiki' / 'assets' / 'charts'
 TAGS_FILE = CHARTS_DIR / 'image_tags.json'
 
 

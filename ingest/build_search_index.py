@@ -30,7 +30,7 @@ from typing import Iterable
 import numpy as np
 
 # Paths
-REPO_DIR = Path(__file__).parent
+REPO_DIR = Path(__file__).resolve().parent.parent
 WIKI_DIR = REPO_DIR / "MBAWiki"
 ASSETS_DIR = WIKI_DIR / "assets"
 INDEX_PATH = ASSETS_DIR / "search_index.npz"

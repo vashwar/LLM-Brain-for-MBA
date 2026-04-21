@@ -14,7 +14,8 @@ import re
 import sys
 from pathlib import Path
 
-WIKI_DIR = Path("MBAWiki")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+WIKI_DIR = PROJECT_ROOT / "MBAWiki"
 CONCEPT_PREFIX = "Concept-"
 CASE_PREFIX = "Case-"
 SUFFIX = ".md"
