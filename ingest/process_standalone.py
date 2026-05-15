@@ -44,7 +44,7 @@ load_dotenv(PROJECT_ROOT / '.env')
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 GEMINI_API_KEY = os.getenv('Gemini_Api_Key')
-MODEL = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite-preview")
+MODEL = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
 GEMINI_MODELS = [MODEL]  # Single model, no fallback
 
 WIKI_DIR = PROJECT_ROOT / 'MBAWiki'

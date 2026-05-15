@@ -14,7 +14,7 @@ This project is inspired by [Andrej Karpathy's idea](https://x.com/karpathy) of 
 
 The entire pipeline runs on **Gemini's free tier**. The code is specifically optimized for this:
 
-- **Single model, no waste**: Uses `gemini-3.1-flash-lite-preview` (highest free-tier rate limit)
+- **Single model, no waste**: Uses `gemini-3.1-flash-lite` (highest free-tier rate limit)
 - **Max 2 API calls per file**: 1 for extraction + 1 for merging duplicates. No wasted calls
 - **Automatic rate limiting**: 20-second delays between files in batch mode to stay within free quotas
 - **Batch merging**: All duplicate concepts from a single file are merged in 1 API call, not individually
@@ -301,7 +301,7 @@ Duplicate detection is tiered:
 
 ```
 Gemini_Api_Key="your-gemini-api-key"
-GEMINI_MODEL="gemini-3.1-flash-lite-preview"
+GEMINI_MODEL="gemini-3.1-flash-lite"
 WIKI_DIR=MBAWiki
 ```
 
