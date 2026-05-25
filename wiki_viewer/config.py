@@ -14,7 +14,7 @@ CHARTS_DIR = WIKI_DIR / "assets" / "charts"
 
 # Flask config
 DEBUG = True
-HOST = "127.0.0.1"
+HOST = "0.0.0.0"
 PORT = 5000
 
 # Concept file pattern

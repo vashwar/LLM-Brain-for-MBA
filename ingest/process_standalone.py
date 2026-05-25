@@ -916,19 +916,19 @@ RESPOND ONLY WITH JSON (no markdown wrapping):
         response_text = call_gemini(prompt, timeout=timeout)
         if not response_text:
             print(f"   All models failed for merge")
-            return {}
+            return None
 
         start_idx = response_text.find('{')
         end_idx = response_text.rfind('}') + 1
         result = repair_json(response_text[start_idx:end_idx])
         if result is None:
             print(f"   Merge JSON repair failed")
-            return {}
+            return None
         return result.get('merged', {})
 
     except Exception as e:
         print(f"   Merge API error: {e}")
-        return {}
+        return None
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1298,6 +1298,9 @@ def process_lecture_file(content, file_path, existing_concepts, course_name, tim
 
         merged_results = merge_concepts_with_llm(merge_requests, existing_concepts, course_name, timeout=timeout)
 
+        if merged_results is None:
+            raise ProcessingError("Merge API call failed — file will be retried next run")
+
         for slug, new_markdown in merged_results.items():
             output_file = WIKI_DIR / f"{CONCEPT_FILE_PREFIX}{slug}{CONCEPT_FILE_SUFFIX}"
             try:
@@ -1429,6 +1432,9 @@ def process_transcript_file(content, file_path, existing_concepts, existing_case
             api_calls += 1
 
             merged_results = merge_concepts_with_llm(merge_requests, existing_concepts, course_name, timeout=timeout)
+
+            if merged_results is None:
+                raise ProcessingError("Merge API call failed — file will be retried next run")
 
             for slug, new_markdown in merged_results.items():
                 output_file = WIKI_DIR / f"{CONCEPT_FILE_PREFIX}{slug}{CONCEPT_FILE_SUFFIX}"
