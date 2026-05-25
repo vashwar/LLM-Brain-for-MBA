@@ -97,9 +97,9 @@
     ]
   },
     "Product Management":{
-    "lectures_folder_id":"1tiaQuvN3GLxVJ4rf0OByY8zyXN8UwLOc",
+    "lectures_folder_id":"1YPUnkWz3pJfzki82qcWfpAIdgxwmYor6",
     
-    "transcripts_folder_id": "1R6kj-9xut45g_p0n4-YohPmg7do3QTiS",
+    "transcripts_folder_id": "1P0Z35H85qYcCfZQygIjyZ1xWs7Ix_TgT",
      "seed_concepts": [
       "Product Sense",
       "Product Market Fit",
@@ -119,6 +119,15 @@
            
     ]  
 
+  },
+  "Turnaround":{
+    "lectures_folder_id":"1mIXhWSwpH_touAdik9IH1CvJBgI8_sF9",
+    "seed_concepts": [
+      "80-20 Rule",
+      "Viable Core",
+      "Performance Gap"
+           
+    ]  
   }
 
   }

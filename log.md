@@ -650,3 +650,48 @@ This log serves two purposes:
 ## [2026-04-18 16:00:09] index | Search index full-rebuild: 1034 entries (1034 re-embedded)
 ## [2026-04-18 16:05:53] index | Search index incremental: 1035 entries (1 re-embedded)
 ## [2026-04-20 14:24:50] index | Search index incremental: 1035 entries (1 re-embedded)
+## [2026-04-21 10:18:41] ingest | Lecture: Spring 2026 - Week 13 - Pillars, Prioritization, Roadmaps, Resumes - 4.18.2026 (sharing).pdf | 1 API calls
+## [2026-04-21 10:18:43] index | Search index incremental: 1042 entries (7 re-embedded)
+## [2026-04-21 10:19:45] ingest | Transcript: Product Management Class - 2026_04_18 14_07 PDT - Transcript 2.txt | 2 API calls
+## [2026-04-21 10:19:46] index | Search index incremental: 1042 entries (4 re-embedded)
+## [2026-04-21 10:20:58] index | Search index full-rebuild: 1042 entries (1042 re-embedded)
+## [2026-04-23 12:32:19] index | Search index incremental: 1046 entries (8 re-embedded)
+## [2026-05-15 16:35:19] ingest | Lecture: EWMBA299 F25 W14.pdf | 2 API calls
+## [2026-05-15 16:35:24] index | Search index incremental: 1051 entries (16 re-embedded)
+## [2026-05-15 16:36:05] ingest | Lecture: EWMBA299 F25 W11.pdf | 2 API calls
+## [2026-05-15 16:36:07] index | Search index incremental: 1054 entries (7 re-embedded)
+## [2026-05-15 16:36:45] ingest | Lecture: EWMBA299 F25 W5.pdf | 2 API calls
+## [2026-05-15 16:36:46] index | Search index incremental: 1061 entries (10 re-embedded)
+## [2026-05-15 16:42:08] index | Search index full-rebuild: 1061 entries (1061 re-embedded)
+## [2026-05-15 16:58:08] ingest | Lecture: Bibeault Readings Turnarounds Class.pdf | 2 API calls
+## [2026-05-15 16:58:11] index | Search index incremental: 1084 entries (23 re-embedded)
+## [2026-05-15 16:59:31] index | Search index full-rebuild: 1084 entries (1084 re-embedded)
+## [2026-05-25 14:55:32] ingest | Lecture: LearningSuccessFromDistress.pdf | 2 API calls
+## [2026-05-25 14:55:37] index | Search index incremental: 1097 entries (14 re-embedded)
+## [2026-05-25 14:57:54] ingest | Lecture: DistressedDebtAnalysisChapter12.pdf | 2 API calls
+## [2026-05-25 14:57:56] index | Search index incremental: 1120 entries (23 re-embedded)
+## [2026-05-25 14:58:33] ingest | Lecture: InvestmentThesisOverview.pdf | 1 API calls
+## [2026-05-25 14:58:34] index | Search index incremental: 1130 entries (10 re-embedded)
+## [2026-05-25 14:59:50] ingest | Lecture: TheEconomist-CDROperatingKnowHow.pdf | 2 API calls
+## [2026-05-25 14:59:51] index | Search index incremental: 1130 entries (12 re-embedded)
+## [2026-05-25 15:00:34] ingest | Lecture: PrimerDiscountedCashFlowAnalysisEnterpriseAndEquityValues.PDF | 2 API calls
+## [2026-05-25 15:00:35] index | Search index incremental: 1139 entries (9 re-embedded)
+## [2026-05-25 15:01:37] ingest | Lecture: StrategicSelectionMatchingExecutivesToBusinessConditions.pdf | 2 API calls
+## [2026-05-25 15:01:38] index | Search index incremental: 1153 entries (14 re-embedded)
+## [2026-05-25 15:02:36] ingest | Lecture: DistressedDebtAnalysisChapter9.pdf | 2 API calls
+## [2026-05-25 15:02:37] index | Search index incremental: 1163 entries (11 re-embedded)
+## [2026-05-25 15:04:49] ingest | Lecture: ValueAccelerationLessonsFromPrivate-EquityMasters.pdf | 2 API calls
+## [2026-05-25 15:04:52] index | Search index incremental: 1170 entries (8 re-embedded)
+## [2026-05-25 15:06:53] ingest | Lecture: NeedCashLookInsideYourCompany.pdf | 2 API calls
+## [2026-05-25 15:06:54] index | Search index incremental: 1170 entries (8 re-embedded)
+## [2026-05-25 15:08:01] ingest | Lecture: LeadingChangeWhyTransformationEffortsFail.pdf | 2 API calls
+## [2026-05-25 15:08:02] index | Search index incremental: 1181 entries (11 re-embedded)
+## [2026-05-25 15:09:10] ingest | Lecture: LeadershipAndThePsychologyOfTurnaroundsHBROnPointEnhancedEdition.pdf | 2 API calls
+## [2026-05-25 15:09:12] index | Search index incremental: 1194 entries (14 re-embedded)
+## [2026-05-25 15:10:12] ingest | Lecture: GoodsonAndPascalePositioningInNegotiations.pdf | 2 API calls
+## [2026-05-25 15:10:13] index | Search index incremental: 1197 entries (5 re-embedded)
+## [2026-05-25 15:11:37] ingest | Lecture: WhenANewManagerTakesChargeHBRClassic.pdf | 2 API calls
+## [2026-05-25 15:11:39] index | Search index incremental: 1207 entries (14 re-embedded)
+## [2026-05-25 15:12:59] ingest | Lecture: End-GameStrategiesForDecliningIndustries.pdf | 2 API calls
+## [2026-05-25 15:13:00] index | Search index incremental: 1219 entries (12 re-embedded)
+## [2026-05-25 15:14:15] index | Search index full-rebuild: 1219 entries (1219 re-embedded)

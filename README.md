@@ -6,6 +6,8 @@ KnowledgeWiki is an open-source tool that takes your lecture slides, PDFs, case 
 
 Built for MBA students, but works for **any academic discipline** — law, medicine, engineering, computer science, history, or anything with lecture material. If you have PDFs and transcripts, KnowledgeWiki can build a knowledge base from them.
 
+![KnowledgeWiki homepage](docs/screenshot.png)
+
 ## Inspiration
 
 This project is inspired by [Andrej Karpathy's idea](https://x.com/karpathy) of using LLMs to build personal knowledge systems. Instead of passively reading lecture notes, KnowledgeWiki actively extracts, links, and organizes concepts — turning a semester of material into an interconnected reference you can search, browse, and explore.
@@ -74,13 +76,19 @@ KnowledgeWiki/
 
 ---
 
+## Prerequisites
+
+- **Python 3.10+** ([download](https://python.org/downloads/))
+- A free **Google Gemini API key** ([get one here](https://aistudio.google.com/apikey))
+- *(Optional)* Google Drive API credentials for auto-downloading lecture materials
+
 ## Quick Start
 
 ### 1. Clone and Install
 
 ```bash
-git clone https://github.com/yourusername/KnowledgeWiki.git
-cd KnowledgeWiki
+git clone https://github.com/vashwar/LLM-Brain-for-MBA.git
+cd LLM-Brain-for-MBA
 pip install -r requirements.txt
 ```
 
