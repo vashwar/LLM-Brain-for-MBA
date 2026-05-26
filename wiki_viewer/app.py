@@ -398,11 +398,11 @@ def health():
     from Maintenance.lint_wiki import scan_wiki, check_orphans, check_broken, check_missing, check_stale, WIKILINK_RE, MISSING_MENTION_THRESHOLD, STALE_DAYS
     from collections import defaultdict
 
-    pages, title_lookup, inbound, broken, body_texts = scan_wiki()
+    pages, title_lookup, alias_map, inbound, broken, body_texts = scan_wiki()
 
     orphan_concepts, orphan_cases = check_orphans(pages, inbound)
     broken_links = check_broken(broken)
-    missing = check_missing(pages, title_lookup, body_texts)
+    missing = check_missing(pages, title_lookup, body_texts, alias_map)
     stale_by_course = check_stale(pages)
 
     # Compute totals

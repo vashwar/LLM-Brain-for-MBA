@@ -695,3 +695,6 @@ This log serves two purposes:
 ## [2026-05-25 15:12:59] ingest | Lecture: End-GameStrategiesForDecliningIndustries.pdf | 2 API calls
 ## [2026-05-25 15:13:00] index | Search index incremental: 1219 entries (12 re-embedded)
 ## [2026-05-25 15:14:15] index | Search index full-rebuild: 1219 entries (1219 re-embedded)
+## [2026-05-25 17:46:43] ingest | Transcript: Product Management Class - 2026_05_02 14_05 PDT - Transcript.docx | 2 API calls
+## [2026-05-25 17:46:44] index | Search index incremental: 1220 entries (6 re-embedded)
+## [2026-05-25 17:48:02] index | Search index full-rebuild: 1220 entries (1220 re-embedded)
