@@ -1,6 +1,40 @@
+# Environment and secrets
 .env
+.env.*
 credentials/
 token.json
+
+# Keys, certs and credential files
+*.pem
+*.key
+*.cert
+*.p12
+*.pfx
+*_tokens.json
+*_credentials.json
+credentials.json
+service-account*.json
+secrets.yaml
+secrets.json
+
+# Virtual environments
+venv/
+.venv/
+
+# Build artifacts
+build/
+dist/
+
+# IDE and editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+Thumbs.db
+desktop.ini
+
 __pycache__/
 *.pyc
 *.pyo

@@ -47,6 +47,7 @@ The project is organized into **3 stages**:
 KnowledgeWiki/
 ├── ingest/                         # Stage 1: Data Processing
 │   ├── process_standalone.py       #   Batch processor (Google Drive + Gemini)
+│   ├── fetch_course_files.py       #   Download only, no LLM (for hand-authoring)
 │   ├── build_search_index.py       #   Semantic search index builder
 │   ├── build_graph.py              #   Knowledge graph JSON builder
 │   ├── tag_images.py               #   Image-to-concept mapper
@@ -67,6 +68,9 @@ KnowledgeWiki/
 │   ├── Concept-*.md                #   Concept pages
 │   ├── Case-*.md                   #   Case study pages
 │   └── assets/                     #   Charts, search index, knowledge graph
+│
+├── tests/                          # Unit tests (pytest)
+├── docs/                           # Screenshots and documentation assets
 │
 ├── courses.json                    # Course configuration
 ├── course_groups.json              # Cross-course grouping
@@ -90,7 +94,14 @@ KnowledgeWiki/
 git clone https://github.com/vashwar/LLM-Brain-for-MBA.git
 cd LLM-Brain-for-MBA
 pip install -r requirements.txt
+
+# Semantic search also needs these two (not yet in requirements.txt):
+pip install fastembed numpy
 ```
+
+> **Note:** `requirements.txt` does not currently list `fastembed`, `numpy`, or `pytest`.
+> Without the first two, the wiki still runs but `/search` and the index builder will fail.
+> Install them with the command above, or add them to `requirements.txt`.
 
 ### 2. Get a Gemini API Key (Free)
 
@@ -181,6 +192,41 @@ python ingest/process_standalone.py --course "Microeconomics" --wait 15
 **Auto-merge**: If a concept already exists, Gemini rewrites the page seamlessly — merging new content into the existing page.
 
 **Tracking**: Already-processed files are recorded in `processed_files.json` and skipped on future runs. Delete entries to reprocess.
+
+---
+
+#### `ingest/fetch_course_files.py` — Download Only (No AI)
+
+The LLM-free half of the pipeline. Downloads a course's unprocessed lecture, case, and transcript files from Google Drive, cleans caption files into readable prose, and lets you mark files done once their wiki pages exist. **It never calls Gemini and never writes to the wiki folder** — you (or an AI coding assistant) write the pages by hand.
+
+Use this when you want to author pages yourself for higher fidelity. Use `process_standalone.py` instead when you have a large backlog and want it cleared unattended.
+
+```bash
+# See what's processed and what's pending
+python ingest/fetch_course_files.py --course "Microeconomics" --status
+
+# Download the next unprocessed file
+python ingest/fetch_course_files.py --course "Microeconomics"
+
+# Download everything unprocessed
+python ingest/fetch_course_files.py --course "Microeconomics" --all
+
+# Mark a file done once you've written its pages
+python ingest/fetch_course_files.py --course "Microeconomics" --mark lectures:"Week 2 Slides.pdf"
+```
+
+| Flag | Description |
+|------|-------------|
+| `--course "Name"` | Which course to fetch (required) |
+| `--status` | Show processed/pending counts, then exit |
+| `--all` | Fetch every unprocessed file, not just the next one |
+| `--mark TYPE:NAME` | Mark a file processed. `TYPE` is `lectures`, `cases`, or `transcripts` |
+
+Caption files (`.txt`, `.vtt`, `.srt`) are automatically stripped of timestamps and duplicate cues into a `<name>.clean.txt` beside the original — read that one. Files you never mark are simply re-fetched next run, which is the safe default.
+
+No Gemini API key is needed for this workflow.
+
+> **How this is used in practice:** the repo author drives this script through per-course [Claude Code](https://claude.com/claude-code) skills that fetch the sources, read them, and write the concept and case pages directly. Those skills live in `.claude/` and are **not included in this repo** — but the script is fully usable on its own with the commands above, whichever tool (or human) writes the pages.
 
 ---
 
@@ -276,6 +322,18 @@ Reports are saved to `Maintenance/lint-report-YYYY-MM-DD.md`. The `/health` rout
 
 ---
 
+## Running Tests
+
+Unit tests live in `tests/` and cover duplicate detection, JSON repair, search, and wikilink resolution.
+
+```bash
+pip install pytest        # not yet in requirements.txt
+pytest                    # run everything
+pytest tests/test_search.py -v    # run one file, verbose
+```
+
+---
+
 ## Configuration
 
 ### `courses.json` — Course Definitions
@@ -307,11 +365,19 @@ Duplicate detection is tiered:
 
 ### `.env` — Environment Variables
 
+Create this file yourself in the project root — it is gitignored and not committed.
+
 ```
-Gemini_Api_Key="your-gemini-api-key"
+Gemini_Api_Key="YOUR_GEMINI_API_KEY"
 GEMINI_MODEL="gemini-3.1-flash-lite"
 WIKI_DIR=MBAWiki
 ```
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `Gemini_Api_Key` | Your free API key from [Google AI Studio](https://aistudio.google.com/apikey). Only needed for the AI pipeline — `fetch_course_files.py` and the wiki viewer work without it | Yes, for `process_standalone.py` and `tag_images.py` |
+| `GEMINI_MODEL` | Which Gemini model to use for extraction and merging | No (default: `gemini-3.1-flash-lite`) |
+| `WIKI_DIR` | Folder the wiki content is read from and written to, relative to the project root | No (default: `MBAWiki`) |
 
 ### Google Drive Setup (Optional)
 

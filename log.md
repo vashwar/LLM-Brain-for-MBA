@@ -698,3 +698,68 @@ This log serves two purposes:
 ## [2026-05-25 17:46:43] ingest | Transcript: Product Management Class - 2026_05_02 14_05 PDT - Transcript.docx | 2 API calls
 ## [2026-05-25 17:46:44] index | Search index incremental: 1220 entries (6 re-embedded)
 ## [2026-05-25 17:48:02] index | Search index full-rebuild: 1220 entries (1220 re-embedded)
+## [2026-05-25 18:51:35] index | Search index incremental: 1221 entries (3 re-embedded)
+## [2026-05-25 19:06:29] index | Search index incremental: 1221 entries (1 re-embedded)
+## [2026-06-01 09:15:58] ingest | Lecture: 295A Entrepreurship Class 1 Spring 2026.pdf | 2 API calls
+## [2026-06-01 09:16:00] index | Search index incremental: 1235 entries (15 re-embedded)
+## [2026-06-01 09:17:39] ingest | Lecture: Global_Clusters_of_Innovation__Lessons_from_Silicon_Valley.pdf | 2 API calls
+## [2026-06-01 09:17:40] index | Search index incremental: 1243 entries (10 re-embedded)
+## [2026-06-01 09:18:47] ingest | Lecture: 295A Entrepreurship Class 3 Spring 2026.pdf | 2 API calls
+## [2026-06-01 09:18:48] index | Search index incremental: 1249 entries (9 re-embedded)
+## [2026-06-01 09:20:00] ingest | Lecture: Its_Time_to_Bury_the_Idea_of_the_Lone_Genius_Innovator.pdf | 2 API calls
+## [2026-06-01 09:20:01] index | Search index incremental: 1251 entries (4 re-embedded)
+## [2026-06-01 09:22:07] ingest | Lecture: 295A Entrepreurship Class 2 Spring 2026.pdf | 2 API calls
+## [2026-06-01 09:22:09] index | Search index incremental: 1251 entries (14 re-embedded)
+## [2026-06-01 09:23:15] ingest | Lecture: 295A Entrepreurship Class 11 Spring 2026.pdf | 2 API calls
+## [2026-06-01 09:23:16] index | Search index incremental: 1257 entries (7 re-embedded)
+## [2026-06-01 09:24:52] ingest | Lecture: TheFourthIndustrialRevolution.pdf | 2 API calls
+## [2026-06-01 09:24:54] index | Search index incremental: 1258 entries (8 re-embedded)
+## [2026-06-01 09:26:57] ingest | Lecture: EquityCompensationInStartupVentures.pdf | 2 API calls
+## [2026-06-01 09:26:59] index | Search index incremental: 1272 entries (16 re-embedded)
+## [2026-06-01 09:28:00] ingest | Lecture: TenToolsForDesignThinking.pdf | 1 API calls
+## [2026-06-01 09:28:04] index | Search index incremental: 1287 entries (15 re-embedded)
+## [2026-06-01 09:30:19] ingest | Lecture: Hypothesis-DrivenEntrepreneurshipTheLeanStartup.pdf | 2 API calls
+## [2026-06-01 09:30:21] index | Search index incremental: 1303 entries (20 re-embedded)
+## [2026-06-01 09:32:36] ingest | Lecture: GeoffryMooreCrossingTheChasm.pdf | 2 API calls
+## [2026-06-01 09:32:38] index | Search index incremental: 1319 entries (19 re-embedded)
+## [2026-06-01 09:39:14] ingest | Lecture: SellingAsASystematicProcess.pdf | 2 API calls
+## [2026-06-01 09:39:16] index | Search index incremental: 1333 entries (14 re-embedded)
+## [2026-06-01 09:41:55] ingest | Lecture: NoteOnBusinessModelAnalysisForTheEntrepreneur.pdf | 2 API calls
+## [2026-06-01 09:41:57] index | Search index incremental: 1345 entries (15 re-embedded)
+## [2026-06-01 09:43:42] ingest | Lecture: HowVentureCapitalistsEvaluatePotentialVentureOpportunities.pdf | 2 API calls
+## [2026-06-01 09:43:44] index | Search index incremental: 1354 entries (11 re-embedded)
+## [2026-06-01 09:45:52] ingest | Lecture: AngelsAndVentureCapitalistsForSeriousOutsideEquity.pdf | 2 API calls
+## [2026-06-01 09:45:54] index | Search index incremental: 1363 entries (11 re-embedded)
+## [2026-06-01 09:46:30] ingest | Case: GlowLoop_Case_Student__295A.pdf | 1 API calls
+## [2026-06-01 09:46:31] index | Search index incremental: 1364 entries (1 re-embedded)
+## [2026-06-01 09:47:08] ingest | Case: SerenaAndLily.pdf | 1 API calls
+## [2026-06-01 09:47:09] index | Search index incremental: 1365 entries (1 re-embedded)
+## [2026-06-01 09:47:44] ingest | Case: AirbnbEtsyUberAcquiringTheFirstThousandCustomers.pdf | 1 API calls
+## [2026-06-01 09:47:45] index | Search index incremental: 1366 entries (1 re-embedded)
+## [2026-06-01 09:48:22] ingest | Case: Yelp.pdf | 1 API calls
+## [2026-06-01 09:48:23] index | Search index incremental: 1367 entries (1 re-embedded)
+## [2026-06-01 09:54:34] ingest | Transcript: Spring 2026 - EW _ MBA 295A-2 - Entrepreneurship on 1_22_2026 (Thu)_Captions_English (United States).txt | 2 API calls
+## [2026-06-01 09:54:35] index | Search index incremental: 1367 entries (6 re-embedded)
+## [2026-06-01 09:55:43] ingest | Transcript: Spring 2026 - EW _ MBA 295A-2 - Entrepreneurship on 1_29_2026 (Thu)_Captions_English (United States).txt | 2 API calls
+## [2026-06-01 09:55:44] index | Search index incremental: 1370 entries (4 re-embedded)
+## [2026-06-01 09:57:12] ingest | Transcript: Spring 2026 - EW _ MBA 295A-2 - Entrepreneurship on 2_5_2026 (Thu)_Captions_English (United States).txt | 2 API calls
+## [2026-06-01 09:57:13] index | Search index incremental: 1370 entries (4 re-embedded)
+## [2026-06-01 09:58:42] ingest | Transcript: Spring 2026 - EW _ MBA 295A-2 - Entrepreneurship on 2_12_2026 (Thu)_Captions_English (United States).txt | 2 API calls
+## [2026-06-01 09:58:42] index | Search index incremental: 1371 entries (3 re-embedded)
+## [2026-06-01 10:00:16] ingest | Transcript: Spring 2026 - EW _ MBA 295A-2 - Entrepreneurship on 3_19_2026 (Thu)_Captions_English (United States).txt | 2 API calls
+## [2026-06-01 10:00:17] index | Search index incremental: 1371 entries (3 re-embedded)
+## [2026-06-01 10:01:27] ingest | Transcript: Spring 2026 - EW _ MBA 295A-2 - Entrepreneurship on 4_2_2026 (Thu)_Captions_English (United States).txt | 2 API calls
+## [2026-06-01 10:01:28] index | Search index incremental: 1373 entries (5 re-embedded)
+## [2026-06-01 10:02:49] index | Search index full-rebuild: 1373 entries (1373 re-embedded)
+## [2026-07-23 11:52:11] index | Search index incremental: 1387 entries (41 re-embedded)
+## [2026-08-30 20:08:45] ingest | Lecture: 1 Yerba Mate Handout-28 ADA.pdf | 2 API calls
+## [2026-08-30 20:09:14] index | Search index incremental: 1397 entries (15 re-embedded)
+## [2026-08-30 20:09:46] ingest | Case: Yerba Mate - Buyer - Purchasing Director.pdf | 1 API calls
+## [2026-08-30 20:09:48] index | Search index incremental: 1398 entries (1 re-embedded)
+## [2026-08-30 20:11:07] ingest | Transcript: Fall 2026 - EWMBA 252-LEC-001 - Negotiations and Conflict Resolution on 8_24_2026 (Mon)_Captions_Default.txt | 2 API calls
+## [2026-08-30 20:11:09] index | Search index incremental: 1399 entries (6 re-embedded)
+## [2026-08-30 20:12:51] index | Search index full-rebuild: 1399 entries (1399 re-embedded)
+## [2026-08-30 20:21:50] index | Search index incremental: 1414 entries (29 re-embedded)
+## [2026-08-30 20:22:33] index | Search index incremental: 1414 entries (16 re-embedded)
+## [2026-09-01 15:40:54] index | Search index incremental: 1443 entries (35 re-embedded)
+## [2026-09-01 15:41:52] index | Search index incremental: 1443 entries (14 re-embedded)

@@ -128,6 +128,39 @@
       "Performance Gap"
            
     ]  
+  },
+  "Entrepreneurship":{
+    "lectures_folder_id":"1699-qQ7bs3ZIg6bEiMiyf3YLZi3IXGHb",
+    "cases_folder_id": "1iCpSFm_zRczwXt0yD4-HssEabnEGu2cG",
+    "transcripts_folder_id": "14CMGWDdK7BAa2FZ6MAgwxRNzq01CPE4d",
+    "seed_concepts": [
+      "Vision",
+      "Tactics",
+      "Innovation Phase",
+      "Growth Phase",
+      "Consolidation Phase"
+           
+    ]  
+  },
+  "Negotiations":{
+      "lectures_folder_id":"1TJL11nM0F666rKor1ZZoyREhBGCBKhun",
+    "cases_folder_id": "1QVYSYF578nx6L1bFwkSPiNnQBFSlrZV0",
+    "transcripts_folder_id": "1xcIJ9Q_eh48kc6bqD9ZMAQk5NIeZLUNB",
+    "seed_concepts": [
+      "BATNA",
+      "Concession",
+      "Reservation point"
+    ]
+  },
+  "M&A":{
+      "lectures_folder_id":"1-bw9p-EeVDajYoIg1HhPs8DvHAu3RxDT",
+    "cases_folder_id": "1n2R_a4oqb_Wfbru-XjVZLdg_UwLakSaA",
+    "transcripts_folder_id": "1zoOsJNss6hIq2QWZzxBwVZ6hUARIpUIk",
+    "seed_concepts": [
+      "Company Valuation",
+      "S-Curve"
+ 
+    ]
   }
 
   }

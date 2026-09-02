@@ -1,9 +1,9 @@
 {
   "Economics": ["Microeconomics", "MacroEconomics","Intro Finance"],
-  "Strategy":["Strategy","Microeconomics","Intro Finance","Financial Accounting","Marketing Strategy","Pricing","Turnaround"],
+  "Strategy":["M&A","Strategy","Microeconomics","Intro Finance","Financial Accounting","Marketing Strategy","Pricing","Turnaround","Entrepreneurship"],
   "Statistics":["Data and Decision","Operations"],
   "Marketing":["Marketing Strategy","Pricing","Product Management","Marketing Management (OSKI)"],
-  "Finance:":["Intro Finance","Financial Accounting"],
-  "Organization":["Leading People","Ethics"]
+  "Finance:":["Intro Finance","Financial Accounting","M&A"],
+  "Organization":["Leading People","Ethics","Negotiations"]
 
 }
